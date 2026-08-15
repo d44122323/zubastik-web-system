@@ -1,0 +1,365 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Inter",sans-serif;
+}
+body{
+    background:#F9FAFB;
+}
+.requests-page{
+    width:1267px;
+    margin:0 auto;
+    padding:50px 70px;
+}
+.requests-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+.logo{
+    width:300px;
+}
+.requests-header h1{
+    font-size:36px;
+    font-weight:500;
+}
+.navigation{
+    margin-top:50px;
+    display:flex;
+    justify-content:center;
+    gap:40px;
+}
+.navigation a{
+    font-size:28px;
+    font-weight:500;
+    color:#000;
+    text-decoration:none;
+    transition:.3s;
+}
+.navigation a:hover{
+    color:#00D1FF;
+}
+.divider{
+    width:1117px;
+    height:1px;
+    background:#D9D9D9;
+    margin:20px auto 0;
+}
+.requests-title{
+    margin-top:45px;
+}
+.requests-title h2{
+    font-size:36px;
+    font-weight:500;
+}
+.search-box{
+    margin-top:30px;
+}
+.search-input{
+    width:469px;
+    height:66px;
+    border:none;
+    border-radius:50px;
+    background:#fff;
+    padding:0 30px;
+    font-size:24px;
+    outline:none;
+}
+.status-filter{
+    margin-top:30px;
+    display:flex;
+    gap:40px;
+}
+.status-filter button{
+    border:none;
+    background:none;
+    font-size:28px;
+    cursor:pointer;
+}
+.filter-all{
+    color:#000;
+}
+.filter-new{
+    color:#D500FF;
+}
+.filter-confirm{
+    color:#0B9C32;
+}
+.filter-done{
+    color:#0004FF;
+}
+.filter-cancel{
+    color:#FF0000;
+}
+.requests-table{
+    margin-top:35px;
+}
+.table-header{
+    display:grid;
+    grid-template-columns:
+    80px
+    180px
+    300px
+    300px
+    180px;
+    align-items:center;
+    font-size:30px;
+    font-weight:500;
+    margin-bottom: 20px;
+}
+.request-row{
+    display:grid;
+    grid-template-columns:
+    80px
+    180px
+    300px
+    300px
+    180px;
+    align-items:center;
+    min-height:75px;
+    font-size:28px;
+    cursor:pointer;
+}
+.table-header span,
+.request-row span{
+    white-space:nowrap;
+    padding-right:10px;
+}
+.request-row span:nth-child(4){
+    white-space:nowrap;
+}
+.table-line{
+    height:1px;
+    background:#D9D9D9;
+}
+.status{
+    width:max-content;
+    padding:7px 18px;
+    border-radius:50px;
+    font-size:22px;
+}
+.status.cancelled{
+    color:#FF0000;
+    background:#FFE8E8;
+}
+.status.completed{
+    color:#0004FF;
+    background:#E8ECFF;
+}
+.status.new{
+    color:#D500FF;
+    background:#F6E8FF;
+}
+.status.confirm{
+        color: rgb(11, 156, 50);
+    background:rgb(222, 248, 229);
+}
+.overlay{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.25);
+    opacity:0;
+    visibility:hidden;
+    transition:.3s;
+    z-index:5;
+}
+.overlay.active{
+    opacity:1;
+    visibility:visible;
+}
+.request-drawer{
+    position:fixed;
+    right:-650px;
+    top:0;
+    width:602px;
+    height:100vh;
+    background:#fff;
+    padding:50px;
+    overflow-y:auto;
+    transition:.35s;
+    z-index:10;
+}
+.request-drawer.active{
+    right:0;
+}
+.close-btn{
+    position:absolute;
+    top:25px;
+    right:30px;
+    border:none;
+    background:none;
+    font-size:35px;
+    cursor:pointer;
+}
+.request-drawer h2{
+    font-size:36px;
+    font-weight:500;
+}
+.drawer-divider{
+    width:100%;
+    height:1px;
+    background:#D9D9D9;
+    margin:25px 0;
+}
+.drawer-block{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+.drawer-label{
+    font-size:24px;
+    color:#555;
+}
+.drawer-value{
+    font-size:32px;
+}
+.price-value{
+    font-size:36px;
+    font-weight:500;
+}
+.services-list p{
+    font-size:30px;
+    margin-top:10px;
+}
+.status-options{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+    margin-top:15px;
+}
+.status-options label{
+    font-size:30px;
+    cursor:pointer;
+}
+.status-options input{
+    width:20px;
+    height:20px;
+}
+.save-btn{
+    width:248px;
+    height:56px;
+    margin-top:40px;
+    border:none;
+    border-radius:50px;
+    background:#00D1FF;
+    color:#fff;
+    font-size:20px;
+    cursor:pointer;
+    transition:.3s;
+}
+.save-btn:hover{
+    background:#2C6ADF;
+}
+@media (max-width:1300px){
+    .requests-page{
+        width:100%;
+        padding:40px;
+    }
+    .divider{
+        width:100%;
+    }
+    .logo{
+        width:240px;
+    }
+    .table-header,
+    .request-row{
+        grid-template-columns:
+        70px
+        150px
+        220px
+        220px
+        150px;
+        column-gap:20px;
+        font-size:24px;
+    }
+}
+@media (max-width:900px){
+    .requests-page{
+        padding:30px 20px;
+    }
+    .requests-header{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:20px;
+    }
+    .logo{
+        width:220px;
+    }
+    .requests-header h1{
+        font-size:28px;
+    }
+    .navigation{
+        flex-direction:column;
+        align-items:center;
+        gap:20px;
+    }
+    .navigation a{
+        font-size:24px;
+    }
+    .requests-title h2{
+        font-size:30px;
+    }
+    .search-input{
+        width:100%;
+        max-width:469px;
+    }
+    .status-filter{
+        flex-wrap:wrap;
+        gap:20px;
+    }
+    .status-filter button{
+        font-size:24px;
+    }
+    .requests-table{
+        overflow-x:auto;
+    }
+    .table-header,
+    .request-row{
+        min-width:1100px;
+    }
+    .request-drawer{
+        width:90%;
+        max-width:602px;
+        padding:35px;
+    }
+}
+@media (max-width:600px){
+    .request-drawer{
+        width:100%;
+        padding:30px;
+    }
+    .request-drawer h2{
+        font-size:30px;
+    }
+    .close-btn{
+        font-size:30px;
+        right:20px;
+        top:20px;
+    }
+    .drawer-label{
+        font-size:20px;
+    }
+    .drawer-value{
+        font-size:26px;
+    }
+    .price-value{
+        font-size:30px;
+    }
+    .services-list p{
+        font-size:24px;
+    }
+    .status-options label{
+        font-size:24px;
+    }
+    .save-btn{
+        width:100%;
+    }
+}
+.status-filter button.active {
+    background: #00D1FF;
+    color: #fff;
+}

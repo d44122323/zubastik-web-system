@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пациенты</title>
+    <link rel="stylesheet" href="patients.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="patients-page">
+    <header class="patients-header">
+        <img src="img/logo.png" class="logo" alt="logo">
+        <h1>Пациенты</h1>
+    </header>
+    <nav class="navigation">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="requests.html">Заявки</a>
+        <a href="analytics.html">Аналитика</a>
+    </nav>
+    <div class="divider"></div>
+    <section class="patients-top">
+        <h2>Пациенты</h2>
+    </section>
+<section class="search-section">
+    <input
+            type="text"
+            placeholder="🔍 Поиск по имени или телефону..."
+            class="search-input"
+    >
+    <button class="add-patient-btn">
+        + Добавить пациента
+    </button>
+</section>
+    <section class="filters">
+        <button class="filter-btn active">
+            Все
+        </button>
+        <button class="filter-btn">
+            Новые
+        </button>
+        <button class="filter-btn">
+            Постоянные
+        </button>
+        <button class="filter-btn">
+            Были на приёме
+        </button>
+    </section>
+    <div class="divider"></div>
+<section class="patients-table">
+<div class="table-head">
+    <span>ID</span>
+    <span>Имя</span>
+    <span>Телефон</span>
+    <span>Последняя услуга</span>
+    <span>Последний визит</span>
+</div>
+<div class="table-divider"></div>
+</section>
+</div>
+<div class="overlay"></div>
+<div class="patient-drawer">
+    <button class="close-btn">
+        ✕
+    </button>
+    <h2 class="drawer-main-title">
+        Пациент
+    </h2>
+    <div class="drawer-view">
+        <div class="drawer-divider"></div>
+        <div class="patient-info">
+            <div class="info-block">
+                <span class="info-title">
+                    Имя
+                </span>
+                <span class="info-value patient-name-view">
+                </span>
+            </div>
+            <div class="info-block">
+                <span class="info-title">
+                    Телефон
+                </span>
+                <span class="info-value patient-phone-view">
+                </span>
+            </div>
+        </div>
+        <div class="drawer-divider"></div>
+        <h3 class="drawer-title">
+            Статистика
+        </h3>
+        <div class="statistics">
+            <div class="stat-item">
+                <span>
+                    Всего посещений
+                </span>
+                <strong class="visits-view">
+                </strong>
+            </div>
+            <div class="stat-item">
+                <span>
+                    Последний визит
+                </span>
+                <strong class="last-visit-view">
+                </strong>
+            </div>
+            <div class="stat-item">
+                <span>
+                    Общая сумма
+                </span>
+                <strong class="total-view">
+                </strong>
+            </div>
+        </div>
+        <div class="drawer-divider"></div>
+        <h3 class="drawer-title">
+            История посещений
+        </h3>
+        <div class="history">
+        </div>
+        <button class="save-btn edit-btn">
+            Редактировать пациента
+        </button>
+    </div>
+    <div class="drawer-form" style="display:none;">
+        <div class="drawer-divider"></div>
+        <div class="patient-form">
+            <div class="form-group">
+                <label>
+                    Имя
+                </label>
+                <input id="patientName">
+            </div>
+            <div class="form-group">
+                <label>
+                    Телефон
+                </label>
+                <input id="patientPhone">
+            </div>
+            <div class="form-group">
+                <label>
+                    Комментарий
+                </label>
+                <textarea id="patientComment"></textarea>
+            </div>
+            <button 
+            class="save-btn"
+            id="savePatientBtn">
+                Сохранить
+            </button>
+        </div>
+    </div>
+</div>
+</div>
+<script src="patients.js"></script>
+</body>
+</html>

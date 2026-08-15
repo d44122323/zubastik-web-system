@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заявки</title>
+    <link rel="stylesheet" href="requests.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="requests-page">
+    <header class="requests-header">
+        <img src="img/logo.png" class="logo" alt="logo">
+        <h1>
+            Заявки
+        </h1>
+    </header>
+    <nav class="navigation">
+        <a href="dashboard.html">
+            Dashboard
+        </a>
+        <a href="patients.html">
+            Пациенты
+        </a>
+        <a href="analytics.html">
+            Аналитика
+        </a>
+    </nav>
+    <div class="divider"></div>
+    <section class="requests-title">
+        <h2>
+            Заявки
+        </h2>
+    </section>
+    <div class="search-box">
+        <input 
+            type="text"
+            placeholder="🔍 Поиск..."
+            class="search-input"
+        >
+    </div>
+    <div class="status-filter">
+        <button class="filter-all">
+            Все
+        </button>
+        <button class="filter-new">
+            Новые
+        </button>
+        <button class="filter-confirm">
+            Подтверждены
+        </button>
+        <button class="filter-done">
+            Завершены
+        </button>
+        <button class="filter-cancel">
+            Отменены
+        </button>
+    </div>
+    <div class="divider"></div>
+    <section class="requests-table">
+        <div class="table-header">
+            <span>
+                №
+            </span>
+            <span>
+                Дата
+            </span>
+            <span>
+                Имя
+            </span>
+            <span>
+                Телефон
+            </span>
+            <span>
+                Статус
+            </span>
+        </div>
+        <div class="table-line"></div>
+    </section>
+</div>
+<div class="overlay"></div>
+<div class="request-drawer">
+    <button class="close-btn">
+        ✕
+    </button>
+    <h2>
+        Заявка №152
+    </h2>
+    <div class="drawer-divider"></div>
+    <div class="drawer-block">
+        <span class="drawer-label">
+            Дата:
+        </span>
+        <span class="drawer-value">
+            09.07.2026 13:42
+        </span>
+    </div>
+    <div class="drawer-divider"></div>
+    <div class="drawer-block">
+        <span class="drawer-label">
+            Имя
+        </span>
+        <span class="drawer-value">
+            Иван Иванов
+        </span>
+    </div>
+    <div class="drawer-block">
+        <span class="drawer-label">
+            Телефон
+        </span>
+        <span class="drawer-value">
+            +7 923 456-78-90
+        </span>
+    </div>
+    <div class="drawer-divider"></div>
+    <div class="drawer-block">
+        <span class="drawer-label">
+            Выбранные услуги
+        </span>
+        <div class="services-list">
+            <p>
+                ✔ Air Flow
+            </p>
+            <p>
+                ✔ Фторирование
+            </p>
+        </div>
+    </div>
+    <div class="drawer-divider"></div>
+    <div class="drawer-block">
+        <span class="drawer-label">
+            Предварительная стоимость
+        </span>
+        <span class="price-value">
+            ≈ 1000 ₽
+        </span>
+    </div>
+    <div class="drawer-divider"></div>
+    <div class="drawer-block">
+        <span class="drawer-label">
+            Комментарий
+        </span>
+        <span class="drawer-value">
+            Без комментариев
+        </span>
+    </div>
+    <div class="drawer-divider"></div>
+    <div class="drawer-block">
+        <span class="drawer-label">
+            Статус
+        </span>
+        <div class="status-options">
+            <label>
+                <input type="radio" name="status">
+                Новая
+            </label>
+            <label>
+                <input type="radio" name="status">
+                Подтверждена
+            </label>
+            <label>
+                <input type="radio" name="status">
+                Завершена
+            </label>
+            <label>
+                <input type="radio" name="status">
+                Отменена
+            </label>
+        </div>
+    </div>
+    <button class="save-btn">
+        Сохранить
+    </button>
+</div>
+<script src="requests.js"></script>
+</body>
+</html>

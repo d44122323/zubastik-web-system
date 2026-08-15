@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Аналитика</title>
+
+<link rel="stylesheet" href="analytics.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+</head>
+
+
+<body>
+
+
+<div class="analytics-page">
+
+
+<header class="analytics-header">
+
+<img src="img/logo.png" class="logo">
+
+<h1>
+Аналитика
+</h1>
+
+</header>
+
+
+
+<nav class="navigation">
+
+<a href="requests.html">
+Заявки
+</a>
+
+<a href="patients.html">
+Пациенты
+</a>
+
+<a href="dashboard.html">
+Dashboard
+</a>
+
+</nav>
+
+
+
+<div class="divider"></div>
+
+
+
+<section class="analytics-title">
+
+<h2>
+Статистика работы сайта и заявок
+</h2>
+
+</section>
+
+
+
+
+
+<section class="kpi-grid">
+
+
+<div class="kpi-card">
+
+<span>
+Новых пациентов
+</span>
+
+<strong>
+126
+</strong>
+
+<p>
++12%
+</p>
+
+</div>
+
+
+
+<div class="kpi-card">
+
+<span>
+Всего заявок
+</span>
+
+<strong>
+126
+</strong>
+
+<p>
++12%
+</p>
+
+</div>
+
+
+
+<div class="kpi-card">
+
+<span>
+Средний чек
+</span>
+
+<strong>
+17 800 ₽
+</strong>
+
+<p>
++12%
+</p>
+
+</div>
+
+
+
+<div class="kpi-card">
+
+<span>
+Конверсия
+</span>
+
+<strong>
+63 %
+</strong>
+
+<p>
++12%
+</p>
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+<section class="chart-section">
+
+
+<h3>
+Количество заявок
+</h3>
+
+
+<div class="chart-box">
+
+<canvas id="requestsChart"></canvas>
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<section class="charts-grid">
+
+
+<div class="chart-card">
+
+<h3>
+Доход по месяцам
+</h3>
+
+
+<div class="small-chart">
+
+<canvas id="revenueChart"></canvas>
+
+</div>
+
+
+</div>
+
+
+
+
+<div class="chart-card">
+
+
+<h3>
+Статусы заявок
+</h3>
+
+
+<div class="small-chart">
+
+<canvas id="statusChart"></canvas>
+
+</div>
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+<section class="charts-grid">
+
+
+<div class="chart-card">
+
+<h3>
+Источники заявок
+</h3>
+
+
+<div class="small-chart">
+
+<canvas id="sourceChart"></canvas>
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="chart-card">
+
+
+<h3>
+Воронка заявок
+</h3>
+
+
+<div class="small-chart">
+
+<canvas id="funnelChart"></canvas>
+
+</div>
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+<section class="calculator-section">
+
+
+<h3>
+Конверсия калькулятора
+</h3>
+
+
+
+<div class="calculator-grid">
+
+
+<div class="calculator-card">
+
+<span>
+Открыли
+</span>
+
+
+<strong id="calcOpen">
+0
+</strong>
+
+
+</div>
+
+
+
+
+<div class="calculator-card">
+
+<span>
+Завершили расчёт
+</span>
+
+
+<strong id="calcFinish">
+0
+</strong>
+
+
+</div>
+
+
+
+
+<div class="calculator-card">
+
+<span>
+Оставили заявку
+</span>
+
+
+<strong id="calcRequest">
+0
+</strong>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+<section class="calculator-section">
+
+
+<h3>
+Активность ИИ-консультанта
+</h3>
+
+
+
+<div class="calculator-grid">
+
+
+<div class="calculator-card">
+
+
+<span>
+Всего вопросов AI
+</span>
+
+
+<strong id="aiTotal">
+0
+</strong>
+
+
+</div>
+
+
+
+
+<div class="services-card ai-card" id="aiQuestions">
+
+
+<h3>
+Популярные запросы
+</h3>
+
+
+</div>
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+<section class="analytics-bottom">
+
+    <div class="services-card" id="topServices">
+        <h3>
+            ТОП услуг
+        </h3>
+    </div>
+
+    <div class="recent-card">
+        <h3>
+            Последние заявки
+        </h3>
+    </div>
+
+</section>
+
+
+
+
+
+</div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="analytics.js"></script>
+
+
+</body>
+
+</html>
