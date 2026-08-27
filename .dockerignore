@@ -1,0 +1,7 @@
+.env
+.env.*
+.git
+.gitignore
+*.zip
+node_modules
+back/*.log
