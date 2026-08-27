@@ -7,7 +7,7 @@ This project is prepared to run on Railway with PostgreSQL.
 - PostgreSQL uses `DATABASE_URL` when present (Railway PostgreSQL provides it automatically).
 - Local development can use `DB_HOST`, `DB_PORT`, `DB_USER`, `DB_PASSWORD`, `DB_NAME`, `DB_SSLMODE`.
 - The server listens on Railway's `PORT` variable.
-- Public forms use `/submit` instead of `http://localhost:8080/submit`.
+- Public forms use the relative `/submit` endpoint.
 - Uploaded doctor photos and medical files use `UPLOADS_DIR`; Railway should mount a persistent Volume at `/app/uploads`.
 - `/health` is available for Railway healthchecks and returns HTTP 200 only when PostgreSQL is reachable.
 - Production cookies are marked Secure via `APP_ENV=production`.
@@ -29,13 +29,13 @@ This project is prepared to run on Railway with PostgreSQL.
 
 ## Database data
 
-The application creates/updates its tables on startup. A fresh Railway PostgreSQL service will therefore get the schema, but it will not automatically contain your current local patients, doctors, requests, appointments, medical records, services, etc.
+The application creates/updates its required tables on startup, including the base patients/requests tables before feature-specific migrations. A fresh Railway PostgreSQL service will therefore get the schema, but it will not automatically contain your current local patients, doctors, requests, appointments, medical records, services, etc.
 
 To preserve current data, export the local PostgreSQL database with `pg_dump` and restore it into the Railway PostgreSQL database before/around the first production launch. Do not overwrite a production database without a backup.
 
 ## Telegram
 
-After the public URL is available, update any Telegram webhook/callback configuration that currently points to localhost. The patient and staff bots remain separate and continue to use their own environment variables.
+After the public URL is available, configure any Telegram webhook/callback URLs to use the public HTTPS address. The patient and staff bots remain separate and continue to use their own environment variables.
 
 ## Security
 
