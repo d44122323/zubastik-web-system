@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Мои записи | ЗУ-БАСТИК</title>
+    <link rel="stylesheet" href="/doctor/appointments.css" />
+      <link rel="stylesheet" href="../ui-polish.css">
+</head>
+  <body>
+    <div class="app">
+      <header>
+        <div>
+          <div class="eyebrow">ЗУ-БАСТИК</div>
+          <h1>Мои записи</h1>
+        </div>
+        <div class="user">
+          <span id="doctorName">...</span><button id="logout">Выйти</button>
+        </div>
+      </header>
+      <div class="layout">
+        <aside>
+          <a href="/doctor/dashboard.html">Главная</a
+          ><a class="active" href="/doctor/appointments.html">Мои записи</a
+          ><a href="/doctor/requests.html">Мои заявки</a
+          ><a href="/doctor/patients.html">Мои пациенты</a
+          ><a href="/doctor/book.html">+ Записать пациента</a
+          ><a href="/doctor/schedule.html">Расписание</a>
+        </aside>
+        <main>
+          <div class="toolbar">
+            <button class="active" data-period="">Все</button
+            ><button data-period="today">Сегодня</button
+            ><button data-period="upcoming">Предстоящие</button
+            ><input id="date" type="date" /><input
+              id="search"
+              placeholder="Поиск пациента, телефона или №"
+            /><button id="clear">Сбросить</button>
+          </div>
+          <div id="list" class="list"></div>
+        </main>
+      </div>
+    </div>
+    <script src="/doctor/appointments.js"></script>
+  </body>
+</html>

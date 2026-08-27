@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Мои пациенты | ЗУ-БАСТИК</title>
+    <link rel="stylesheet" href="/doctor/patients.css" />
+      <link rel="stylesheet" href="../ui-polish.css">
+</head>
+  <body>
+    <div class="app">
+      <header>
+        <div>
+          <div class="eyebrow">ЗУ-БАСТИК</div>
+          <h1>Мои пациенты</h1>
+        </div>
+        <div class="user">
+          <span id="doctorName">...</span><button id="logout">Выйти</button>
+        </div>
+      </header>
+      <div class="layout">
+        <aside>
+          <a href="/doctor/dashboard.html">Главная</a
+          ><a href="/doctor/appointments.html">Мои записи</a
+          ><a href="/doctor/requests.html">Мои заявки</a
+          ><a class="active" href="/doctor/patients.html">Мои пациенты</a
+          ><a href="/doctor/book.html">+ Записать пациента</a
+          ><a href="/doctor/schedule.html">Расписание</a>
+        </aside>
+        <main>
+          <div class="toolbar">
+            <input id="search" placeholder="🔍 Найти пациента" />
+          </div>
+          <div id="list" class="list"></div>
+          <section id="details" class="details hidden"></section>
+        </main>
+      </div>
+    </div>
+    <script src="/doctor/patients.js"></script>
+  </body>
+</html>

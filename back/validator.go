@@ -1,8 +1,10 @@
 package main
+
 import (
 	"errors"
 	"strings"
 )
+
 func ValidateForm(data FormData) error {
 	if len(strings.TrimSpace(data.Name)) < 2 {
 		return errors.New("введите имя")

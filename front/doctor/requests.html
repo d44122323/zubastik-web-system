@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Мои заявки | ЗУ-БАСТИК</title>
+    <link rel="stylesheet" href="/doctor/requests.css" />
+      <link rel="stylesheet" href="../ui-polish.css">
+</head>
+  <body>
+    <div class="app">
+      <header>
+        <div>
+          <div class="eyebrow">ЗУ-БАСТИК</div>
+          <h1>Мои заявки</h1>
+        </div>
+        <div class="user">
+          <span id="doctorName">...</span><button id="logout">Выйти</button>
+        </div>
+      </header>
+      <div class="layout">
+        <aside>
+          <a href="/doctor/dashboard.html">Главная</a
+          ><a href="/doctor/appointments.html">Мои записи</a
+          ><a class="active" href="/doctor/requests.html">Мои заявки</a
+          ><a href="/doctor/patients.html">Мои пациенты</a>
+        </aside>
+        <main>
+          <div class="toolbar">
+            <a class="book-link" href="/doctor/book.html">+ Записать пациента</a
+            ><input
+              id="search"
+              placeholder="Поиск пациента, телефона или № заявки"
+            /><input id="date" type="date" /><button id="clear">
+              Сбросить
+            </button>
+          </div>
+          <nav class="tabs" id="tabs">
+            <button data-status="">Все</button
+            ><button data-status="Новая">Новые</button
+            ><button data-status="Подтверждена">Подтверждённые</button
+            ><button data-status="Завершена">Завершённые</button
+            ><button data-status="Отменена">Отменённые</button
+            ><button id="today">Сегодня</button>
+          </nav>
+          <div id="list" class="list"></div>
+        </main>
+      </div>
+    </div>
+    <div id="serviceModal" class="service-modal hidden">
+      <div class="service-modal-card">
+        <button type="button" id="serviceModalClose" class="service-modal-close">×</button>
+        <h2>Услуги записи</h2>
+        <p class="service-modal-hint">Выберите услуги. Цена будет рассчитана по текущему прайсу.</p>
+        <div id="serviceOptions" class="service-options"></div>
+        <div class="service-total">Итого: <strong id="serviceTotal">0 ₽</strong></div>
+        <div class="service-modal-actions"><button type="button" id="serviceCancel" class="secondary">Отмена</button><button type="button" id="serviceSave" class="primary">Сохранить</button></div>
+      </div>
+    </div>
+    <script src="/doctor/requests.js"></script>
+  </body>
+</html>

@@ -1,11 +1,17 @@
 package main
+
 import (
 	"encoding/json"
 	"net/http"
 	"strconv"
 	"strings"
 )
+
 func GetRequestsHandler(w http.ResponseWriter, r *http.Request) {
+	if !isAdminRequest(r) {
+		http.Error(w, "unauthorized", http.StatusUnauthorized)
+		return
+	}
 	if r.Method != http.MethodGet {
 		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
 		return
@@ -19,6 +25,10 @@ func GetRequestsHandler(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(requests)
 }
 func GetRequestHandler(w http.ResponseWriter, r *http.Request) {
+	if !isAdminRequest(r) {
+		http.Error(w, "unauthorized", http.StatusUnauthorized)
+		return
+	}
 	idStr := strings.TrimPrefix(r.URL.Path, "/api/requests/")
 	id, err := strconv.Atoi(idStr)
 	if err != nil {

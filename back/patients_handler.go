@@ -1,11 +1,17 @@
 package main
+
 import (
 	"encoding/json"
 	"net/http"
 	"strconv"
 	"strings"
 )
+
 func PatientsHandler(w http.ResponseWriter, r *http.Request) {
+	if !isAdminRequest(r) {
+		http.Error(w, "unauthorized", http.StatusUnauthorized)
+		return
+	}
 	switch r.Method {
 	case http.MethodGet:
 		list, err := GetAllPatients()
@@ -33,6 +39,10 @@ func PatientsHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 func PatientHandler(w http.ResponseWriter, r *http.Request) {
+	if !isAdminRequest(r) {
+		http.Error(w, "unauthorized", http.StatusUnauthorized)
+		return
+	}
 	idStr := strings.TrimPrefix(
 		r.URL.Path,
 		"/api/patients/",

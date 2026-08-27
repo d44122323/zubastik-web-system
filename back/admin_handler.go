@@ -1,12 +1,15 @@
 package main
+
 import (
 	"encoding/json"
 	"net/http"
 )
+
 type LoginRequest struct {
-	Login string `json:"login"`
+	Login    string `json:"login"`
 	Password string `json:"password"`
 }
+
 func AdminLoginHandler(
 	w http.ResponseWriter,
 	r *http.Request,
@@ -46,12 +49,13 @@ func AdminLoginHandler(
 	http.SetCookie(
 		w,
 		&http.Cookie{
-			Name: "admin_session",
-			Value: "true",
-			Path: "/",
+			Name:     "admin_session",
+			Value:    "true",
+			Path:     "/",
 			HttpOnly: true,
+			Secure:   isProduction(),
 			SameSite: http.SameSiteLaxMode,
-			MaxAge: 3600,
+			MaxAge:   3600,
 		},
 	)
 	w.Header().Set(

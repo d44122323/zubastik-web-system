@@ -1,5 +1,6 @@
 package main
+
 type Admin struct {
-	ID int `json:"id"`
+	ID    int    `json:"id"`
 	Login string `json:"login"`
 }

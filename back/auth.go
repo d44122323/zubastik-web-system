@@ -1,8 +1,10 @@
 package main
+
 import (
 	"fmt"
 	"net/http"
 )
+
 func AuthMiddleware(
 	next http.Handler,
 ) http.Handler {
@@ -17,7 +19,7 @@ func AuthMiddleware(
 			http.Redirect(
 				w,
 				r,
-				"/login.html",
+				"/?account=admin",
 				http.StatusSeeOther,
 			)
 			return
@@ -31,7 +33,7 @@ func AuthMiddleware(
 			http.Redirect(
 				w,
 				r,
-				"/login.html",
+				"/?account=admin",
 				http.StatusSeeOther,
 			)
 			return

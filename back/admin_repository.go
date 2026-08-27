@@ -1,5 +1,7 @@
 package main
+
 import "errors"
+
 func CheckAdmin(
 	login string,
 	password string,

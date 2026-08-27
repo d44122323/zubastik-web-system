@@ -476,3 +476,10 @@ body{
     }
 
 }
+/* Unified administrator navigation */
+.navigation a.active{color:#00a9cf}
+
+.admin-logo-link{display:block;text-decoration:none;line-height:0}.admin-logo-link .logo{display:block}
+/* Unified admin navigation hover/active effect */
+.navigation a{border-bottom:2px solid transparent;transition:color .15s ease,border-color .15s ease;}
+.navigation a:hover,.navigation a.active{color:#00a8cf;border-color:#00d1ff;}

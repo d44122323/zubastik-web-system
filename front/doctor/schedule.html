@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Расписание | ЗУ-БАСТИК</title>
+    <link rel="stylesheet" href="/doctor/schedule.css" />
+      <link rel="stylesheet" href="../ui-polish.css">
+</head>
+  <body>
+    <div class="app">
+      <header>
+        <div>
+          <div class="eyebrow">ЗУ-БАСТИК</div>
+          <h1>Расписание</h1>
+        </div>
+        <div class="user">
+          <span id="doctorName">...</span><button id="logout">Выйти</button>
+        </div>
+      </header>
+      <div class="layout">
+        <aside>
+          <a href="/doctor/dashboard.html">Главная</a
+          ><a href="/doctor/appointments.html">Мои записи</a
+          ><a href="/doctor/requests.html">Мои заявки</a
+          ><a href="/doctor/patients.html">Мои пациенты</a
+          ><a href="/doctor/book.html">+ Записать пациента</a
+          ><a class="active" href="/doctor/schedule.html">Расписание</a>
+        </aside>
+        <main>
+          <section class="panel">
+            <div class="section-head">
+              <div>
+                <h2>Рабочая неделя</h2>
+                <p>
+                  Это существующее расписание врача. Изменять его здесь нельзя —
+                  оно управляется в административной части.
+                </p>
+              </div>
+            </div>
+            <div id="week" class="week"></div>
+          </section>
+          <section class="panel">
+            <div class="section-head">
+              <div>
+                <h2>Записи на день</h2>
+                <p id="selectedLabel"></p>
+              </div>
+              <input id="date" type="date" />
+            </div>
+            <div id="slots" class="slots"></div>
+          </section>
+        </main>
+      </div>
+    </div>
+    <script src="/doctor/schedule.js"></script>
+  </body>
+</html>

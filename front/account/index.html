@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Личный кабинет</title>
+    <link rel="stylesheet" href="account.css" />
+      <link rel="stylesheet" href="../ui-polish.css">
+</head>
+  <body>
+    <header class="account-top">
+      <a class="brand" href="/"><img src="/img/logomin.png" alt="logo" /></a>
+      <div class="account-user">
+        <span id="userName">Пациент</span><button id="logout">Выйти</button>
+      </div>
+    </header>
+    <div class="account-layout">
+      <aside class="sidebar">
+        <button class="side active" data-section="home">Главная</button
+        ><button class="side" data-section="profile">Профиль</button
+        ><button class="side" data-section="appointments">Мои записи</button
+        ><button class="side" data-section="medical">
+          Медицинская информация</button
+        ><button class="side" data-section="documents">Документы</button
+        ><button class="side" data-section="payments">Оплата</button
+        ><button class="side" data-section="notifications">Уведомления</button
+        ><button class="side" data-section="doctorQuestions">
+          Вопрос врачу
+        </button>
+      </aside>
+      <main class="content">
+        <section id="home" class="section active">
+          <div class="eyebrow">ЛИЧНЫЙ КАБИНЕТ</div>
+          <h1>Здравствуйте, <span id="helloName">—</span></h1>
+          <div class="cards">
+            <div class="card">
+              <b id="upcomingCount">0</b><span>Предстоящих записей</span>
+            </div>
+            <div class="card">
+              <b id="medicalCount">0</b><span>Медицинских записей</span>
+            </div>
+            <div class="card">
+              <b id="notificationCount">0</b><span>Уведомлений</span>
+            </div>
+          </div>
+          <div class="panel">
+            <h2>Ближайшая запись</h2>
+            <div id="nextAppointment">Нет предстоящих записей.</div>
+          </div>
+        </section>
+        <section id="profile" class="section">
+          <div class="eyebrow">ПРОФИЛЬ</div>
+          <h1>Мой профиль</h1>
+          <form id="profileForm" class="form-grid">
+            <label>ФИО<input id="pName" required /></label
+            ><label>Телефон<input id="pPhone" required /></label
+            ><label>Email<input id="pEmail" type="email" /></label
+            ><label>Дата рождения<input id="pBirth" type="date" /></label
+            ><button class="primary" type="submit">Сохранить</button>
+          </form>
+          <p id="profileMsg"></p>
+          <div class="panel telegram-panel">
+            <h3>Telegram-уведомления</h3>
+            <p id="telegramStatus" class="muted">Проверяем подключение...</p>
+            <button id="telegramConnect" class="primary" type="button">Подключить Telegram</button>
+            <button id="telegramDisconnect" class="secondary hidden" type="button">Отключить Telegram</button>
+          </div>
+        </section>
+        <section id="appointments" class="section">
+          <div class="eyebrow">ЗАПИСИ</div>
+          <h1>Мои записи</h1>
+          <p class="muted">
+            Перенести можно только активную запись на свободное время этого же
+            врача.
+          </p>
+          <div id="appointmentsList"></div>
+        </section>
+        <div id="rescheduleModal" class="modal hidden">
+          <div class="modal-card">
+            <button id="rescheduleClose" class="modal-close" type="button">
+              ×
+            </button>
+            <div class="eyebrow">ПЕРЕНОС ЗАПИСИ</div>
+            <h2 id="rescheduleTitle">Выберите новое время</h2>
+            <p id="rescheduleDoctor" class="muted"></p>
+            <label class="modal-label"
+              >Дата<input id="rescheduleDate" type="date"
+            /></label>
+            <div id="rescheduleMessage" class="muted"></div>
+            <div id="rescheduleSlots" class="reschedule-slots"></div>
+            <button id="rescheduleCancel" class="secondary" type="button">
+              Закрыть
+            </button>
+          </div>
+        </div>
+        <section id="medical" class="section">
+          <div class="eyebrow">МЕДИЦИНСКАЯ ИНФОРМАЦИЯ</div>
+          <h1>Моя медицинская информация</h1>
+          <p class="muted">
+            Здесь отображается информация, которую врач сохранил в медицинской
+            карте.
+          </p>
+          <div id="medicalList"></div>
+        </section>
+        <section id="documents" class="section">
+          <div class="eyebrow">ДОКУМЕНТЫ</div>
+          <h1>Документы</h1>
+          <div id="documentsList"></div>
+        </section>
+        <section id="payments" class="section">
+          <div class="eyebrow">ОПЛАТА</div>
+          <h1>Оплата</h1>
+          <div class="demo-note">
+            Платёжный модуль работает в демонстрационном режиме.
+          </div>
+          <div id="paymentsList"></div>
+        </section>
+        <section id="notifications" class="section">
+          <div class="eyebrow">УВЕДОМЛЕНИЯ</div>
+          <h1>Уведомления</h1>
+          <div id="notificationsList"></div>
+        </section>
+        <section id="doctorQuestions" class="section">
+          <div class="eyebrow">СВЯЗЬ С ВРАЧОМ</div>
+          <h1>Вопрос врачу</h1>
+          <p class="muted">
+            Задать вопрос можно после завершённого приёма у врача.
+          </p>
+          <div class="panel question-form">
+            <label class="modal-label"
+              >Посещение<select id="questionAppointment"></select></label
+            ><label class="modal-label"
+              >Ваш вопрос<textarea
+                id="questionText"
+                maxlength="2000"
+                placeholder="Напишите вопрос врачу..."
+              ></textarea></label
+            ><button class="primary" id="sendQuestion" type="button">
+              Отправить вопрос
+            </button>
+            <p id="questionMsg" class="muted"></p>
+          </div>
+          <div id="questionsList"></div>
+        </section>
+      </main>
+    </div>
+    <script src="account.js"></script>
+  </body>
+</html>

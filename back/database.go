@@ -2,6 +2,7 @@ package main
 
 import (
 	"database/sql"
+	"fmt"
 	"log"
 	"os"
 
@@ -11,65 +12,34 @@ import (
 var DB *sql.DB
 
 func ConnectDB() {
-
-	databaseURL := os.Getenv("DATABASE_URL")
-
-	if databaseURL != "" {
-
-		db, err := sql.Open("postgres", databaseURL)
-
-		if err != nil {
-			log.Fatal("DATABASE CONNECTION ERROR:", err)
+	connStr := os.Getenv("DATABASE_URL")
+	if connStr == "" {
+		host := os.Getenv("DB_HOST")
+		port := os.Getenv("DB_PORT")
+		user := os.Getenv("DB_USER")
+		dbname := os.Getenv("DB_NAME")
+		password := os.Getenv("DB_PASSWORD")
+		if host == "" || port == "" || user == "" || dbname == "" || password == "" {
+			log.Fatal("DB_PASSWORD is required when DATABASE_URL is not set")
 		}
-
-		if err := db.Ping(); err != nil {
-			log.Fatal("DATABASE PING ERROR:", err)
-		}
-
-		DB = db
-
-		log.Println("PostgreSQL connected via DATABASE_URL")
-
-		return
+		sslmode := envOrDefault("DB_SSLMODE", "disable")
+		connStr = fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=%s", host, port, user, password, dbname, sslmode)
 	}
-
-	host := getEnv("DB_HOST", "localhost")
-	port := getEnv("DB_PORT", "5432")
-	user := getEnv("DB_USER", "postgres")
-	password := os.Getenv("DB_PASSWORD")
-	dbname := getEnv("DB_NAME", "clinic")
-	sslmode := getEnv("DB_SSLMODE", "disable")
-
-	connStr :=
-		"host=" + host +
-			" port=" + port +
-			" user=" + user +
-			" password=" + password +
-			" dbname=" + dbname +
-			" sslmode=" + sslmode
 
 	db, err := sql.Open("postgres", connStr)
-
 	if err != nil {
-		log.Fatal("DATABASE CONNECTION ERROR:", err)
+		log.Fatal(err)
 	}
-
 	if err := db.Ping(); err != nil {
-		log.Fatal("DATABASE PING ERROR:", err)
+		log.Fatal(err)
 	}
-
 	DB = db
-
-	log.Println("PostgreSQL connected locally")
+	log.Println("PostgreSQL connected")
 }
 
-func getEnv(key string, defaultValue string) string {
-
-	value := os.Getenv(key)
-
-	if value == "" {
-		return defaultValue
+func envOrDefault(key, fallback string) string {
+	if v := os.Getenv(key); v != "" {
+		return v
 	}
-
-	return value
+	return fallback
 }

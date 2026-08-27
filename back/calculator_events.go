@@ -1,4 +1,5 @@
 package main
+
 func SaveCalculatorEvent(event string) error {
 	_, err := DB.Exec(`
 		INSERT INTO calculator_events(

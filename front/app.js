@@ -30,12 +30,6 @@ serviceButtons.forEach(btn=>{
         window.location.href="services.html";
     });
 });
-const specialistButtons = document.querySelectorAll(".btn-specialist");
-specialistButtons.forEach(btn=>{
-    btn.addEventListener("click",()=>{
-        window.location.href="doctors.html";
-    });
-});
 const btnHero = document.querySelector(".btn-hero");
 if(btnHero){
     btnHero.addEventListener("click",()=>{
@@ -57,6 +51,34 @@ document.addEventListener("DOMContentLoaded",()=>{
         });
     });
 });
+// Если пациент пришёл со страницы конкретного врача, сохраняем выбранного врача в заявке.
+document.addEventListener("DOMContentLoaded", () => {
+    const params = new URLSearchParams(window.location.search);
+    const doctorId = params.get("doctor");
+    if (!doctorId) return;
+
+    document.querySelectorAll('input[name="doctor_id"]').forEach(input => {
+        input.value = doctorId;
+    });
+    const selectedDate = params.get("date") || "";
+    const selectedTime = params.get("time") || "";
+    document.querySelectorAll('input[name="appointment_date"]').forEach(input => input.value = selectedDate);
+    document.querySelectorAll('input[name="appointment_time"]').forEach(input => input.value = selectedTime);
+
+    fetch(`/api/doctors/${encodeURIComponent(doctorId)}`)
+        .then(response => response.ok ? response.json() : null)
+        .then(doctor => {
+            if (!doctor) return;
+            const doctorName = doctor.name;
+            const comment = document.querySelector('input[name="comment"]');
+            if (comment && !comment.value) comment.value = `Запись к врачу: ${doctorName}${selectedDate ? `, ${selectedDate}` : ''}${selectedTime ? ` в ${selectedTime}` : ''}`;
+            const footerComment = document.querySelector('.footer-online input[name="comment"]');
+            if (footerComment) footerComment.value = `Запись к врачу: ${doctorName}${selectedDate ? `, ${selectedDate}` : ''}${selectedTime ? ` в ${selectedTime}` : ''}`;
+        })
+        .catch(console.error);
+
+});
+
 const modal = document.getElementById("calculatorModal");
 const openBtn = document.getElementById("openCalculator");
 const closeBtn = document.getElementById("closeCalculator");
@@ -248,7 +270,7 @@ const services = {
         }
     ]
 };
-const prices = {
+let prices = {
     "Первичный осмотр и консультация":0,
     "Ультразвуковая чистка":500,
     "Air Flow":500,
@@ -290,6 +312,19 @@ const prices = {
     "Синус-лифтинг (без учёта расходных материалов)":5000,
     "Забор костного трансплантата":20000
 };
+async function loadServicePrices(){
+    try{
+        const response = await fetch("/api/services");
+        if(!response.ok) return;
+        const data = await response.json();
+        const remotePrices = {};
+        data.forEach(service => { remotePrices[service.name] = Number(service.price) || 0; });
+        prices = { ...prices, ...remotePrices };
+    }catch(error){
+        console.warn("Не удалось загрузить актуальные цены", error);
+    }
+}
+loadServicePrices();
 function createServices(category){
     serviceList.innerHTML="";
     services[category].forEach(service=>{

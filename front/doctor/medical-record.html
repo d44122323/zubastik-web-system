@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Медицинская карта | ЗУ-БАСТИК</title>
+    <link rel="stylesheet" href="/doctor/medical-record.css" />
+      <link rel="stylesheet" href="../ui-polish.css">
+</head>
+  <body>
+    <div class="app">
+      <header>
+        <div>
+          <div class="eyebrow">ЗУ-БАСТИК</div>
+          <h1>Завершение приёма</h1>
+        </div>
+        <div class="user">
+          <span id="doctorName">...</span><button id="logout">Выйти</button>
+        </div>
+      </header>
+      <div class="layout">
+        <aside>
+          <a href="/doctor/dashboard.html">Главная</a
+          ><a href="/doctor/appointments.html">Мои записи</a
+          ><a href="/doctor/requests.html">Мои заявки</a
+          ><a href="/doctor/patients.html">Мои пациенты</a
+          ><a href="/doctor/book.html">+ Записать пациента</a
+          ><a href="/doctor/schedule.html">Расписание</a>
+        </aside>
+        <main>
+          <div id="appointment" class="card">Загрузка...</div>
+          <form
+            id="recordForm"
+            class="card hidden"
+            enctype="multipart/form-data"
+          >
+            <h2>Медицинская запись</h2>
+            <label>Жалобы<textarea name="complaints" rows="4"></textarea></label
+            ><label
+              >Диагноз<textarea name="diagnosis" rows="4"></textarea></label
+            ><label
+              >Проведённое лечение<textarea
+                name="treatment"
+                rows="4"
+              ></textarea></label
+            ><label
+              >Рекомендации<textarea
+                name="recommendations"
+                rows="4"
+              ></textarea></label
+            ><label
+              >Файлы<input
+                name="files"
+                type="file"
+                multiple
+                accept=".pdf,.jpg,.jpeg,.png,.webp,.doc,.docx"
+              /><small
+                >До 15 МБ на файл. PDF, изображения, DOC/DOCX.</small
+              ></label
+            >
+            <div id="existingFiles"></div>
+            <div class="actions">
+              <a class="secondary" href="/doctor/appointments.html">Назад</a
+              ><button class="primary" type="submit">
+                Сохранить и завершить приём
+              </button>
+            </div>
+            <div id="message"></div>
+          </form>
+        </main>
+      </div>
+    </div>
+    <script src="/doctor/medical-record.js"></script>
+  </body>
+</html>

@@ -1,8 +1,10 @@
 package main
+
 import (
 	"encoding/json"
 	"net/http"
 )
+
 func AnalyticsHandler(w http.ResponseWriter, r *http.Request) {
 	analytics, err := GetAnalytics()
 	if err != nil {

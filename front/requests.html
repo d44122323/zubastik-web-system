@@ -1,179 +1,136 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Заявки</title>
-    <link rel="stylesheet" href="requests.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Записи</title>
+    <link rel="stylesheet" href="requests.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+      <link rel="stylesheet" href="ui-polish.css">
 </head>
-<body>
-<div class="requests-page">
-    <header class="requests-header">
-        <img src="img/logo.png" class="logo" alt="logo">
-        <h1>
-            Заявки
-        </h1>
-    </header>
-    <nav class="navigation">
-        <a href="dashboard.html">
-            Dashboard
-        </a>
-        <a href="patients.html">
-            Пациенты
-        </a>
-        <a href="analytics.html">
-            Аналитика
-        </a>
+  <body>
+    <div class="requests-page">
+      <header class="requests-header">
+        <a href="dashboard.html" class="admin-logo-link"><img src="img/logo.png" class="logo" /></a>
+        <h1>Управление записями</h1>
+      </header>
+      <nav class="navigation">
+        <a href="dashboard.html" class="">Dashboard</a>
+        <a href="requests.html" class="active">Заявки</a>
+        <a href="doctors-admin.html" class="">Врачи</a>
+        <a href="patients.html" class="">Пациенты</a>
+        <a href="prices-admin.html" class="">Цены</a>
+        <a href="analytics.html" class="">Аналитика</a>
     </nav>
-    <div class="divider"></div>
-    <section class="requests-title">
-        <h2>
-            Заявки
-        </h2>
-    </section>
-    <div class="search-box">
-        <input 
-            type="text"
-            placeholder="🔍 Поиск..."
-            class="search-input"
-        >
-    </div>
-    <div class="status-filter">
-        <button class="filter-all">
-            Все
-        </button>
-        <button class="filter-new">
-            Новые
-        </button>
-        <button class="filter-confirm">
-            Подтверждены
-        </button>
-        <button class="filter-done">
-            Завершены
-        </button>
-        <button class="filter-cancel">
-            Отменены
-        </button>
-    </div>
-    <div class="divider"></div>
-    <section class="requests-table">
+      <div class="divider"></div>
+      <section class="requests-title">
+        <h2>Записи пациентов</h2>
+        <p>Подтверждение, перенос, отмена и переназначение врача</p>
+      </section>
+      <div class="toolbar">
+        <input
+          type="text"
+          placeholder="🔍 Поиск по пациенту, телефону или №"
+          class="search-input"
+        />
+        <input type="date" class="date-filter" />
+        <select class="doctor-filter">
+          <option value="">Все врачи</option>
+        </select>
+      </div>
+      <div class="status-filter">
+        <button data-status="Все" class="active">Все</button
+        ><button data-status="Новая">Новые</button>
+        <button data-status="Подтверждена">Подтверждены</button
+        ><button data-status="Завершена">Завершены</button
+        ><button data-status="Отменена">Отменены</button>
+      </div>
+      <div class="divider"></div>
+      <section class="requests-table">
         <div class="table-header">
-            <span>
-                №
-            </span>
-            <span>
-                Дата
-            </span>
-            <span>
-                Имя
-            </span>
-            <span>
-                Телефон
-            </span>
-            <span>
-                Статус
-            </span>
+          <span>№</span><span>Запись</span><span>Пациент</span><span>Врач</span
+          ><span>Статус</span>
         </div>
-        <div class="table-line"></div>
-    </section>
-</div>
-<div class="overlay"></div>
-<div class="request-drawer">
-    <button class="close-btn">
-        ✕
-    </button>
-    <h2>
-        Заявка №152
-    </h2>
-    <div class="drawer-divider"></div>
-    <div class="drawer-block">
-        <span class="drawer-label">
-            Дата:
-        </span>
-        <span class="drawer-value">
-            09.07.2026 13:42
-        </span>
+      </section>
     </div>
-    <div class="drawer-divider"></div>
-    <div class="drawer-block">
-        <span class="drawer-label">
-            Имя
-        </span>
-        <span class="drawer-value">
-            Иван Иванов
-        </span>
-    </div>
-    <div class="drawer-block">
-        <span class="drawer-label">
-            Телефон
-        </span>
-        <span class="drawer-value">
-            +7 923 456-78-90
-        </span>
-    </div>
-    <div class="drawer-divider"></div>
-    <div class="drawer-block">
-        <span class="drawer-label">
-            Выбранные услуги
-        </span>
-        <div class="services-list">
-            <p>
-                ✔ Air Flow
-            </p>
-            <p>
-                ✔ Фторирование
-            </p>
+    <div class="overlay"></div>
+    <aside class="request-drawer">
+      <button class="close-btn">✕</button>
+      <h2>Запись №</h2>
+      <div class="drawer-divider"></div>
+      <div class="drawer-grid">
+        <div>
+          <span class="drawer-label">Пациент</span
+          ><span class="drawer-value" id="patientName">—</span>
         </div>
-    </div>
-    <div class="drawer-divider"></div>
-    <div class="drawer-block">
-        <span class="drawer-label">
-            Предварительная стоимость
-        </span>
-        <span class="price-value">
-            ≈ 1000 ₽
-        </span>
-    </div>
-    <div class="drawer-divider"></div>
-    <div class="drawer-block">
-        <span class="drawer-label">
-            Комментарий
-        </span>
-        <span class="drawer-value">
-            Без комментариев
-        </span>
-    </div>
-    <div class="drawer-divider"></div>
-    <div class="drawer-block">
-        <span class="drawer-label">
-            Статус
-        </span>
+        <div>
+          <span class="drawer-label">Телефон</span
+          ><span class="drawer-value" id="patientPhone">—</span>
+        </div>
+      </div>
+      <div class="drawer-divider"></div>
+      <div class="drawer-block">
+        <span class="drawer-label">Услуги</span>
+        <div class="services-list" id="servicesList"></div><button type="button" class="add-services-btn" id="addServicesBtn">+ Добавить / изменить услуги</button>
+      </div>
+      <div class="drawer-divider"></div>
+      <div class="appointment-edit">
+        <label>Врач<select id="doctorSelect"></select></label>
+        <label>Дата<input type="date" id="appointmentDate" /></label>
+        <label>Время<select id="appointmentTime"></select></label>
+        <div class="slot-hint" id="slotHint">Выберите врача и дату</div>
+      </div>
+      <div class="drawer-divider"></div>
+      <div class="drawer-block">
+        <span class="drawer-label">Стоимость</span
+        ><span class="price-value" id="priceValue">—</span>
+      </div>
+      <div class="drawer-block">
+        <span class="drawer-label">Комментарий</span
+        ><span class="drawer-value" id="commentValue">—</span>
+      </div>
+      <div class="drawer-divider"></div>
+      <div class="drawer-block">
+        <span class="drawer-label">Статус</span>
         <div class="status-options">
-            <label>
-                <input type="radio" name="status">
-                Новая
-            </label>
-            <label>
-                <input type="radio" name="status">
-                Подтверждена
-            </label>
-            <label>
-                <input type="radio" name="status">
-                Завершена
-            </label>
-            <label>
-                <input type="radio" name="status">
-                Отменена
-            </label>
+          <label
+            ><input type="radio" name="status" value="Новая" /> Новая</label
+          >
+          <label
+            ><input type="radio" name="status" value="Подтверждена" />
+            Подтверждена</label
+          >
+          <label
+            ><input type="radio" name="status" value="Завершена" />
+            Завершена</label
+          >
+          <label
+            ><input type="radio" name="status" value="Отменена" />
+            Отменена</label
+          >
         </div>
+      </div>
+      <div class="drawer-actions"><button class="telegram-send-btn" id="telegramRequestBtn" type="button">📨 Telegram</button>
+        <button class="quick-confirm">Подтвердить</button
+        ><button class="quick-cancel">Отменить</button
+        ><button class="quick-done">Завершить</button>
+      </div>
+      <button class="save-btn">Сохранить изменения</button>
+    </aside>
+    <div id="adminServiceModal" class="admin-service-modal hidden">
+      <div class="admin-service-card">
+        <button type="button" id="adminServiceClose" class="admin-service-close">×</button>
+        <h2>Услуги записи</h2><p>Добавьте услуги к заявке, даже если пациент изначально ничего не выбрал.</p>
+        <div id="adminServiceOptions" class="admin-service-options"></div>
+        <div class="admin-service-total">Итого: <strong id="adminServiceTotal">0 ₽</strong></div>
+        <div class="admin-service-actions"><button type="button" id="adminServiceCancel">Отмена</button><button type="button" id="adminServiceSave">Сохранить услуги</button></div>
+      </div>
     </div>
-    <button class="save-btn">
-        Сохранить
-    </button>
-</div>
-<script src="requests.js"></script>
-</body>
+    <script src="requests.js"></script>
+  </body>
 </html>

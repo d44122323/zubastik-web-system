@@ -1,4 +1,5 @@
 package main
+
 import (
 	"bytes"
 	"encoding/json"
@@ -6,11 +7,12 @@ import (
 	"io"
 	"net/http"
 )
+
 func SendBitrix(cfg Config, data FormData) error {
 	payload := map[string]interface{}{
 		"fields": map[string]interface{}{
 			"TITLE": "Заявка с сайта",
-			"NAME": data.Name,
+			"NAME":  data.Name,
 			"PHONE": []map[string]string{
 				{
 					"VALUE":      data.Phone,
