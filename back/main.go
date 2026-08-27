@@ -21,9 +21,6 @@ func main() {
 	cfg := LoadConfig()
 	ConnectDB()
 	defer DB.Close()
-	if err := InitCoreSchema(); err != nil {
-		log.Fatal(err)
-	}
 	if err := InitDoctorsTable(); err != nil {
 		log.Fatal(err)
 	}

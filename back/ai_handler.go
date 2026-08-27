@@ -65,36 +65,9 @@ func AIChatHandler(w http.ResponseWriter, r *http.Request) {
 		"application/json",
 	)
 
-	origin := r.Header.Get("Origin")
-	referer := r.Header.Get("Referer")
-
-	allowedSite := os.Getenv("SITE_URL")
-
-	if allowedSite != "" {
-
-		if origin != "" && !strings.HasPrefix(origin, allowedSite) {
-
-			json.NewEncoder(w).Encode(
-				map[string]string{
-					"answer": "Доступ запрещен.",
-				},
-			)
-
-			return
-		}
-
-		if referer != "" && !strings.HasPrefix(referer, allowedSite) {
-
-			json.NewEncoder(w).Encode(
-				map[string]string{
-					"answer": "Доступ запрещен.",
-				},
-			)
-
-			return
-		}
-
-	}
+	// /chat is a public same-origin endpoint. Do not reject valid requests
+	// based on Origin/Referer because Railway/custom domains, redirects and
+	// browser privacy settings can make those headers differ or be absent.
 
 	if r.Method != http.MethodPost {
 

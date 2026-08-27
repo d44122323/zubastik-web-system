@@ -1,6 +1,3 @@
-if(localStorage.getItem("adminAuth") !== "true" && !document.cookie.includes("admin_session=true")){
-  window.location.href="/?account=admin";
-}
 function esc(v){return String(v??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[m]));}
 function statusClass(s){return s==="Новая"?"new":s==="Подтверждена"?"confirm":s==="Завершена"?"completed":s==="Отменена"?"cancelled":"";}
 async function loadNotifications(){

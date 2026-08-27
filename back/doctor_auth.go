@@ -280,8 +280,19 @@ SELECT id, password_hash, doctor_id, is_active
 FROM users
 WHERE login=$1 AND role='DOCTOR'
 `, strings.TrimSpace(login)).Scan(&u.ID, &hash, &doctorID, &active)
-	if err != nil || !active || !CheckPassword(password, hash) {
+	if err != nil || !active {
 		return u, errors.New("invalid credentials")
+	}
+	// Backward compatibility: older doctor accounts may contain the legacy
+	// plain-text password in password_hash. Accept it once and immediately
+	// replace it with a PBKDF2 hash.
+	if !CheckPassword(password, hash) {
+		if subtle.ConstantTimeCompare([]byte(hash), []byte(password)) != 1 {
+			return u, errors.New("invalid credentials")
+		}
+		if upgraded, hashErr := HashPassword(password); hashErr == nil {
+			_, _ = DB.Exec(`UPDATE users SET password_hash=$1, updated_at=NOW() WHERE id=$2`, upgraded, u.ID)
+		}
 	}
 
 	u.DoctorID = doctorID

@@ -1,4 +1,3 @@
-if(localStorage.getItem("adminAuth") !== "true" && !document.cookie.includes("admin_session=true")) location.href="/?account=admin";
 let all=[];
 const esc=v=>String(v??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[m]));
 async function load(){try{const r=await fetch('/api/admin/services',{credentials:'same-origin'});if(!r.ok)throw 0;all=await r.json();fillCategories();render();}catch(e){services.innerHTML='<div class="message error">Не удалось загрузить цены.</div>';}}

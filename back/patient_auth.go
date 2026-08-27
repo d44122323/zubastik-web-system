@@ -2,6 +2,7 @@ package main
 
 import (
 	"crypto/rand"
+	"crypto/subtle"
 	"database/sql"
 	"encoding/base64"
 	"encoding/json"
@@ -212,8 +213,18 @@ SELECT u.id,u.patient_id,u.password_hash,u.is_active
 FROM users u JOIN patients p ON p.id=u.patient_id
 WHERE u.role='PATIENT' AND u.is_active=TRUE
 AND (u.login=$1 OR p.phone=$1 OR LOWER(p.email)=LOWER($1))`, strings.TrimSpace(identifier)).Scan(&u.ID, &u.PatientID, &hash, &active)
-	if err != nil || !active || !CheckPassword(password, hash) {
+	if err != nil || !active {
 		return u, errors.New("invalid credentials")
+	}
+	// Backward compatibility for legacy patient accounts. Upgrade the
+	// password to PBKDF2 after a successful legacy login.
+	if !CheckPassword(password, hash) {
+		if subtle.ConstantTimeCompare([]byte(hash), []byte(password)) != 1 {
+			return u, errors.New("invalid credentials")
+		}
+		if upgraded, hashErr := HashPassword(password); hashErr == nil {
+			_, _ = DB.Exec(`UPDATE users SET password_hash=$1, updated_at=NOW() WHERE id=$2`, upgraded, u.ID)
+		}
 	}
 	err = DB.QueryRow(`SELECT id,name,phone,comment FROM patients WHERE id=$1`, u.PatientID).Scan(&u.Patient.ID, &u.Patient.Name, &u.Patient.Phone, &u.Patient.Comment)
 	if err != nil {
