@@ -9,6 +9,7 @@ import (
 	"errors"
 	"fmt"
 	"io"
+	"log"
 	"net/http"
 	"net/url"
 	"os"
@@ -405,13 +406,31 @@ func telegramReminderWorker(cfg Config) {
 }
 
 func telegramPoller(cfg Config) {
-	if telegramToken(cfg) == "" {
+	token := telegramToken(cfg)
+	if token == "" {
 		return
 	}
+
+	// This application uses long polling. A webhook left over from a previous
+	// deployment prevents getUpdates from working, so remove it once at startup.
+	if _, err := telegramCall(cfg, "deleteWebhook", map[string]any{"drop_pending_updates": false}); err != nil {
+		log.Printf("TELEGRAM WEBHOOK WARNING: %v", err)
+	}
+
+	if raw, err := telegramCall(cfg, "getMe", map[string]any{}); err != nil {
+		log.Printf("TELEGRAM PATIENT BOT ERROR: %v", err)
+	} else {
+		var me struct { OK bool `json:"ok"`; Result struct { Username string `json:"username"` } `json:"result"` }
+		if err := json.Unmarshal(raw, &me); err == nil && me.OK {
+			log.Printf("TELEGRAM PATIENT BOT CONNECTED: @%s", me.Result.Username)
+		}
+	}
+
 	var offset int64
 	for {
 		raw, err := telegramCall(cfg, "getUpdates", map[string]any{"offset": offset + 1, "timeout": 20, "allowed_updates": []string{"message"}})
 		if err != nil {
+			log.Printf("TELEGRAM POLLING ERROR: %v", err)
 			time.Sleep(5 * time.Second)
 			continue
 		}

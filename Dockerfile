@@ -7,6 +7,10 @@ RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o /app/server ./back
 
 FROM debian:bookworm-slim
 WORKDIR /app/back
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends ca-certificates \
+    && update-ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
 RUN useradd --create-home --uid 10001 appuser && mkdir -p /app/uploads /app/seed_uploads
 COPY --from=build /app/server /app/server
 COPY front /app/front
