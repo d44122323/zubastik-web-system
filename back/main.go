@@ -52,7 +52,7 @@ func main() {
 		log.Fatal(err)
 	}
 	mux := SetupRouter(cfg)
-	// Railway healthcheck endpoint. It only reports ready after PostgreSQL is reachable.
+
 	mux.(*http.ServeMux).HandleFunc("/health", func(w http.ResponseWriter, r *http.Request) {
 		if r.Method != http.MethodGet {
 			http.Error(w, "method not allowed", http.StatusMethodNotAllowed)

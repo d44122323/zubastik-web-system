@@ -9,7 +9,7 @@ func countTodayStatus(status string) (int, error) {
 	var count int
 	err := DB.QueryRow(`SELECT COUNT(*) FROM requests WHERE status=$1 AND appointment_date=CURRENT_DATE`, status).Scan(&count)
 	if err != nil {
-		// Keep dashboard useful for old requests without appointment_date.
+
 		err = DB.QueryRow(`SELECT COUNT(*) FROM requests WHERE status=$1 AND DATE(created_at)=CURRENT_DATE`, status).Scan(&count)
 	}
 	return count, err

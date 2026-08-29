@@ -65,10 +65,6 @@ func AIChatHandler(w http.ResponseWriter, r *http.Request) {
 		"application/json",
 	)
 
-	// /chat is a public same-origin endpoint. Do not reject valid requests
-	// based on Origin/Referer because Railway/custom domains, redirects and
-	// browser privacy settings can make those headers differ or be absent.
-
 	if r.Method != http.MethodPost {
 
 		http.Error(

@@ -1,43 +1,113 @@
 <!doctype html>
 <html lang="ru">
-<head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard | Администратор</title>
-  <link rel="stylesheet" href="dashboard.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="ui-polish.css">
-</head>
-<body>
-<div class="admin-page">
-  <header class="admin-header"><a href="dashboard.html" class="admin-logo-link"><img src="img/logo.png" class="logo" alt="logo"></a><h1>Dashboard</h1></header>
-  <nav class="navigation">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard | Администратор</title>
+    <link rel="stylesheet" href="dashboard.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="ui-polish.css" />
+  </head>
+  <body>
+    <div class="admin-page">
+      <header class="admin-header">
+        <a href="dashboard.html" class="admin-logo-link"
+          ><img src="img/logo.png" class="logo" alt="logo"
+        /></a>
+        <h1>Dashboard</h1>
+      </header>
+      <nav class="navigation">
         <a href="dashboard.html" class="active">Dashboard</a>
         <a href="requests.html" class="">Заявки</a>
         <a href="doctors-admin.html" class="">Врачи</a>
         <a href="patients.html" class="">Пациенты</a>
         <a href="prices-admin.html" class="">Цены</a>
         <a href="analytics.html" class="">Аналитика</a>
-    </nav>
-  <div class="divider"></div>
-  <main>
-    <section class="page-title"><div><h2>Обзор клиники</h2><p>Основные показатели и записи на сегодня</p></div><a class="panel-link" href="schedule-admin.html">Открыть расписание →</a></section>
-    <section class="stats-grid">
-      <article class="stat-card"><span>Новые заявки</span><strong id="newToday">—</strong><small>сегодня</small></article>
-      <article class="stat-card"><span>Подтверждены</span><strong id="confirmedToday">—</strong><small>сегодня</small></article>
-      <article class="stat-card"><span>Отменены</span><strong id="cancelledToday">—</strong><small>сегодня</small></article>
-      <article class="stat-card"><span>Завершены</span><strong id="completedToday">—</strong><small>сегодня</small></article>
-      <article class="stat-card"><span>Записей</span><strong id="appointmentsToday">—</strong><small>на сегодня</small></article>
-      <article class="stat-card"><span>Врачи</span><strong id="doctorsToday">—</strong><small id="doctorHint">—</small></article>
-    </section>
-    <section class="admin-tools-grid">
-      <section class="panel notifications-panel"><div class="panel-head"><div><h2>Уведомления</h2><p>Новые заявки, требующие внимания</p></div><a class="panel-link" href="requests.html">Открыть заявки →</a></div><div id="notificationsList"></div></section>
-    </section>
-    <div class="content-grid">
-      <section class="panel"><div class="panel-head"><div><h2>Записи на сегодня</h2><p>Ближайшие приёмы и их статус</p></div><a class="panel-link" href="requests.html">Все заявки →</a></div><div class="table-wrap"><div class="table-header"><span>Время</span><span>Пациент</span><span>Услуга</span><span>Врач</span><span>Статус</span></div><div id="todayAppointments"></div></div></section>
-      <section class="panel"><div class="panel-head"><div><h2>Последние заявки</h2><p>Последние обращения пациентов</p></div><a class="panel-link" href="requests.html">Открыть →</a></div><div id="lastRequests" class="request-list"></div></section>
+      </nav>
+      <div class="divider"></div>
+      <main>
+        <section class="page-title">
+          <div>
+            <h2>Обзор клиники</h2>
+            <p>Основные показатели и записи на сегодня</p>
+          </div>
+          <a class="panel-link" href="schedule-admin.html"
+            >Открыть расписание →</a
+          >
+        </section>
+        <section class="stats-grid">
+          <article class="stat-card">
+            <span>Новые заявки</span><strong id="newToday">—</strong
+            ><small>сегодня</small>
+          </article>
+          <article class="stat-card">
+            <span>Подтверждены</span><strong id="confirmedToday">—</strong
+            ><small>сегодня</small>
+          </article>
+          <article class="stat-card">
+            <span>Отменены</span><strong id="cancelledToday">—</strong
+            ><small>сегодня</small>
+          </article>
+          <article class="stat-card">
+            <span>Завершены</span><strong id="completedToday">—</strong
+            ><small>сегодня</small>
+          </article>
+          <article class="stat-card">
+            <span>Записей</span><strong id="appointmentsToday">—</strong
+            ><small>на сегодня</small>
+          </article>
+          <article class="stat-card">
+            <span>Врачи</span><strong id="doctorsToday">—</strong
+            ><small id="doctorHint">—</small>
+          </article>
+        </section>
+        <section class="admin-tools-grid">
+          <section class="panel notifications-panel">
+            <div class="panel-head">
+              <div>
+                <h2>Уведомления</h2>
+                <p>Новые заявки, требующие внимания</p>
+              </div>
+              <a class="panel-link" href="requests.html">Открыть заявки →</a>
+            </div>
+            <div id="notificationsList"></div>
+          </section>
+        </section>
+        <div class="content-grid">
+          <section class="panel">
+            <div class="panel-head">
+              <div>
+                <h2>Записи на сегодня</h2>
+                <p>Ближайшие приёмы и их статус</p>
+              </div>
+              <a class="panel-link" href="requests.html">Все заявки →</a>
+            </div>
+            <div class="table-wrap">
+              <div class="table-header">
+                <span>Время</span><span>Пациент</span><span>Услуга</span
+                ><span>Врач</span><span>Статус</span>
+              </div>
+              <div id="todayAppointments"></div>
+            </div>
+          </section>
+          <section class="panel">
+            <div class="panel-head">
+              <div>
+                <h2>Последние заявки</h2>
+                <p>Последние обращения пациентов</p>
+              </div>
+              <a class="panel-link" href="requests.html">Открыть →</a>
+            </div>
+            <div id="lastRequests" class="request-list"></div>
+          </section>
+        </div>
+      </main>
     </div>
-  </main>
-</div>
-<script src="dashboard.js" defer></script>
-</body></html>
+    <script src="dashboard.js" defer></script>
+  </body>
+</html>

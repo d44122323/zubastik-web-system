@@ -7,8 +7,6 @@ import (
 	"strings"
 )
 
-// PatientRescheduleAppointmentHandler allows a patient to move only their own active appointment
-// to a free slot of the same doctor. The existing doctor schedule/availability is reused.
 func PatientRescheduleAppointmentHandler(w http.ResponseWriter, r *http.Request) {
 	u, err := currentPatientUser(r)
 	if err != nil {

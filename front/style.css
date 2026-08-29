@@ -1659,7 +1659,6 @@ button,
   }
 }
 
-/* Единое окно входа для пациента, врача и администратора */
 .account-role-tabs {
   display: grid;
   grid-template-columns: 1fr 1fr 1.25fr;
@@ -1737,7 +1736,6 @@ button,
   }
 }
 
-/* Согласие на обработку персональных данных в форме «Личный кабинет» */
 .privacy-consent {
   display: flex;
   align-items: flex-start;

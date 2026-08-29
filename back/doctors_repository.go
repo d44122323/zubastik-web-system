@@ -101,7 +101,7 @@ updated_at=NOW()`, d.ID, d.Name, d.Photo, d.Position, d.Experience, d.Specializa
 	if err != nil {
 		return err
 	}
-	// Initial demo schedule: weekdays 09:00-18:00. Existing administrator changes are preserved.
+
 	for doctorID := 1; doctorID <= 7; doctorID++ {
 		for weekday := 1; weekday <= 5; weekday++ {
 			_, err = DB.Exec(`INSERT INTO doctor_schedule (doctor_id, weekday, is_working, start_time, end_time) VALUES ($1,$2,TRUE,'09:00','18:00') ON CONFLICT (doctor_id,weekday) DO NOTHING`, doctorID, weekday)
@@ -219,7 +219,7 @@ func DeactivateDoctor(id int) error {
 	if affected == 0 {
 		return sql.ErrNoRows
 	}
-	// Keep the linked doctor account in sync with the clinic status.
+
 	_, _ = DB.Exec(`UPDATE users SET is_active=FALSE, updated_at=NOW() WHERE doctor_id=$1 AND role='DOCTOR'`, id)
 	return nil
 }
@@ -268,7 +268,7 @@ func GetDoctorSchedule(doctorID int) (DoctorSchedule, error) {
 	if err := rows.Err(); err != nil {
 		return result, err
 	}
-	// Always return all seven days, including unsaved days.
+
 	byDay := make(map[int]DoctorScheduleDay, len(result.Days))
 	for _, d := range result.Days {
 		byDay[d.Weekday] = d

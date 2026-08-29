@@ -134,8 +134,6 @@ func GetServices(activeOnly bool) ([]Service, error) {
 	return result, rows.Err()
 }
 
-// ResolveServices returns canonical service names and their current prices.
-// It is used when a doctor or administrator adds services to an existing request.
 func ResolveServices(ids []int) (string, int, error) {
 	if len(ids) == 0 {
 		return "", 0, nil

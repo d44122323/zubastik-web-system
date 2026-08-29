@@ -175,9 +175,7 @@ func UpsertMedicalRecord(doctorID, appointmentID int, complaints, diagnosis, tre
 	if err = tx.Commit(); err != nil {
 		return MedicalRecord{}, err
 	}
-	// Запись переводится в "Завершена" именно после сохранения медицинской карты.
-	// Уведомляем пациента один раз в момент завершения приёма, без передачи
-	// медицинских подробностей (диагноза/лечения) в Telegram.
+
 	if appt.Status == "Подтверждена" {
 		go telegramStatusNotification(LoadConfig(), appointmentID, "Завершена")
 	}

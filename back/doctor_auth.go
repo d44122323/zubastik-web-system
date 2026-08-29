@@ -126,8 +126,6 @@ CREATE INDEX IF NOT EXISTS idx_auth_sessions_expires_at ON auth_sessions(expires
 		return err
 	}
 
-	// Demo accounts are created only when no account exists for the doctor.
-	// Change these passwords before using the system outside a local/demo environment.
 	for doctorID := 1; doctorID <= 7; doctorID++ {
 		login := fmt.Sprintf("doctor%d", doctorID)
 		password := fmt.Sprintf("Doctor%d!2026", doctorID)
@@ -283,9 +281,7 @@ WHERE login=$1 AND role='DOCTOR'
 	if err != nil || !active {
 		return u, errors.New("invalid credentials")
 	}
-	// Backward compatibility: older doctor accounts may contain the legacy
-	// plain-text password in password_hash. Accept it once and immediately
-	// replace it with a PBKDF2 hash.
+
 	if !CheckPassword(password, hash) {
 		if subtle.ConstantTimeCompare([]byte(hash), []byte(password)) != 1 {
 			return u, errors.New("invalid credentials")

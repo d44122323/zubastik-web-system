@@ -18,7 +18,7 @@ This project is prepared to run on Railway with PostgreSQL.
 1. Create a new Railway project.
 2. Add a PostgreSQL service.
 3. Add this project as a service from GitHub or deploy it with the Railway CLI. Railway detects the root `Dockerfile` automatically.
-4. In the application service Variables, add the secret variables from `.env.example` (without the local DB_* variables if `DATABASE_URL` is supplied by PostgreSQL).
+4. In the application service Variables, add the secret variables from `.env.example` (without the local DB\_\* variables if `DATABASE_URL` is supplied by PostgreSQL).
 5. Set `DATABASE_URL` to the PostgreSQL service's `DATABASE_URL` reference if Railway does not automatically provide it to the app service. In the dashboard this can be a reference such as `${{Postgres.DATABASE_URL}}` where `Postgres` is the exact name of the database service.
 6. Set `APP_ENV=production`.
 7. Set `SITE_URL` to the final public URL, e.g. `https://your-app.up.railway.app`, and later replace it with the custom domain when you add one.

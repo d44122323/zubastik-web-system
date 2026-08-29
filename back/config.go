@@ -3,11 +3,10 @@ package main
 import "os"
 
 type Config struct {
-	// Patient bot
+
 	TelegramBotToken    string
 	TelegramBotUsername string
 
-	// Staff bot (doctor/admin)
 	TelegramStaffBotToken    string
 	TelegramStaffBotUsername string
 	TelegramStaffChatID      string

@@ -44,7 +44,7 @@ func GetDoctorAvailability(doctorID int, date time.Time) (DoctorAvailability, er
         FROM doctor_schedule WHERE doctor_id=$1 AND weekday=$2
     `, doctorID, weekday).Scan(&working, &start, &end)
 	if err == sql.ErrNoRows {
-		// No saved schedule means no bookable slots; this avoids inventing availability.
+
 		return result, nil
 	}
 	if err != nil {

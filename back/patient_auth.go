@@ -105,7 +105,7 @@ func PatientRegisterHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	if err == sql.ErrNoRows {
-		// If the email already belongs to another patient, registration is rejected.
+
 		if p.Email != "" {
 			var emailPatientID int
 			errEmail := DB.QueryRow(`SELECT id FROM patients WHERE LOWER(email)=LOWER($1)`, p.Email).Scan(&emailPatientID)
@@ -129,7 +129,7 @@ func PatientRegisterHandler(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 	} else {
-		// Existing guest patient may be converted into an account.
+
 		if p.Email != "" {
 			var emailPatientID int
 			errEmail := DB.QueryRow(`SELECT id FROM patients WHERE LOWER(email)=LOWER($1)`, p.Email).Scan(&emailPatientID)
@@ -216,8 +216,7 @@ AND (u.login=$1 OR p.phone=$1 OR LOWER(p.email)=LOWER($1))`, strings.TrimSpace(i
 	if err != nil || !active {
 		return u, errors.New("invalid credentials")
 	}
-	// Backward compatibility for legacy patient accounts. Upgrade the
-	// password to PBKDF2 after a successful legacy login.
+
 	if !CheckPassword(password, hash) {
 		if subtle.ConstantTimeCompare([]byte(hash), []byte(password)) != 1 {
 			return u, errors.New("invalid credentials")

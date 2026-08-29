@@ -1,146 +1,193 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Врачи — Dashboard</title>
-    <link rel="stylesheet" href="doctors-admin.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="ui-polish.css">
-</head>
-<body>
-<main class="admin-page">
-    <header class="page-header">
-        <a href="dashboard.html" class="admin-logo-link"><img src="img/logo.png" class="logo" alt="logo"></a>
+    <link rel="stylesheet" href="doctors-admin.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="ui-polish.css" />
+  </head>
+  <body>
+    <main class="admin-page">
+      <header class="page-header">
+        <a href="dashboard.html" class="admin-logo-link"
+          ><img src="img/logo.png" class="logo" alt="logo"
+        /></a>
         <div>
-            <a class="back-link" href="dashboard.html">← Dashboard</a>
-            <h1>Врачи</h1>
-            <p>Управление специалистами клиники</p>
+          <a class="back-link" href="dashboard.html">← Dashboard</a>
+          <h1>Врачи</h1>
+          <p>Управление специалистами клиники</p>
         </div>
         <button class="primary-btn" id="addDoctorBtn">+ Добавить врача</button>
-    </header>
+      </header>
 
-<nav class="navigation">
+      <nav class="navigation">
         <a href="dashboard.html" class="">Dashboard</a>
         <a href="requests.html" class="">Заявки</a>
         <a href="doctors-admin.html" class="active">Врачи</a>
         <a href="patients.html" class="">Пациенты</a>
         <a href="prices-admin.html" class="">Цены</a>
         <a href="analytics.html" class="">Аналитика</a>
-    </nav>
+      </nav>
 
-    <section class="toolbar">
-        <input id="searchInput" type="search" placeholder="Поиск врача...">
+      <section class="toolbar">
+        <input id="searchInput" type="search" placeholder="Поиск врача..." />
         <select id="statusFilter">
-            <option value="all">Все врачи</option>
-            <option value="active">Активные</option>
-            <option value="inactive">Неактивные</option>
+          <option value="all">Все врачи</option>
+          <option value="active">Активные</option>
+          <option value="inactive">Неактивные</option>
         </select>
-    </section>
+      </section>
 
-    <div id="message" class="message"></div>
-    <section id="doctorsList" class="doctors-list"></section>
-</main>
+      <div id="message" class="message"></div>
+      <section id="doctorsList" class="doctors-list"></section>
+    </main>
 
-<div class="modal hidden" id="doctorModal">
-    <div class="modal-window">
+    <div class="modal hidden" id="doctorModal">
+      <div class="modal-window">
         <button class="modal-close" id="closeModal" type="button">×</button>
         <h2 id="modalTitle">Добавить врача</h2>
 
         <form id="doctorForm">
-            <input type="hidden" id="doctorId">
+          <input type="hidden" id="doctorId" />
 
-            <div class="form-grid">
-                <label>ФИО
-                    <input id="name" required>
-                </label>
-                <label>Фото врача
-                    <input id="photo" type="file" accept="image/jpeg,image/png,image/webp">
-                    <small class="photo-hint">JPG, PNG или WEBP, до 5 МБ</small>
-                    <div id="photoPreview" class="photo-preview hidden">
-                        <img id="photoPreviewImage" alt="Предпросмотр фото">
-                    </div>
-                </label>
-                <label class="full">Должность
-                    <input id="position">
-                </label>
-                <label>Стаж
-                    <input id="experience" placeholder="10 лет">
-                </label>
-                <label>Специализация
-                    <input id="specialization">
-                </label>
-                <label class="full">Образование
-                    <textarea id="education" rows="3"></textarea>
-                </label>
-                <label class="full">О враче
-                    <textarea id="description" rows="5" placeholder="Каждый абзац с новой строки"></textarea>
-                </label>
-                <label class="full">Полная специализация
-                    <textarea id="specializationFull" rows="4"></textarea>
-                </label>
-            </div>
+          <div class="form-grid">
+            <label
+              >ФИО
+              <input id="name" required />
+            </label>
+            <label
+              >Фото врача
+              <input
+                id="photo"
+                type="file"
+                accept="image/jpeg,image/png,image/webp"
+              />
+              <small class="photo-hint">JPG, PNG или WEBP, до 5 МБ</small>
+              <div id="photoPreview" class="photo-preview hidden">
+                <img id="photoPreviewImage" alt="Предпросмотр фото" />
+              </div>
+            </label>
+            <label class="full"
+              >Должность
+              <input id="position" />
+            </label>
+            <label
+              >Стаж
+              <input id="experience" placeholder="10 лет" />
+            </label>
+            <label
+              >Специализация
+              <input id="specialization" />
+            </label>
+            <label class="full"
+              >Образование
+              <textarea id="education" rows="3"></textarea>
+            </label>
+            <label class="full"
+              >О враче
+              <textarea
+                id="description"
+                rows="5"
+                placeholder="Каждый абзац с новой строки"
+              ></textarea>
+            </label>
+            <label class="full"
+              >Полная специализация
+              <textarea id="specializationFull" rows="4"></textarea>
+            </label>
+          </div>
 
-            <div class="modal-actions">
-                <button class="secondary-btn" type="button" id="cancelBtn">Отмена</button>
-                <button class="primary-btn" type="submit">Сохранить</button>
-            </div>
+          <div class="modal-actions">
+            <button class="secondary-btn" type="button" id="cancelBtn">
+              Отмена
+            </button>
+            <button class="primary-btn" type="submit">Сохранить</button>
+          </div>
         </form>
+      </div>
     </div>
-</div>
 
-<div class="modal hidden" id="accountModal">
-    <div class="modal-window">
-        <button class="modal-close" id="closeAccountModal" type="button">×</button>
+    <div class="modal hidden" id="accountModal">
+      <div class="modal-window">
+        <button class="modal-close" id="closeAccountModal" type="button">
+          ×
+        </button>
         <h2>Учётная запись врача</h2>
         <p id="accountDoctorName" class="schedule-doctor-name"></p>
         <form id="accountForm">
-            <input type="hidden" id="accountDoctorId">
-            <div class="form-grid">
-                <label>Логин
-                    <input id="accountLogin" autocomplete="username" required>
-                </label>
-                <label>Пароль
-                    <input id="accountPassword" type="password" autocomplete="new-password" placeholder="Оставьте пустым, чтобы не менять">
-                </label>
-                <label class="full switch-label">
-                    <input id="accountActive" type="checkbox">
-                    <span>Учётная запись активна</span>
-                </label>
-            </div>
-            <p class="account-hint">Пароль никогда не показывается из базы. При изменении он будет сохранён только в виде хеша.</p>
-            <div class="modal-actions">
-                <button class="secondary-btn" type="button" id="cancelAccountBtn">Отмена</button>
-                <button class="primary-btn" type="submit">Сохранить аккаунт</button>
-            </div>
+          <input type="hidden" id="accountDoctorId" />
+          <div class="form-grid">
+            <label
+              >Логин
+              <input id="accountLogin" autocomplete="username" required />
+            </label>
+            <label
+              >Пароль
+              <input
+                id="accountPassword"
+                type="password"
+                autocomplete="new-password"
+                placeholder="Оставьте пустым, чтобы не менять"
+              />
+            </label>
+            <label class="full switch-label">
+              <input id="accountActive" type="checkbox" />
+              <span>Учётная запись активна</span>
+            </label>
+          </div>
+          <p class="account-hint">
+            Пароль никогда не показывается из базы. При изменении он будет
+            сохранён только в виде хеша.
+          </p>
+          <div class="modal-actions">
+            <button class="secondary-btn" type="button" id="cancelAccountBtn">
+              Отмена
+            </button>
+            <button class="primary-btn" type="submit">Сохранить аккаунт</button>
+          </div>
         </form>
+      </div>
     </div>
-</div>
 
-<div class="modal hidden" id="scheduleModal">
-    <div class="modal-window schedule-window">
-        <button class="modal-close" id="closeScheduleModal" type="button">×</button>
+    <div class="modal hidden" id="scheduleModal">
+      <div class="modal-window schedule-window">
+        <button class="modal-close" id="closeScheduleModal" type="button">
+          ×
+        </button>
         <h2>Расписание врача</h2>
         <p class="schedule-doctor-name" id="scheduleDoctorName"></p>
         <div id="scheduleDays" class="schedule-days"></div>
         <section class="unavailability-panel">
-            <h3>Отпуск и временная недоступность</h3>
-            <form id="unavailabilityForm" class="unavailability-form">
-                <input id="unavailabilityStart" type="date" required>
-                <input id="unavailabilityEnd" type="date" required>
-                <input id="unavailabilityReason" type="text" placeholder="Причина, например: отпуск">
-                <button class="secondary-btn" type="submit">Добавить</button>
-            </form>
-            <div id="unavailabilityList" class="unavailability-list"></div>
+          <h3>Отпуск и временная недоступность</h3>
+          <form id="unavailabilityForm" class="unavailability-form">
+            <input id="unavailabilityStart" type="date" required />
+            <input id="unavailabilityEnd" type="date" required />
+            <input
+              id="unavailabilityReason"
+              type="text"
+              placeholder="Причина, например: отпуск"
+            />
+            <button class="secondary-btn" type="submit">Добавить</button>
+          </form>
+          <div id="unavailabilityList" class="unavailability-list"></div>
         </section>
         <div class="modal-actions">
-            <button class="secondary-btn" type="button" id="cancelScheduleBtn">Отмена</button>
-            <button class="primary-btn" type="button" id="saveScheduleBtn">Сохранить расписание</button>
+          <button class="secondary-btn" type="button" id="cancelScheduleBtn">
+            Отмена
+          </button>
+          <button class="primary-btn" type="button" id="saveScheduleBtn">
+            Сохранить расписание
+          </button>
         </div>
+      </div>
     </div>
-</div>
 
-<script src="doctors-admin.js" defer></script>
-</body>
+    <script src="doctors-admin.js" defer></script>
+  </body>
 </html>

@@ -109,7 +109,7 @@ func SetupRouter(cfg Config) http.Handler {
 	)
 	uploadsFS := http.StripPrefix("/uploads/", http.FileServer(http.Dir(uploadsRoot())))
 	mux.Handle("/uploads/", uploadsFS)
-	// Doctor portal files are protected; authentication is available only from the main page.
+
 	doctorFS := http.StripPrefix("/doctor/", http.FileServer(http.Dir("../front/doctor")))
 	mux.Handle("/doctor/", doctorFS)
 	mux.Handle("/doctor/dashboard.html", DoctorAuthMiddleware(doctorFS))
@@ -136,7 +136,7 @@ func SetupRouter(cfg Config) http.Handler {
 	mux.Handle("/doctor/questions.html", DoctorAuthMiddleware(doctorFS))
 	mux.Handle("/doctor/questions.css", DoctorAuthMiddleware(doctorFS))
 	mux.Handle("/doctor/questions.js", DoctorAuthMiddleware(doctorFS))
-	// Legacy doctor login URL now returns to the single authentication window on the home page.
+
 	mux.HandleFunc("/doctor-login.html", func(w http.ResponseWriter, r *http.Request) {
 		http.Redirect(w, r, "/?account=doctor", http.StatusSeeOther)
 	})

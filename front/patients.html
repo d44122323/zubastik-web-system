@@ -1,66 +1,136 @@
 <!doctype html>
 <html lang="ru">
-<head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Пациенты — Администратор</title>
-<link rel="stylesheet" href="patients.css">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="ui-polish.css">
-</head>
-<body>
-<div class="admin-page">
-<header class="topbar">
-  <a href="dashboard.html" class="brand"><img src="img/logo.png" alt="logo"></a>
-  <div class="page-title">Пациенты</div>
-</header>
-<nav class="navigation">
-  <a href="dashboard.html">Dashboard</a><a href="requests.html">Заявки</a><a href="doctors-admin.html">Врачи</a><a href="patients.html" class="active">Пациенты</a><a href="prices-admin.html">Цены</a><a href="analytics.html">Аналитика</a>
-</nav>
-<div class="divider"></div>
-<main>
-  <section class="page-heading"><div><div class="eyebrow">АДМИНИСТРАТОР</div><h1>Пациенты</h1><p>Поиск, история записей и медицинская информация пациентов.</p></div></section>
-  <section class="toolbar">
-    <input id="searchInput" class="search-input" type="search" placeholder="Поиск по имени или телефону…">
-    <button id="addPatientBtn" class="primary-btn">+ Добавить пациента</button>
-  </section>
-  <section class="filters" id="filters">
-    <button class="filter-btn active" data-filter="Все">Все</button>
-    <button class="filter-btn" data-filter="Новые">Новые</button>
-    <button class="filter-btn" data-filter="Постоянные">Постоянные</button>
-    <button class="filter-btn" data-filter="Были на приёме">Были на приёме</button>
-  </section>
-  <section class="table-card">
-    <div class="table-head"><span>ID</span><span>Пациент</span><span>Телефон</span><span>Врач</span><span>Последняя запись</span><span>Услуга</span></div>
-    <div id="patientsTable"></div>
-  </section>
-</main>
-</div>
-<div id="overlay" class="overlay"></div>
-<aside id="drawer" class="patient-drawer">
-  <button id="closeBtn" class="close-btn" aria-label="Закрыть">×</button>
-  <div class="drawer-head"><div class="eyebrow">КАРТОЧКА ПАЦИЕНТА</div><h2 id="drawerTitle">Пациент</h2></div>
-  <div id="drawerView">
-    <div class="info-grid">
-      <div class="info-card"><span>Имя</span><strong id="patientNameView">—</strong></div>
-      <div class="info-card"><span>Телефон</span><strong id="patientPhoneView">—</strong></div>
-      <div class="info-card"><span>Врач</span><strong id="patientDoctorView">—</strong></div>
-      <div class="info-card"><span>Всего посещений</span><strong id="visitsView">0</strong></div>
-      <div class="info-card"><span>Последний визит</span><strong id="lastVisitView">—</strong></div>
-      <div class="info-card"><span>Общая сумма</span><strong id="totalView">0 ₽</strong></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Пациенты — Администратор</title>
+    <link rel="stylesheet" href="patients.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="ui-polish.css" />
+  </head>
+  <body>
+    <div class="admin-page">
+      <header class="topbar">
+        <a href="dashboard.html" class="brand"
+          ><img src="img/logo.png" alt="logo"
+        /></a>
+        <div class="page-title">Пациенты</div>
+      </header>
+      <nav class="navigation">
+        <a href="dashboard.html">Dashboard</a><a href="requests.html">Заявки</a
+        ><a href="doctors-admin.html">Врачи</a
+        ><a href="patients.html" class="active">Пациенты</a
+        ><a href="prices-admin.html">Цены</a
+        ><a href="analytics.html">Аналитика</a>
+      </nav>
+      <div class="divider"></div>
+      <main>
+        <section class="page-heading">
+          <div>
+            <div class="eyebrow">АДМИНИСТРАТОР</div>
+            <h1>Пациенты</h1>
+            <p>Поиск, история записей и медицинская информация пациентов.</p>
+          </div>
+        </section>
+        <section class="toolbar">
+          <input
+            id="searchInput"
+            class="search-input"
+            type="search"
+            placeholder="Поиск по имени или телефону…"
+          />
+          <button id="addPatientBtn" class="primary-btn">
+            + Добавить пациента
+          </button>
+        </section>
+        <section class="filters" id="filters">
+          <button class="filter-btn active" data-filter="Все">Все</button>
+          <button class="filter-btn" data-filter="Новые">Новые</button>
+          <button class="filter-btn" data-filter="Постоянные">
+            Постоянные
+          </button>
+          <button class="filter-btn" data-filter="Были на приёме">
+            Были на приёме
+          </button>
+        </section>
+        <section class="table-card">
+          <div class="table-head">
+            <span>ID</span><span>Пациент</span><span>Телефон</span
+            ><span>Врач</span><span>Последняя запись</span><span>Услуга</span>
+          </div>
+          <div id="patientsTable"></div>
+        </section>
+      </main>
     </div>
-    <section class="drawer-section"><h3>История заявок и посещений</h3><div id="history" class="history"></div></section>
-    <section class="drawer-section"><h3>Медицинская информация</h3><div id="medicalRecords" class="medical-records"></div></section>
-    <section class="drawer-section comment-section"><h3>Комментарий администратора</h3><div id="commentView" class="comment-box">—</div></section>
-    <section class="drawer-actions"><h3>Действия</h3><button id="editBtn" class="secondary-btn edit-patient-btn">Редактировать пациента</button></section>
-  </div>
-  <div id="drawerForm" class="drawer-form hidden">
-    <div class="form-group"><label>Имя</label><input id="patientName"></div>
-    <div class="form-group"><label>Телефон</label><input id="patientPhone"></div>
-    <div class="form-group"><label>Комментарий</label><textarea id="patientComment" rows="4"></textarea></div>
-    <div class="form-actions"><button id="cancelEditBtn" class="secondary-btn">Отмена</button><button id="savePatientBtn" class="primary-btn">Сохранить</button></div>
-  </div>
-</aside>
-<script src="patients.js"></script>
-</body>
+    <div id="overlay" class="overlay"></div>
+    <aside id="drawer" class="patient-drawer">
+      <button id="closeBtn" class="close-btn" aria-label="Закрыть">×</button>
+      <div class="drawer-head">
+        <div class="eyebrow">КАРТОЧКА ПАЦИЕНТА</div>
+        <h2 id="drawerTitle">Пациент</h2>
+      </div>
+      <div id="drawerView">
+        <div class="info-grid">
+          <div class="info-card">
+            <span>Имя</span><strong id="patientNameView">—</strong>
+          </div>
+          <div class="info-card">
+            <span>Телефон</span><strong id="patientPhoneView">—</strong>
+          </div>
+          <div class="info-card">
+            <span>Врач</span><strong id="patientDoctorView">—</strong>
+          </div>
+          <div class="info-card">
+            <span>Всего посещений</span><strong id="visitsView">0</strong>
+          </div>
+          <div class="info-card">
+            <span>Последний визит</span><strong id="lastVisitView">—</strong>
+          </div>
+          <div class="info-card">
+            <span>Общая сумма</span><strong id="totalView">0 ₽</strong>
+          </div>
+        </div>
+        <section class="drawer-section">
+          <h3>История заявок и посещений</h3>
+          <div id="history" class="history"></div>
+        </section>
+        <section class="drawer-section">
+          <h3>Медицинская информация</h3>
+          <div id="medicalRecords" class="medical-records"></div>
+        </section>
+        <section class="drawer-section comment-section">
+          <h3>Комментарий администратора</h3>
+          <div id="commentView" class="comment-box">—</div>
+        </section>
+        <section class="drawer-actions">
+          <h3>Действия</h3>
+          <button id="editBtn" class="secondary-btn edit-patient-btn">
+            Редактировать пациента
+          </button>
+        </section>
+      </div>
+      <div id="drawerForm" class="drawer-form hidden">
+        <div class="form-group">
+          <label>Имя</label><input id="patientName" />
+        </div>
+        <div class="form-group">
+          <label>Телефон</label><input id="patientPhone" />
+        </div>
+        <div class="form-group">
+          <label>Комментарий</label
+          ><textarea id="patientComment" rows="4"></textarea>
+        </div>
+        <div class="form-actions">
+          <button id="cancelEditBtn" class="secondary-btn">Отмена</button
+          ><button id="savePatientBtn" class="primary-btn">Сохранить</button>
+        </div>
+      </div>
+    </aside>
+    <script src="patients.js"></script>
+  </body>
 </html>

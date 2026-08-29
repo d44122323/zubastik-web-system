@@ -1,5 +1,77 @@
-const params=new URLSearchParams(location.search);const appointmentId=params.get('appointment_id');
-const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-async function init(){if(!appointmentId){location='/doctor/appointments.html';return}const me=await fetch('/api/doctor/me',{credentials:'include'});if(!me.ok){location='/?account=doctor';return}document.getElementById('doctorName').textContent=(await me.json()).name;const r=await fetch('/api/doctor/requests/'+appointmentId,{credentials:'include'});if(!r.ok){document.getElementById('appointment').textContent='Запись не найдена';return}const a=await r.json();document.getElementById('appointment').innerHTML=`<div class="eyebrow">Запись №${a.id}</div><h2>${esc(a.name)}</h2><div>${esc(a.appointment_date||'')} · <b>${esc(a.appointment_time||'')}</b></div><div>${esc(a.services||'')}</div><div>${esc(a.phone||'')}</div>${a.appointment_comment?`<p class="note">Комментарий: ${esc(a.appointment_comment)}</p>`:''}`;const rec=await fetch('/api/doctor/medical-records/'+appointmentId,{credentials:'include'});if(rec.ok){const m=await rec.json();fill(m)}else if(rec.status!==404){document.getElementById('message').textContent='Не удалось загрузить медицинскую запись';}document.getElementById('recordForm').classList.remove('hidden')}
-function fill(m){for(const n of ['complaints','diagnosis','treatment','recommendations'])document.querySelector(`[name="${n}"]`).value=m[n]||'';document.getElementById('existingFiles').innerHTML=(m.files||[]).length?'<h3>Прикреплённые файлы</h3>'+(m.files||[]).map(f=>`<a class="file" target="_blank" href="/api/doctor/medical-files/${f.id}">${esc(f.file_name)}</a>`).join(''):''}
-document.getElementById('recordForm').addEventListener('submit',async e=>{e.preventDefault();const msg=document.getElementById('message');msg.textContent='Сохранение...';const r=await fetch('/api/doctor/medical-records/'+appointmentId,{method:'POST',credentials:'include',body:new FormData(e.target)});if(!r.ok){msg.textContent=await r.text();return}msg.textContent='Приём завершён, медицинская запись сохранена.';setTimeout(()=>location='/doctor/appointments.html',700)});document.getElementById('logout').onclick=async()=>{await fetch('/doctor/logout',{method:'POST',credentials:'include'});location='/?account=doctor'};init();
+const params = new URLSearchParams(location.search);
+const appointmentId = params.get("appointment_id");
+const esc = (x) =>
+  String(x ?? "").replace(
+    /[&<>"']/g,
+    (c) =>
+      ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[
+        c
+      ],
+  );
+async function init() {
+  if (!appointmentId) {
+    location = "/doctor/appointments.html";
+    return;
+  }
+  const me = await fetch("/api/doctor/me", { credentials: "include" });
+  if (!me.ok) {
+    location = "/?account=doctor";
+    return;
+  }
+  document.getElementById("doctorName").textContent = (await me.json()).name;
+  const r = await fetch("/api/doctor/requests/" + appointmentId, {
+    credentials: "include",
+  });
+  if (!r.ok) {
+    document.getElementById("appointment").textContent = "Запись не найдена";
+    return;
+  }
+  const a = await r.json();
+  document.getElementById("appointment").innerHTML =
+    `<div class="eyebrow">Запись №${a.id}</div><h2>${esc(a.name)}</h2><div>${esc(a.appointment_date || "")} · <b>${esc(a.appointment_time || "")}</b></div><div>${esc(a.services || "")}</div><div>${esc(a.phone || "")}</div>${a.appointment_comment ? `<p class="note">Комментарий: ${esc(a.appointment_comment)}</p>` : ""}`;
+  const rec = await fetch("/api/doctor/medical-records/" + appointmentId, {
+    credentials: "include",
+  });
+  if (rec.ok) {
+    const m = await rec.json();
+    fill(m);
+  } else if (rec.status !== 404) {
+    document.getElementById("message").textContent =
+      "Не удалось загрузить медицинскую запись";
+  }
+  document.getElementById("recordForm").classList.remove("hidden");
+}
+function fill(m) {
+  for (const n of ["complaints", "diagnosis", "treatment", "recommendations"])
+    document.querySelector(`[name="${n}"]`).value = m[n] || "";
+  document.getElementById("existingFiles").innerHTML = (m.files || []).length
+    ? "<h3>Прикреплённые файлы</h3>" +
+      (m.files || [])
+        .map(
+          (f) =>
+            `<a class="file" target="_blank" href="/api/doctor/medical-files/${f.id}">${esc(f.file_name)}</a>`,
+        )
+        .join("")
+    : "";
+}
+document.getElementById("recordForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const msg = document.getElementById("message");
+  msg.textContent = "Сохранение...";
+  const r = await fetch("/api/doctor/medical-records/" + appointmentId, {
+    method: "POST",
+    credentials: "include",
+    body: new FormData(e.target),
+  });
+  if (!r.ok) {
+    msg.textContent = await r.text();
+    return;
+  }
+  msg.textContent = "Приём завершён, медицинская запись сохранена.";
+  setTimeout(() => (location = "/doctor/appointments.html"), 700);
+});
+document.getElementById("logout").onclick = async () => {
+  await fetch("/doctor/logout", { method: "POST", credentials: "include" });
+  location = "/?account=doctor";
+};
+init();

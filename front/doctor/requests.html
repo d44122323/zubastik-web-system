@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Мои заявки | ЗУ-БАСТИК</title>
     <link rel="stylesheet" href="/doctor/requests.css" />
-      <link rel="stylesheet" href="../ui-polish.css">
-</head>
+    <link rel="stylesheet" href="../ui-polish.css" />
+  </head>
   <body>
     <div class="app">
       <header>
@@ -49,12 +49,28 @@
     </div>
     <div id="serviceModal" class="service-modal hidden">
       <div class="service-modal-card">
-        <button type="button" id="serviceModalClose" class="service-modal-close">×</button>
+        <button
+          type="button"
+          id="serviceModalClose"
+          class="service-modal-close"
+        >
+          ×
+        </button>
         <h2>Услуги записи</h2>
-        <p class="service-modal-hint">Выберите услуги. Цена будет рассчитана по текущему прайсу.</p>
+        <p class="service-modal-hint">
+          Выберите услуги. Цена будет рассчитана по текущему прайсу.
+        </p>
         <div id="serviceOptions" class="service-options"></div>
-        <div class="service-total">Итого: <strong id="serviceTotal">0 ₽</strong></div>
-        <div class="service-modal-actions"><button type="button" id="serviceCancel" class="secondary">Отмена</button><button type="button" id="serviceSave" class="primary">Сохранить</button></div>
+        <div class="service-total">
+          Итого: <strong id="serviceTotal">0 ₽</strong>
+        </div>
+        <div class="service-modal-actions">
+          <button type="button" id="serviceCancel" class="secondary">
+            Отмена</button
+          ><button type="button" id="serviceSave" class="primary">
+            Сохранить
+          </button>
+        </div>
       </div>
     </div>
     <script src="/doctor/requests.js"></script>

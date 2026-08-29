@@ -11,12 +11,14 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
-      <link rel="stylesheet" href="ui-polish.css">
-</head>
+    <link rel="stylesheet" href="ui-polish.css" />
+  </head>
   <body>
     <div class="requests-page">
       <header class="requests-header">
-        <a href="dashboard.html" class="admin-logo-link"><img src="img/logo.png" class="logo" /></a>
+        <a href="dashboard.html" class="admin-logo-link"
+          ><img src="img/logo.png" class="logo"
+        /></a>
         <h1>Управление записями</h1>
       </header>
       <nav class="navigation">
@@ -26,7 +28,7 @@
         <a href="patients.html" class="">Пациенты</a>
         <a href="prices-admin.html" class="">Цены</a>
         <a href="analytics.html" class="">Аналитика</a>
-    </nav>
+      </nav>
       <div class="divider"></div>
       <section class="requests-title">
         <h2>Записи пациентов</h2>
@@ -76,7 +78,10 @@
       <div class="drawer-divider"></div>
       <div class="drawer-block">
         <span class="drawer-label">Услуги</span>
-        <div class="services-list" id="servicesList"></div><button type="button" class="add-services-btn" id="addServicesBtn">+ Добавить / изменить услуги</button>
+        <div class="services-list" id="servicesList"></div>
+        <button type="button" class="add-services-btn" id="addServicesBtn">
+          + Добавить / изменить услуги
+        </button>
       </div>
       <div class="drawer-divider"></div>
       <div class="appointment-edit">
@@ -115,7 +120,10 @@
           >
         </div>
       </div>
-      <div class="drawer-actions"><button class="telegram-send-btn" id="telegramRequestBtn" type="button">📨 Telegram</button>
+      <div class="drawer-actions">
+        <button class="telegram-send-btn" id="telegramRequestBtn" type="button">
+          📨 Telegram
+        </button>
         <button class="quick-confirm">Подтвердить</button
         ><button class="quick-cancel">Отменить</button
         ><button class="quick-done">Завершить</button>
@@ -124,11 +132,26 @@
     </aside>
     <div id="adminServiceModal" class="admin-service-modal hidden">
       <div class="admin-service-card">
-        <button type="button" id="adminServiceClose" class="admin-service-close">×</button>
-        <h2>Услуги записи</h2><p>Добавьте услуги к заявке, даже если пациент изначально ничего не выбрал.</p>
+        <button
+          type="button"
+          id="adminServiceClose"
+          class="admin-service-close"
+        >
+          ×
+        </button>
+        <h2>Услуги записи</h2>
+        <p>
+          Добавьте услуги к заявке, даже если пациент изначально ничего не
+          выбрал.
+        </p>
         <div id="adminServiceOptions" class="admin-service-options"></div>
-        <div class="admin-service-total">Итого: <strong id="adminServiceTotal">0 ₽</strong></div>
-        <div class="admin-service-actions"><button type="button" id="adminServiceCancel">Отмена</button><button type="button" id="adminServiceSave">Сохранить услуги</button></div>
+        <div class="admin-service-total">
+          Итого: <strong id="adminServiceTotal">0 ₽</strong>
+        </div>
+        <div class="admin-service-actions">
+          <button type="button" id="adminServiceCancel">Отмена</button
+          ><button type="button" id="adminServiceSave">Сохранить услуги</button>
+        </div>
       </div>
     </div>
     <script src="requests.js"></script>

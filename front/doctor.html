@@ -1,137 +1,148 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Специалист | ЗУ-БАСТИК</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="doctor.css">
-    <link rel="stylesheet" href="ui-polish.css">
-</head>
-<body>
-<header class="header">
-    <a href="index.html" class="site-logo-link"><img src="img/logo.png" class="logo" alt="ЗУ-БАСТИК"></a>
-    <nav class="nav-menu">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="doctor.css" />
+    <link rel="stylesheet" href="ui-polish.css" />
+  </head>
+  <body>
+    <header class="header">
+      <a href="index.html" class="site-logo-link"
+        ><img src="img/logo.png" class="logo" alt="ЗУ-БАСТИК"
+      /></a>
+      <nav class="nav-menu">
         <a href="index.html">Главная</a>
         <a href="services.html">Услуги</a>
         <a href="doctors.html" class="active">Специалисты</a>
         <a href="index.html#contacts">Контакты</a>
         <a href="prices.html">Цены</a>
-    </nav>
-    <a href="#" class="btn-record" id="doctorRecordTop">Записаться</a>
-</header>
+      </nav>
+      <a href="#" class="btn-record" id="doctorRecordTop">Записаться</a>
+    </header>
 
-<main class="doctor-page">
-    <a href="doctors.html" class="back-link">← Все специалисты</a>
+    <main class="doctor-page">
+      <a href="doctors.html" class="back-link">← Все специалисты</a>
 
-    <section class="doctor-profile" id="doctorProfile">
+      <section class="doctor-profile" id="doctorProfile">
         <div class="doctor-profile-photo">
-            <img id="doctorPhoto" src="" alt="">
+          <img id="doctorPhoto" src="" alt="" />
         </div>
         <div class="doctor-profile-content">
-            <p class="doctor-label">Специалист клиники «ЗУ-БАСТИК»</p>
-            <h1 id="doctorName">Загрузка...</h1>
-            <p class="doctor-position" id="doctorPosition"></p>
+          <p class="doctor-label">Специалист клиники «ЗУ-БАСТИК»</p>
+          <h1 id="doctorName">Загрузка...</h1>
+          <p class="doctor-position" id="doctorPosition"></p>
 
-            <div class="doctor-stats">
-                <div class="doctor-stat">
-                    <span>Стаж работы</span>
-                    <strong id="doctorExperience"></strong>
-                </div>
-                <div class="doctor-stat">
-                    <span>Специализация</span>
-                    <strong id="doctorSpecialization"></strong>
-                </div>
+          <div class="doctor-stats">
+            <div class="doctor-stat">
+              <span>Стаж работы</span>
+              <strong id="doctorExperience"></strong>
             </div>
+            <div class="doctor-stat">
+              <span>Специализация</span>
+              <strong id="doctorSpecialization"></strong>
+            </div>
+          </div>
 
-            <a href="#" class="doctor-record-btn" id="doctorRecord">Записаться к врачу</a>
+          <a href="#" class="doctor-record-btn" id="doctorRecord"
+            >Записаться к врачу</a
+          >
         </div>
-    </section>
+      </section>
 
-    <section class="booking-card" id="booking">
+      <section class="booking-card" id="booking">
         <div>
-            <p class="doctor-label">Онлайн-запись</p>
-            <h2>Выберите дату и свободное время</h2>
-            <p class="booking-hint">Показываются только рабочие и свободные интервалы этого врача.</p>
+          <p class="doctor-label">Онлайн-запись</p>
+          <h2>Выберите дату и свободное время</h2>
+          <p class="booking-hint">
+            Показываются только рабочие и свободные интервалы этого врача.
+          </p>
         </div>
         <div class="booking-controls">
-            <label>Дата
-                <input type="date" id="bookingDate">
-            </label>
+          <label
+            >Дата
+            <input type="date" id="bookingDate" />
+          </label>
         </div>
         <div id="availabilityMessage" class="availability-message"></div>
         <div id="slots" class="slots"></div>
-    </section>
+      </section>
 
-    <section class="doctor-details">
+      <section class="doctor-details">
         <div class="detail-card">
-            <h2>О враче</h2>
-            <div id="doctorDescription"></div>
+          <h2>О враче</h2>
+          <div id="doctorDescription"></div>
         </div>
 
         <aside class="detail-side">
-            <div class="detail-card">
-                <h3>Образование и опыт</h3>
-                <div id="doctorEducation"></div>
-            </div>
-            <div class="detail-card">
-                <h3>Специализация</h3>
-                <p id="doctorSpecializationFull"></p>
-            </div>
+          <div class="detail-card">
+            <h3>Образование и опыт</h3>
+            <div id="doctorEducation"></div>
+          </div>
+          <div class="detail-card">
+            <h3>Специализация</h3>
+            <p id="doctorSpecializationFull"></p>
+          </div>
         </aside>
-    </section>
-</main>
+      </section>
+    </main>
 
-<footer class="footer-block">
-    <div class="footer-logo-text">
-        <a href="index.html" class="site-logo-link footer-logo-link"><img src="img/logo2.png" alt="ЗУ-БАСТИК" class="footer-logo"></a>
+    <footer class="footer-block">
+      <div class="footer-logo-text">
+        <a href="index.html" class="site-logo-link footer-logo-link"
+          ><img src="img/logo2.png" alt="ЗУ-БАСТИК" class="footer-logo"
+        /></a>
         <p class="footer-text">
-            Современная клиника с онлайн-записью,
-            удобным интерфейсом и заботой о пациентах.
+          Современная клиника с онлайн-записью, удобным интерфейсом и заботой о
+          пациентах.
         </p>
-    </div>
+      </div>
 
-    <div class="footer-contacts">
+      <div class="footer-contacts">
         <h3 class="footer-contacts-title">Контакты</h3>
         <p class="footer-contacts-info">
-            +7 (245) 214-09-11<br>
-            info@clinic.ru<br>
-            г. Москва, ул. Здоровья, 10
+          +7 (245) 214-09-11<br />
+          info@clinic.ru<br />
+          г. Москва, ул. Здоровья, 10
         </p>
         <div class="footer-contact-icons">
-            <a href="#"><img src="img/max.png" alt=""></a>
-            <a href="#"><img src="img/tg.png" alt=""></a>
-            <a href="#"><img src="img/vib.png" alt=""></a>
-            <a href="#"><img src="img/wt.png" alt=""></a>
+          <a href="#"><img src="img/max.png" alt="" /></a>
+          <a href="#"><img src="img/tg.png" alt="" /></a>
+          <a href="#"><img src="img/vib.png" alt="" /></a>
+          <a href="#"><img src="img/wt.png" alt="" /></a>
         </div>
-    </div>
+      </div>
 
-    <div class="footer-online">
+      <div class="footer-online">
         <h3 class="footer-online-title">Записаться онлайн</h3>
         <form action="/submit" method="POST">
-            <input
-                class="footer-input"
-                type="text"
-                name="name"
-                placeholder="Ваше имя"
-                required>
-            <input
-                class="footer-input phone"
-                type="text"
-                name="phone"
-                placeholder="+7 (000) 000-00-00"
-                required>
-            <input
-                type="hidden"
-                name="comment"
-                value="без комментариев">
-            <button class="footer-btn" type="submit">Отправить</button>
+          <input
+            class="footer-input"
+            type="text"
+            name="name"
+            placeholder="Ваше имя"
+            required
+          />
+          <input
+            class="footer-input phone"
+            type="text"
+            name="phone"
+            placeholder="+7 (000) 000-00-00"
+            required
+          />
+          <input type="hidden" name="comment" value="без комментариев" />
+          <button class="footer-btn" type="submit">Отправить</button>
         </form>
-    </div>
-</footer>
+      </div>
+    </footer>
 
-<script src="doctor.js"></script>
-<script src="/patient-prefill.js"></script>
-<script src="/captcha.js"></script>
-</body>
+    <script src="doctor.js"></script>
+    <script src="/patient-prefill.js"></script>
+    <script src="/captcha.js"></script>
+  </body>
 </html>

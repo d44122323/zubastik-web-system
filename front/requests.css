@@ -106,22 +106,22 @@ body {
 }
 .table-header,
 .request-row {
-    display: grid;
-    grid-template-columns: 70px 230px 280px 300px 180px;
-    column-gap: 25px;
-    align-items: center;
+  display: grid;
+  grid-template-columns: 70px 230px 280px 300px 180px;
+  column-gap: 25px;
+  align-items: center;
 }
 
 .table-header {
-    font-size: 18px;
-    font-weight: 600;
-    min-height: 55px;
-    padding: 0 20px;
+  font-size: 18px;
+  font-weight: 600;
+  min-height: 55px;
+  padding: 0 20px;
 }
 
 .request-row {
-    min-height: 75px;
-    padding: 0 20px;
+  min-height: 75px;
+  padding: 0 20px;
 }
 .request-row:hover {
   background: #fff;
@@ -353,17 +353,135 @@ body {
 }
 
 .drawer-grid > div {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
-/* Unified administrator navigation */
-.navigation a.active{color:#00a9cf}
 
-.admin-logo-link{display:block;text-decoration:none;line-height:0}.admin-logo-link .logo{display:block}
-/* Unified admin navigation hover/active effect */
-.navigation a{border-bottom:2px solid transparent;transition:color .15s ease,border-color .15s ease;}
-.navigation a:hover,.navigation a.active{color:#00a8cf;border-color:#00d1ff;}
+.navigation a.active {
+  color: #00a9cf;
+}
 
-.telegram-send-btn{border:1px solid #dbe3ea;background:#f7fafc;color:#17212b;border-radius:10px;padding:10px 14px;cursor:pointer;font:inherit;font-weight:600}.telegram-send-btn:hover{transform:translateY(-1px)}
-.admin-service-modal{position:fixed;inset:0;background:rgba(0,0,0,.35);display:flex;align-items:center;justify-content:center;z-index:30;padding:20px}.admin-service-modal.hidden{display:none}.admin-service-card{position:relative;width:min(650px,100%);max-height:85vh;overflow:auto;background:#fff;border-radius:20px;padding:30px;box-shadow:0 20px 60px rgba(0,0,0,.18)}.admin-service-card h2{margin:0 0 8px}.admin-service-card>p{color:#777;margin:0 0 18px}.admin-service-close{position:absolute;right:16px;top:10px;border:0;background:none;font-size:30px;cursor:pointer}.admin-service-options{display:grid;gap:8px}.admin-service-option{display:flex;justify-content:space-between;gap:12px;padding:11px 13px;border:1px solid #e5e5e5;border-radius:10px}.admin-service-option label{display:flex;gap:9px;align-items:center}.admin-service-total{margin-top:18px;padding-top:15px;border-top:1px solid #eee;font-size:18px}.admin-service-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:18px}.admin-service-actions button{border:0;border-radius:10px;padding:11px 16px;cursor:pointer}.admin-service-actions button:last-child{background:#111;color:#fff}.add-services-btn{margin-top:9px;padding:7px 11px;border:1px solid #ddd;background:#fff;border-radius:9px;cursor:pointer}.add-services-btn:hover{background:#f5f5f5}
+.admin-logo-link {
+  display: block;
+  text-decoration: none;
+  line-height: 0;
+}
+.admin-logo-link .logo {
+  display: block;
+}
+
+.navigation a {
+  border-bottom: 2px solid transparent;
+  transition:
+    color 0.15s ease,
+    border-color 0.15s ease;
+}
+.navigation a:hover,
+.navigation a.active {
+  color: #00a8cf;
+  border-color: #00d1ff;
+}
+
+.telegram-send-btn {
+  border: 1px solid #dbe3ea;
+  background: #f7fafc;
+  color: #17212b;
+  border-radius: 10px;
+  padding: 10px 14px;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 600;
+}
+.telegram-send-btn:hover {
+  transform: translateY(-1px);
+}
+.admin-service-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 30;
+  padding: 20px;
+}
+.admin-service-modal.hidden {
+  display: none;
+}
+.admin-service-card {
+  position: relative;
+  width: min(650px, 100%);
+  max-height: 85vh;
+  overflow: auto;
+  background: #fff;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
+}
+.admin-service-card h2 {
+  margin: 0 0 8px;
+}
+.admin-service-card > p {
+  color: #777;
+  margin: 0 0 18px;
+}
+.admin-service-close {
+  position: absolute;
+  right: 16px;
+  top: 10px;
+  border: 0;
+  background: none;
+  font-size: 30px;
+  cursor: pointer;
+}
+.admin-service-options {
+  display: grid;
+  gap: 8px;
+}
+.admin-service-option {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 11px 13px;
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+}
+.admin-service-option label {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+}
+.admin-service-total {
+  margin-top: 18px;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+  font-size: 18px;
+}
+.admin-service-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 18px;
+}
+.admin-service-actions button {
+  border: 0;
+  border-radius: 10px;
+  padding: 11px 16px;
+  cursor: pointer;
+}
+.admin-service-actions button:last-child {
+  background: #111;
+  color: #fff;
+}
+.add-services-btn {
+  margin-top: 9px;
+  padding: 7px 11px;
+  border: 1px solid #ddd;
+  background: #fff;
+  border-radius: 9px;
+  cursor: pointer;
+}
+.add-services-btn:hover {
+  background: #f5f5f5;
+}

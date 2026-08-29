@@ -93,9 +93,7 @@ WHERE r.id = $1
 	return request, err
 }
 func SaveRequest(patientID int, data FormData) error {
-	// doctor_id, appointment_date and appointment_time are nullable.
-	// A regular contact request may not have a selected doctor or time,
-	// so we must send SQL NULL instead of 0 / empty strings.
+
 	var doctorID any
 	if data.DoctorID > 0 {
 		doctorID = data.DoctorID
@@ -195,7 +193,6 @@ func UpdateAppointment(id int, update AppointmentUpdate) error {
 	dateStr := update.AppointmentDate
 	timeStr := update.AppointmentTime
 
-	// If a field is not supplied, keep the current value.
 	if doctorID <= 0 {
 		doctorID = current.DoctorID
 	}
@@ -206,11 +203,9 @@ func UpdateAppointment(id int, update AppointmentUpdate) error {
 		timeStr = current.AppointmentTime
 	}
 
-	// A regular contact request may have no doctor/date/time.
-	// Validate a slot only when a complete appointment is being saved.
 	if update.Status != "Отменена" && doctorID > 0 && dateStr != "" && timeStr != "" {
 		if err := ValidateAppointment(doctorID, dateStr, timeStr); err != nil {
-			// Allow saving status-only changes for the already booked slot.
+
 			if doctorID != current.DoctorID || dateStr != current.AppointmentDate || timeStr != current.AppointmentTime {
 				return err
 			}

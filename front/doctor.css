@@ -1,777 +1,759 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
 }
 
 body {
-    background: #f9fafb;
-    color: #000;
+  background: #f9fafb;
+  color: #000;
 }
 
-/* =========================
-   HEADER — как doctors.html
-========================= */
-
 .header {
-    width: 100%;
-    max-width: 1440px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px 40px;
-    position: relative;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+  position: relative;
 }
 
 .logo {
-    width: 300px;
-    height: auto;
+  width: 300px;
+  height: auto;
 }
 
 .nav-menu {
-    display: flex;
-    gap: 50px;
-    align-items: center;
+  display: flex;
+  gap: 50px;
+  align-items: center;
 }
 
 .nav-menu a {
-    font-size: 22px;
-    font-weight: 400;
-    font-family: "Inter", sans-serif;
-    color: black;
-    text-decoration: none;
-    transition: 0.2s;
+  font-size: 22px;
+  font-weight: 400;
+  font-family: "Inter", sans-serif;
+  color: black;
+  text-decoration: none;
+  transition: 0.2s;
 }
 
 .nav-menu a:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 .btn-record {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 14px 34px;
-    background: #00D1FF;
-    color: white;
-    text-decoration: none;
-    border-radius: 40px;
-    font-size: 30px;
-    font-weight: 500;
-    transition: .3s;
-    white-space: nowrap;
-    cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 34px;
+  background: #00d1ff;
+  color: white;
+  text-decoration: none;
+  border-radius: 40px;
+  font-size: 30px;
+  font-weight: 500;
+  transition: 0.3s;
+  white-space: nowrap;
+  cursor: pointer;
 }
 
 .btn-record:hover {
-    background: #2C6ADF;
-    transform: scale(1.05);
+  background: #2c6adf;
+  transform: scale(1.05);
 }
 
-/* =========================
-   PAGE
-========================= */
-
 .doctor-page {
-    max-width: 1638px;
-    margin: 50px auto 60px;
-    padding: 0 35px;
+  max-width: 1638px;
+  margin: 50px auto 60px;
+  padding: 0 35px;
 }
 
 .back-link {
-    display: inline-block;
-    margin: 0 0 25px 0;
-    color: #0015FF;
-    font-size: 20px;
-    text-decoration: none;
-    transition: .2s;
+  display: inline-block;
+  margin: 0 0 25px 0;
+  color: #0015ff;
+  font-size: 20px;
+  text-decoration: none;
+  transition: 0.2s;
 }
 
 .back-link:hover {
-    transform: translateX(-4px);
+  transform: translateX(-4px);
 }
 
-/* =========================
-   DOCTOR PROFILE
-========================= */
-
 .doctor-profile {
-    display: grid;
-    grid-template-columns: 380px 1fr;
-    gap: 35px;
-    align-items: stretch;
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 35px;
+  align-items: stretch;
 }
 
 .doctor-profile-photo {
-    min-height: 520px;
-    background: #eef3f7;
-    border-radius: 24px;
-    overflow: hidden;
+  min-height: 520px;
+  background: #eef3f7;
+  border-radius: 24px;
+  overflow: hidden;
 }
 
 .doctor-profile-photo img {
-    width: 100%;
-    height: 100%;
-    min-height: 520px;
-    object-fit: cover;
-    display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 520px;
+  object-fit: cover;
+  display: block;
 }
 
 .doctor-profile-content {
-    background: #F5F6FB;
-    border-radius: 24px;
-    padding: 45px 50px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  background: #f5f6fb;
+  border-radius: 24px;
+  padding: 45px 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .doctor-label {
-    color: #00D1FF;
-    font-size: 18px;
-    font-weight: 500;
-    margin-bottom: 15px;
+  color: #00d1ff;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 15px;
 }
 
 .doctor-profile h1 {
-    font-size: 48px;
-    font-weight: 400;
-    line-height: 1.15;
-    margin-bottom: 20px;
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 1.15;
+  margin-bottom: 20px;
 }
 
 .doctor-position {
-    max-width: 900px;
-    margin-bottom: 30px;
-    font-size: 24px;
-    line-height: 1.55;
-    color: #4D3838;
+  max-width: 900px;
+  margin-bottom: 30px;
+  font-size: 24px;
+  line-height: 1.55;
+  color: #4d3838;
 }
 
 .doctor-stats {
-    display: grid;
-    grid-template-columns: 220px 1fr;
-    gap: 18px;
-    margin-bottom: 30px;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 18px;
+  margin-bottom: 30px;
 }
 
 .doctor-stat {
-    padding: 22px;
-    border-radius: 20px;
-    background: #fff;
+  padding: 22px;
+  border-radius: 20px;
+  background: #fff;
 }
 
 .doctor-stat span {
-    display: block;
-    margin-bottom: 10px;
-    color: #4E4343;
-    font-size: 15px;
+  display: block;
+  margin-bottom: 10px;
+  color: #4e4343;
+  font-size: 15px;
 }
 
 .doctor-stat strong {
-    font-size: 18px;
-    line-height: 1.4;
-    font-weight: 500;
+  font-size: 18px;
+  line-height: 1.4;
+  font-weight: 500;
 }
 
 .doctor-record-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: fit-content;
-    padding: 14px 34px;
-    background: #00D1FF;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 40px;
-    font-size: 28px;
-    font-weight: 400;
-    transition: .3s;
-    cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  padding: 14px 34px;
+  background: #00d1ff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 40px;
+  font-size: 28px;
+  font-weight: 400;
+  transition: 0.3s;
+  cursor: pointer;
 }
 
 .doctor-record-btn:hover {
-    background: #2C6ADF;
-    transform: scale(1.03);
+  background: #2c6adf;
+  transform: scale(1.03);
 }
 
-/* =========================
-   BOOKING
-========================= */
-
 .booking-card {
-    margin-top: 35px;
-    padding: 40px;
-    border-radius: 24px;
-    background: #FFFFFF;
-    box-shadow: 0 8px 30px rgba(0,0,0,.05);
+  margin-top: 35px;
+  padding: 40px;
+  border-radius: 24px;
+  background: #ffffff;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
 }
 
 .booking-card h2 {
-    margin-bottom: 10px;
-    font-size: 32px;
-    font-weight: 400;
+  margin-bottom: 10px;
+  font-size: 32px;
+  font-weight: 400;
 }
 
 .booking-hint {
-    color: #4D3838;
-    font-size: 18px;
-    line-height: 1.5;
+  color: #4d3838;
+  font-size: 18px;
+  line-height: 1.5;
 }
 
 .booking-controls {
-    margin: 25px 0 18px;
+  margin: 25px 0 18px;
 }
 
 .booking-controls label {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    font-size: 17px;
-    font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 17px;
+  font-weight: 500;
 }
 
 .booking-controls input {
-    width: min(300px, 100%);
-    padding: 13px 15px;
-    border: 1px solid #d5dbe1;
-    border-radius: 12px;
-    background: white;
-    font: inherit;
+  width: min(300px, 100%);
+  padding: 13px 15px;
+  border: 1px solid #d5dbe1;
+  border-radius: 12px;
+  background: white;
+  font: inherit;
 }
 
 .slots {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .slot-btn {
-    border: 1px solid #cbd5e1;
-    background: white;
-    border-radius: 12px;
-    padding: 12px 18px;
-    cursor: pointer;
-    font: inherit;
-    transition: .2s;
+  border: 1px solid #cbd5e1;
+  background: white;
+  border-radius: 12px;
+  padding: 12px 18px;
+  cursor: pointer;
+  font: inherit;
+  transition: 0.2s;
 }
 
 .slot-btn:hover {
-    border-color: #00D1FF;
-    background: #f5fcff;
-    transform: translateY(-2px);
+  border-color: #00d1ff;
+  background: #f5fcff;
+  transform: translateY(-2px);
 }
 
 .availability-message {
-    margin: 10px 0 15px;
-    color: #667085;
+  margin: 10px 0 15px;
+  color: #667085;
 }
 
 .slot-empty {
-    color: #667085;
-    padding: 10px 0;
+  color: #667085;
+  padding: 10px 0;
 }
 
-/* =========================
-   DETAILS
-========================= */
-
 .doctor-details {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    gap: 28px;
-    margin-top: 35px;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 28px;
+  margin-top: 35px;
 }
 
 .detail-side {
-    display: grid;
-    gap: 28px;
-    align-content: start;
+  display: grid;
+  gap: 28px;
+  align-content: start;
 }
 
 .detail-card {
-    padding: 35px;
-    border-radius: 24px;
-    background: #F1F3F5;
+  padding: 35px;
+  border-radius: 24px;
+  background: #f1f3f5;
 }
 
 .detail-card h2,
 .detail-card h3 {
-    margin-bottom: 22px;
-    font-weight: 400;
+  margin-bottom: 22px;
+  font-weight: 400;
 }
 
 .detail-card h2 {
-    font-size: 32px;
+  font-size: 32px;
 }
 
 .detail-card h3 {
-    font-size: 24px;
+  font-size: 24px;
 }
 
 .detail-card p {
-    margin-bottom: 16px;
-    font-size: 18px;
-    line-height: 1.65;
-    color: #4D3838;
+  margin-bottom: 16px;
+  font-size: 18px;
+  line-height: 1.65;
+  color: #4d3838;
 }
 
 .detail-card p:last-child {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
-/* =========================
-   FOOTER — как doctors.html
-========================= */
-
 .footer-block {
-    max-width: 1440px;
-    margin: 80px auto 0;
-    padding: 30px;
-    background: #F1F3F5;
-    border-radius: 24px;
-    display: grid;
-    grid-template-columns: 1.6fr 250px 280px;
-    gap: 30px;
-    align-items: start;
+  max-width: 1440px;
+  margin: 80px auto 0;
+  padding: 30px;
+  background: #f1f3f5;
+  border-radius: 24px;
+  display: grid;
+  grid-template-columns: 1.6fr 250px 280px;
+  gap: 30px;
+  align-items: start;
 }
 
 .footer-logo {
-    width: 200px;
-    height: auto;
-    margin-bottom: 15px;
+  width: 200px;
+  height: auto;
+  margin-bottom: 15px;
 }
 
 .footer-text {
-    font-size: 18px;
-    line-height: 22px;
-    color: black;
-    max-width: 420px;
+  font-size: 18px;
+  line-height: 22px;
+  color: black;
+  max-width: 420px;
 }
 
 .footer-contacts {
-    width: 250px;
-    height: 180px;
-    background: #DBE2E8;
-    border-radius: 24px;
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+  width: 250px;
+  height: 180px;
+  background: #dbe2e8;
+  border-radius: 24px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .footer-contacts-title {
-    font-size: 18px;
-    font-weight: 400;
-    text-align: center;
-    margin-bottom: 8px;
+  font-size: 18px;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 8px;
 }
 
 .footer-contacts-info {
-    font-size: 16px;
-    line-height: 22px;
-    text-align: center;
-    color: #000;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
+  font-size: 16px;
+  line-height: 22px;
+  text-align: center;
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
 .footer-contact-icons {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
 }
 
 .footer-contact-icons a {
-    width: 42px;
-    height: 42px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
 }
 
 .footer-contact-icons img {
-    transition: .2s;
+  transition: 0.2s;
 }
 
 .footer-contact-icons img:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .footer-online {
-    width: 280px;
-    height: 200px;
-    background: #DBE2E8;
-    border-radius: 24px;
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+  width: 280px;
+  height: 200px;
+  background: #dbe2e8;
+  border-radius: 24px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .footer-online-title {
-    font-size: 18px;
-    font-weight: 400;
-    text-align: center;
+  font-size: 18px;
+  font-weight: 400;
+  text-align: center;
 }
 
 .footer-input {
-    width: 100%;
-    height: 38px;
-    border-radius: 50px;
-    border: none;
-    padding: 0 14px;
-    font-size: 14px;
-    outline: none;
-    margin: 0;
+  width: 100%;
+  height: 38px;
+  border-radius: 50px;
+  border: none;
+  padding: 0 14px;
+  font-size: 14px;
+  outline: none;
+  margin: 0;
 }
 
 .footer-input.phone {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .footer-btn {
-    margin-top: 10px;
-    width: 100%;
-    height: 38px;
-    border-radius: 50px;
-    border: none;
-    background: #00D1FF;
-    color: white;
-    text-align: left;
-    padding-left: 14px;
-    cursor: pointer;
-    transition: .3s;
+  margin-top: 10px;
+  width: 100%;
+  height: 38px;
+  border-radius: 50px;
+  border: none;
+  background: #00d1ff;
+  color: white;
+  text-align: left;
+  padding-left: 14px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 .footer-btn:hover {
-    background: #2C6ADF;
+  background: #2c6adf;
 }
 
-/* =========================
-   RESPONSIVE — как doctors.html
-========================= */
-
 @media (max-width: 1200px) {
-    .doctor-page {
-        padding: 0 25px;
-    }
+  .doctor-page {
+    padding: 0 25px;
+  }
 
-    .doctor-profile {
-        grid-template-columns: 300px 1fr;
-        gap: 25px;
-    }
+  .doctor-profile {
+    grid-template-columns: 300px 1fr;
+    gap: 25px;
+  }
 
-    .doctor-profile-photo,
-    .doctor-profile-photo img {
-        min-height: 450px;
-    }
+  .doctor-profile-photo,
+  .doctor-profile-photo img {
+    min-height: 450px;
+  }
 
-    .doctor-profile-content {
-        padding: 35px;
-    }
+  .doctor-profile-content {
+    padding: 35px;
+  }
 
-    .doctor-profile h1 {
-        font-size: 40px;
-    }
+  .doctor-profile h1 {
+    font-size: 40px;
+  }
 
-    .doctor-position {
-        font-size: 20px;
-    }
+  .doctor-position {
+    font-size: 20px;
+  }
 
-    .doctor-record-btn {
-        font-size: 24px;
-    }
+  .doctor-record-btn {
+    font-size: 24px;
+  }
 
-    .doctor-stats {
-        grid-template-columns: 170px 1fr;
-    }
+  .doctor-stats {
+    grid-template-columns: 170px 1fr;
+  }
 }
 
 @media (max-width: 1100px) {
-    .header {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
+  .header {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 
-    .nav-menu {
-        gap: 20px;
-    }
+  .nav-menu {
+    gap: 20px;
+  }
 
-    .nav-menu a {
-        font-size: 18px;
-    }
+  .nav-menu a {
+    font-size: 18px;
+  }
 
-    .btn-record {
-        padding: 10px 20px;
-        font-size: 16px;
-    }
+  .btn-record {
+    padding: 10px 20px;
+    font-size: 16px;
+  }
 
-    .logo {
-        width: 200px;
-    }
+  .logo {
+    width: 200px;
+  }
 
-    .footer-block {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 20px;
-    }
+  .footer-block {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 20px;
+  }
 
-    .footer-contacts,
-    .footer-online {
-        width: 100%;
-        max-width: 400px;
-        margin: 0 auto;
-    }
+  .footer-contacts,
+  .footer-online {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
 
-    .footer-logo-text {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+  .footer-logo-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 @media (max-width: 900px) {
-    .doctor-page {
-        margin-top: 35px;
-    }
+  .doctor-page {
+    margin-top: 35px;
+  }
 
-    .doctor-profile {
-        grid-template-columns: 1fr;
-    }
+  .doctor-profile {
+    grid-template-columns: 1fr;
+  }
 
-    .doctor-profile-photo,
-    .doctor-profile-photo img {
-        min-height: 430px;
-        max-height: 560px;
-    }
+  .doctor-profile-photo,
+  .doctor-profile-photo img {
+    min-height: 430px;
+    max-height: 560px;
+  }
 
-    .doctor-profile-photo img {
-        object-fit: cover;
-    }
+  .doctor-profile-photo img {
+    object-fit: cover;
+  }
 
-    .doctor-profile-content {
-        padding: 35px;
-    }
+  .doctor-profile-content {
+    padding: 35px;
+  }
 
-    .doctor-details {
-        grid-template-columns: 1fr;
-    }
+  .doctor-details {
+    grid-template-columns: 1fr;
+  }
 
-    .doctor-stats {
-        grid-template-columns: 1fr 1fr;
-    }
+  .doctor-stats {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 @media (max-width: 768px) {
-    .header {
-        flex-direction: column;
-        gap: 10px;
-    }
+  .header {
+    flex-direction: column;
+    gap: 10px;
+  }
 
-    .nav-menu {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 12px;
-    }
+  .nav-menu {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
 
-    .nav-menu a {
-        font-size: 16px;
-    }
+  .nav-menu a {
+    font-size: 16px;
+  }
 
-    .btn-record {
-        width: 100%;
-        max-width: 260px;
-    }
+  .btn-record {
+    width: 100%;
+    max-width: 260px;
+  }
 
-    .doctor-page {
-        margin: 30px auto 50px;
-        padding: 0 20px;
-    }
+  .doctor-page {
+    margin: 30px auto 50px;
+    padding: 0 20px;
+  }
 
-    .doctor-profile-content {
-        padding: 30px;
-    }
+  .doctor-profile-content {
+    padding: 30px;
+  }
 
-    .doctor-profile h1 {
-        font-size: 38px;
-    }
+  .doctor-profile h1 {
+    font-size: 38px;
+  }
 
-    .doctor-position {
-        font-size: 19px;
-    }
+  .doctor-position {
+    font-size: 19px;
+  }
 
-    .doctor-stats {
-        grid-template-columns: 1fr;
-    }
+  .doctor-stats {
+    grid-template-columns: 1fr;
+  }
 
-    .doctor-record-btn {
-        width: 100%;
-        font-size: 21px;
-    }
+  .doctor-record-btn {
+    width: 100%;
+    font-size: 21px;
+  }
 
-    .booking-card {
-        padding: 30px;
-    }
+  .booking-card {
+    padding: 30px;
+  }
 
-    .detail-card {
-        padding: 30px;
-    }
+  .detail-card {
+    padding: 30px;
+  }
 }
 
 @media (max-width: 600px) {
-    .header {
-        padding: 20px;
-    }
+  .header {
+    padding: 20px;
+  }
 
-    .logo {
-        width: 170px;
-    }
+  .logo {
+    width: 170px;
+  }
 
-    .nav-menu {
-        gap: 12px;
-    }
+  .nav-menu {
+    gap: 12px;
+  }
 
-    .nav-menu a {
-        font-size: 15px;
-    }
+  .nav-menu a {
+    font-size: 15px;
+  }
 
-    .doctor-page {
-        margin: 30px auto;
-        padding: 0 15px;
-    }
+  .doctor-page {
+    margin: 30px auto;
+    padding: 0 15px;
+  }
 
-    .back-link {
-        font-size: 17px;
-        margin-bottom: 20px;
-    }
+  .back-link {
+    font-size: 17px;
+    margin-bottom: 20px;
+  }
 
-    .doctor-profile {
-        gap: 20px;
-    }
+  .doctor-profile {
+    gap: 20px;
+  }
 
-    .doctor-profile-photo,
-    .doctor-profile-photo img {
-        min-height: 380px;
-    }
+  .doctor-profile-photo,
+  .doctor-profile-photo img {
+    min-height: 380px;
+  }
 
-    .doctor-profile-content {
-        padding: 25px;
-        border-radius: 20px;
-    }
+  .doctor-profile-content {
+    padding: 25px;
+    border-radius: 20px;
+  }
 
-    .doctor-profile h1 {
-        font-size: 32px;
-        margin-bottom: 18px;
-    }
+  .doctor-profile h1 {
+    font-size: 32px;
+    margin-bottom: 18px;
+  }
 
-    .doctor-position {
-        font-size: 17px;
-        line-height: 1.5;
-        margin-bottom: 25px;
-    }
+  .doctor-position {
+    font-size: 17px;
+    line-height: 1.5;
+    margin-bottom: 25px;
+  }
 
-    .doctor-label {
-        font-size: 16px;
-    }
+  .doctor-label {
+    font-size: 16px;
+  }
 
-    .doctor-stat {
-        padding: 18px;
-    }
+  .doctor-stat {
+    padding: 18px;
+  }
 
-    .doctor-record-btn {
-        font-size: 20px;
-        padding: 14px 20px;
-    }
+  .doctor-record-btn {
+    font-size: 20px;
+    padding: 14px 20px;
+  }
 
-    .booking-card {
-        margin-top: 20px;
-        padding: 25px;
-        border-radius: 20px;
-    }
+  .booking-card {
+    margin-top: 20px;
+    padding: 25px;
+    border-radius: 20px;
+  }
 
-    .booking-card h2 {
-        font-size: 25px;
-    }
+  .booking-card h2 {
+    font-size: 25px;
+  }
 
-    .booking-hint {
-        font-size: 16px;
-    }
+  .booking-hint {
+    font-size: 16px;
+  }
 
-    .slot-btn {
-        flex: 1 1 80px;
-    }
+  .slot-btn {
+    flex: 1 1 80px;
+  }
 
-    .doctor-details {
-        margin-top: 20px;
-        gap: 20px;
-    }
+  .doctor-details {
+    margin-top: 20px;
+    gap: 20px;
+  }
 
-    .detail-card {
-        padding: 25px;
-        border-radius: 20px;
-    }
+  .detail-card {
+    padding: 25px;
+    border-radius: 20px;
+  }
 
-    .detail-card h2 {
-        font-size: 27px;
-    }
+  .detail-card h2 {
+    font-size: 27px;
+  }
 
-    .detail-card h3 {
-        font-size: 21px;
-    }
+  .detail-card h3 {
+    font-size: 21px;
+  }
 
-    .detail-card p {
-        font-size: 17px;
-    }
+  .detail-card p {
+    font-size: 17px;
+  }
 
-    .footer-block {
-        margin: 60px 15px 0;
-        padding: 25px;
-        border-radius: 20px;
-    }
+  .footer-block {
+    margin: 60px 15px 0;
+    padding: 25px;
+    border-radius: 20px;
+  }
 
-    .footer-text {
-        font-size: 14px;
-    }
+  .footer-text {
+    font-size: 14px;
+  }
 
-    .footer-contacts-info {
-        font-size: 14px;
-    }
+  .footer-contacts-info {
+    font-size: 14px;
+  }
 
-    .footer-btn {
-        text-align: center;
-        padding-left: 0;
-    }
+  .footer-btn {
+    text-align: center;
+    padding-left: 0;
+  }
 }
 
 @media (max-width: 400px) {
-    .doctor-profile-photo,
-    .doctor-profile-photo img {
-        min-height: 320px;
-    }
+  .doctor-profile-photo,
+  .doctor-profile-photo img {
+    min-height: 320px;
+  }
 
-    .doctor-profile-content {
-        padding: 20px;
-    }
+  .doctor-profile-content {
+    padding: 20px;
+  }
 
-    .doctor-profile h1 {
-        font-size: 29px;
-    }
+  .doctor-profile h1 {
+    font-size: 29px;
+  }
 
-    .doctor-record-btn {
-        font-size: 18px;
-    }
+  .doctor-record-btn {
+    font-size: 18px;
+  }
 
-    .booking-card,
-    .detail-card {
-        padding: 20px;
-    }
+  .booking-card,
+  .detail-card {
+    padding: 20px;
+  }
 }
 
-.site-logo-link{display:block;text-decoration:none;line-height:0}.footer-logo-link{display:inline-block}.site-logo-link img{border:0}
+.site-logo-link {
+  display: block;
+  text-decoration: none;
+  line-height: 0;
+}
+.footer-logo-link {
+  display: inline-block;
+}
+.site-logo-link img {
+  border: 0;
+}

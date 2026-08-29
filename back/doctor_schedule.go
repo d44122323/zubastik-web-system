@@ -6,8 +6,6 @@ import (
 	"time"
 )
 
-// DoctorScheduleHandler exposes only the authenticated doctor's own schedule.
-// It intentionally reuses the existing doctor_schedule table and availability logic.
 func DoctorScheduleHandler(w http.ResponseWriter, r *http.Request) {
 	u, err := DoctorRequestGuard(r)
 	if err != nil {

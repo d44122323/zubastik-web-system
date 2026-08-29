@@ -1,427 +1,180 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
+    <title>Аналитика</title>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="analytics.css" />
 
-<title>Аналитика</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-<link rel="stylesheet" href="analytics.css">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="ui-polish.css" />
+  </head>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <body>
+    <div class="analytics-page">
+      <header class="analytics-header">
+        <a href="dashboard.html" class="admin-logo-link"
+          ><img src="img/logo.png" class="logo"
+        /></a>
 
-    <link rel="stylesheet" href="ui-polish.css">
-</head>
+        <h1>Аналитика</h1>
+      </header>
 
-
-<body>
-
-
-<div class="analytics-page">
-
-
-<header class="analytics-header">
-
-<a href="dashboard.html" class="admin-logo-link"><img src="img/logo.png" class="logo"></a>
-
-<h1>
-Аналитика
-</h1>
-
-</header>
-
-
-
-<nav class="navigation">
+      <nav class="navigation">
         <a href="dashboard.html" class="">Dashboard</a>
         <a href="requests.html" class="">Заявки</a>
         <a href="doctors-admin.html" class="">Врачи</a>
         <a href="patients.html" class="">Пациенты</a>
         <a href="prices-admin.html" class="">Цены</a>
         <a href="analytics.html" class="active">Аналитика</a>
-    </nav>
+      </nav>
 
+      <div class="divider"></div>
 
+      <section class="analytics-title">
+        <h2>Статистика работы сайта и заявок</h2>
+      </section>
 
-<div class="divider"></div>
+      <section class="kpi-grid">
+        <div class="kpi-card">
+          <span> Новых пациентов </span>
 
+          <strong> 126 </strong>
 
+          <p>+12%</p>
+        </div>
 
-<section class="analytics-title">
+        <div class="kpi-card">
+          <span> Всего заявок </span>
 
-<h2>
-Статистика работы сайта и заявок
-</h2>
+          <strong> 126 </strong>
 
-</section>
+          <p>+12%</p>
+        </div>
 
+        <div class="kpi-card">
+          <span> Средний чек </span>
 
+          <strong> 17 800 ₽ </strong>
 
+          <p>+12%</p>
+        </div>
 
+        <div class="kpi-card">
+          <span> Конверсия </span>
 
-<section class="kpi-grid">
+          <strong> 63 % </strong>
 
+          <p>+12%</p>
+        </div>
+      </section>
 
-<div class="kpi-card">
+      <section class="chart-section">
+        <h3>Количество заявок</h3>
 
-<span>
-Новых пациентов
-</span>
+        <div class="chart-box">
+          <canvas id="requestsChart"></canvas>
+        </div>
+      </section>
 
-<strong>
-126
-</strong>
+      <section class="charts-grid">
+        <div class="chart-card">
+          <h3>Доход по месяцам</h3>
 
-<p>
-+12%
-</p>
+          <div class="small-chart">
+            <canvas id="revenueChart"></canvas>
+          </div>
+        </div>
 
-</div>
+        <div class="chart-card">
+          <h3>Статусы заявок</h3>
 
+          <div class="small-chart">
+            <canvas id="statusChart"></canvas>
+          </div>
+        </div>
+      </section>
 
+      <section class="charts-grid">
+        <div class="chart-card">
+          <h3>Источники заявок</h3>
 
-<div class="kpi-card">
+          <div class="small-chart">
+            <canvas id="sourceChart"></canvas>
+          </div>
+        </div>
 
-<span>
-Всего заявок
-</span>
+        <div class="chart-card">
+          <h3>Воронка заявок</h3>
 
-<strong>
-126
-</strong>
+          <div class="small-chart">
+            <canvas id="funnelChart"></canvas>
+          </div>
+        </div>
+      </section>
 
-<p>
-+12%
-</p>
+      <section class="calculator-section">
+        <h3>Конверсия калькулятора</h3>
 
-</div>
+        <div class="calculator-grid">
+          <div class="calculator-card">
+            <span> Открыли </span>
 
+            <strong id="calcOpen"> 0 </strong>
+          </div>
 
+          <div class="calculator-card">
+            <span> Завершили расчёт </span>
 
-<div class="kpi-card">
-
-<span>
-Средний чек
-</span>
-
-<strong>
-17 800 ₽
-</strong>
-
-<p>
-+12%
-</p>
-
-</div>
-
-
-
-<div class="kpi-card">
-
-<span>
-Конверсия
-</span>
-
-<strong>
-63 %
-</strong>
-
-<p>
-+12%
-</p>
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-<section class="chart-section">
-
-
-<h3>
-Количество заявок
-</h3>
-
-
-<div class="chart-box">
-
-<canvas id="requestsChart"></canvas>
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-<section class="charts-grid">
-
-
-<div class="chart-card">
-
-<h3>
-Доход по месяцам
-</h3>
-
-
-<div class="small-chart">
-
-<canvas id="revenueChart"></canvas>
-
-</div>
-
-
-</div>
-
-
-
-
-<div class="chart-card">
-
-
-<h3>
-Статусы заявок
-</h3>
-
-
-<div class="small-chart">
-
-<canvas id="statusChart"></canvas>
-
-</div>
-
-
-</div>
-
-
-
-</section>
-
-
-
-
-
-
-
-<section class="charts-grid">
-
-
-<div class="chart-card">
-
-<h3>
-Источники заявок
-</h3>
-
-
-<div class="small-chart">
-
-<canvas id="sourceChart"></canvas>
-
-</div>
-
-
-</div>
-
-
-
-
-
-<div class="chart-card">
-
-
-<h3>
-Воронка заявок
-</h3>
-
-
-<div class="small-chart">
-
-<canvas id="funnelChart"></canvas>
-
-</div>
-
-
-</div>
-
-
-
-</section>
-
-
-
-
-
-
-
-<section class="calculator-section">
-
-
-<h3>
-Конверсия калькулятора
-</h3>
-
-
-
-<div class="calculator-grid">
-
-
-<div class="calculator-card">
-
-<span>
-Открыли
-</span>
-
-
-<strong id="calcOpen">
-0
-</strong>
-
-
-</div>
-
-
-
-
-<div class="calculator-card">
-
-<span>
-Завершили расчёт
-</span>
-
-
-<strong id="calcFinish">
-0
-</strong>
-
-
-</div>
-
-
-
-
-<div class="calculator-card">
-
-<span>
-Оставили заявку
-</span>
-
-
-<strong id="calcRequest">
-0
-</strong>
-
-
-</div>
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-<section class="calculator-section">
-
-
-<h3>
-Активность ИИ-консультанта
-</h3>
-
-
-
-<div class="calculator-grid">
-
-
-<div class="calculator-card">
-
-
-<span>
-Всего вопросов AI
-</span>
-
-
-<strong id="aiTotal">
-0
-</strong>
-
-
-</div>
-
-
-
-
-<div class="services-card ai-card" id="aiQuestions">
-
-
-<h3>
-Популярные запросы
-</h3>
-
-
-</div>
-
-
-
-</div>
-
-
-
-</section>
-
-
-
-
-
-
-
-
-<section class="analytics-bottom">
-
-    <div class="services-card" id="topServices">
-        <h3>
-            ТОП услуг
-        </h3>
+            <strong id="calcFinish"> 0 </strong>
+          </div>
+
+          <div class="calculator-card">
+            <span> Оставили заявку </span>
+
+            <strong id="calcRequest"> 0 </strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="calculator-section">
+        <h3>Активность ИИ-консультанта</h3>
+
+        <div class="calculator-grid">
+          <div class="calculator-card">
+            <span> Всего вопросов AI </span>
+
+            <strong id="aiTotal"> 0 </strong>
+          </div>
+
+          <div class="services-card ai-card" id="aiQuestions">
+            <h3>Популярные запросы</h3>
+          </div>
+        </div>
+      </section>
+
+      <section class="analytics-bottom">
+        <div class="services-card" id="topServices">
+          <h3>ТОП услуг</h3>
+        </div>
+
+        <div class="recent-card">
+          <h3>Последние заявки</h3>
+        </div>
+      </section>
     </div>
 
-    <div class="recent-card">
-        <h3>
-            Последние заявки
-        </h3>
-    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-</section>
-
-
-
-
-
-</div>
-
-
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-<script src="analytics.js"></script>
-
-
-</body>
-
+    <script src="analytics.js"></script>
+  </body>
 </html>

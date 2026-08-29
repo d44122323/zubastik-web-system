@@ -65,9 +65,6 @@ FROM requests WHERE patient_id=$1`, id).Scan(&patient.Visits, &patient.TotalPric
 		return patient, err
 	}
 
-	// The patient card must show the doctor from the latest assigned
-	// request/appointment, including appointments created directly by a doctor
-	// and appointments assigned by an administrator.
 	doctorErr := DB.QueryRow(`
 SELECT COALESCE(r.doctor_id,0), COALESCE(d.name,'')
 FROM requests r

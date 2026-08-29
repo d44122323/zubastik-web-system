@@ -221,8 +221,7 @@ func DoctorHandler(w http.ResponseWriter, r *http.Request) {
 			http.Error(w, "unauthorized", http.StatusUnauthorized)
 			return
 		}
-		// DELETE is intentionally a soft delete: old appointments and medical
-		// records keep their doctor, but the doctor disappears from new booking.
+
 		if err := DeactivateDoctor(id); err != nil {
 			http.Error(w, "doctor not found", http.StatusNotFound)
 			return

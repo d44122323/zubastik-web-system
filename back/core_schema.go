@@ -2,10 +2,6 @@ package main
 
 import "os"
 
-// InitCoreSchema creates the base tables required before the feature-specific
-// schema initializers run. A fresh Railway PostgreSQL database starts empty,
-// so feature migrations such as ALTER TABLE requests must never run before
-// these base tables exist.
 func InitCoreSchema() error {
 	_, err := DB.Exec(`
 CREATE TABLE IF NOT EXISTS patients (
@@ -58,9 +54,6 @@ CREATE TABLE IF NOT EXISTS admins (
 		return err
 	}
 
-	// A fresh production database has no administrator row. If the operator
-	// provides ADMIN_LOGIN and ADMIN_PASSWORD, create the first admin once.
-	// Existing administrator rows are never overwritten.
 	login := os.Getenv("ADMIN_LOGIN")
 	password := os.Getenv("ADMIN_PASSWORD")
 	if login != "" && password != "" {

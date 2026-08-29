@@ -1,71 +1,123 @@
 <!doctype html>
 <html lang="ru">
-<head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Расписание — Администратор</title>
-<link rel="stylesheet" href="schedule-admin.css">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="ui-polish.css">
-</head>
-<body>
-<div class="admin-page">
-<header class="topbar">
-  <a href="dashboard.html" class="admin-logo-link"><img src="img/logo.png" class="logo" alt="logo"></a>
-  <div><div class="eyebrow">АДМИНИСТРАТОР</div><h1>Расписание</h1></div>
-</header>
-<nav class="navigation">
-  <a href="dashboard.html">Dashboard</a><a href="requests.html">Заявки</a><a href="doctors-admin.html">Врачи</a><a href="patients.html">Пациенты</a><a href="prices-admin.html">Цены</a><a href="analytics.html">Аналитика</a>
-</nav>
-<div class="divider"></div>
-<main>
-  <section class="heading"><div><h2>Расписание клиники</h2><p>Свободные и занятые слоты врачей, перенос и отмена записей.</p></div><a class="secondary-btn" href="doctors-admin.html">Управление врачами</a></section>
-  <section class="toolbar">
-    <select id="doctorSelect"><option value="">Все врачи</option></select>
-    <button id="prevDay" class="round-btn" type="button">←</button>
-    <input id="dateInput" type="date">
-    <button id="nextDay" class="round-btn" type="button">→</button>
-    <button id="todayBtn" class="secondary-btn" type="button">Сегодня</button>
-    <button id="scheduleSettingsBtn" class="secondary-btn" type="button">Рабочее расписание</button>
-  </section>
-  <div id="message" class="message"></div>
-  <section class="schedule-card">
-    <div class="schedule-head"><div><strong id="scheduleTitle">Выберите врача</strong><span id="scheduleSubtitle">—</span></div><div class="legend"><span><i class="free"></i> Свободно</span><span><i class="busy"></i> Занято</span></div></div>
-    <div id="scheduleGrid" class="schedule-grid"></div>
-  </section>
-</main>
-</div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Расписание — Администратор</title>
+    <link rel="stylesheet" href="schedule-admin.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="ui-polish.css" />
+  </head>
+  <body>
+    <div class="admin-page">
+      <header class="topbar">
+        <a href="dashboard.html" class="admin-logo-link"
+          ><img src="img/logo.png" class="logo" alt="logo"
+        /></a>
+        <div>
+          <div class="eyebrow">АДМИНИСТРАТОР</div>
+          <h1>Расписание</h1>
+        </div>
+      </header>
+      <nav class="navigation">
+        <a href="dashboard.html">Dashboard</a><a href="requests.html">Заявки</a
+        ><a href="doctors-admin.html">Врачи</a
+        ><a href="patients.html">Пациенты</a><a href="prices-admin.html">Цены</a
+        ><a href="analytics.html">Аналитика</a>
+      </nav>
+      <div class="divider"></div>
+      <main>
+        <section class="heading">
+          <div>
+            <h2>Расписание клиники</h2>
+            <p>Свободные и занятые слоты врачей, перенос и отмена записей.</p>
+          </div>
+          <a class="secondary-btn" href="doctors-admin.html"
+            >Управление врачами</a
+          >
+        </section>
+        <section class="toolbar">
+          <select id="doctorSelect">
+            <option value="">Все врачи</option>
+          </select>
+          <button id="prevDay" class="round-btn" type="button">←</button>
+          <input id="dateInput" type="date" />
+          <button id="nextDay" class="round-btn" type="button">→</button>
+          <button id="todayBtn" class="secondary-btn" type="button">
+            Сегодня
+          </button>
+          <button id="scheduleSettingsBtn" class="secondary-btn" type="button">
+            Рабочее расписание
+          </button>
+        </section>
+        <div id="message" class="message"></div>
+        <section class="schedule-card">
+          <div class="schedule-head">
+            <div>
+              <strong id="scheduleTitle">Выберите врача</strong
+              ><span id="scheduleSubtitle">—</span>
+            </div>
+            <div class="legend">
+              <span><i class="free"></i> Свободно</span
+              ><span><i class="busy"></i> Занято</span>
+            </div>
+          </div>
+          <div id="scheduleGrid" class="schedule-grid"></div>
+        </section>
+      </main>
+    </div>
 
-<div id="overlay" class="overlay"></div>
-<aside id="appointmentDrawer" class="drawer">
-  <button id="closeDrawer" class="close-btn">×</button>
-  <div class="eyebrow">ЗАПИСЬ</div><h2 id="appointmentTitle">Запись</h2>
-  <div class="appointment-info" id="appointmentInfo"></div>
-  <div class="drawer-actions">
-    <button id="rescheduleBtn" class="primary-btn">Перенести / назначить врача</button>
-    <button id="cancelAppointmentBtn" class="danger-btn">Отменить запись</button>
-  </div>
-</aside>
+    <div id="overlay" class="overlay"></div>
+    <aside id="appointmentDrawer" class="drawer">
+      <button id="closeDrawer" class="close-btn">×</button>
+      <div class="eyebrow">ЗАПИСЬ</div>
+      <h2 id="appointmentTitle">Запись</h2>
+      <div class="appointment-info" id="appointmentInfo"></div>
+      <div class="drawer-actions">
+        <button id="rescheduleBtn" class="primary-btn">
+          Перенести / назначить врача
+        </button>
+        <button id="cancelAppointmentBtn" class="danger-btn">
+          Отменить запись
+        </button>
+      </div>
+    </aside>
 
-<div id="rescheduleModal" class="modal hidden">
- <div class="modal-window">
-  <button id="closeReschedule" class="close-btn">×</button>
-  <div class="eyebrow">ИЗМЕНЕНИЕ ЗАПИСИ</div><h2>Перенести запись</h2>
-  <div id="reschedulePatient" class="modal-note"></div>
-  <label>Врач<select id="rescheduleDoctor"></select></label>
-  <label>Дата<input id="rescheduleDate" type="date"></label>
-  <label>Свободное время<select id="rescheduleTime"></select></label>
-  <div class="modal-actions"><button id="cancelReschedule" class="secondary-btn">Отмена</button><button id="saveReschedule" class="primary-btn">Сохранить</button></div>
- </div>
-</div>
+    <div id="rescheduleModal" class="modal hidden">
+      <div class="modal-window">
+        <button id="closeReschedule" class="close-btn">×</button>
+        <div class="eyebrow">ИЗМЕНЕНИЕ ЗАПИСИ</div>
+        <h2>Перенести запись</h2>
+        <div id="reschedulePatient" class="modal-note"></div>
+        <label>Врач<select id="rescheduleDoctor"></select></label>
+        <label>Дата<input id="rescheduleDate" type="date" /></label>
+        <label>Свободное время<select id="rescheduleTime"></select></label>
+        <div class="modal-actions">
+          <button id="cancelReschedule" class="secondary-btn">Отмена</button
+          ><button id="saveReschedule" class="primary-btn">Сохранить</button>
+        </div>
+      </div>
+    </div>
 
-<div id="scheduleModal" class="modal hidden">
- <div class="modal-window schedule-window">
-  <button id="closeSchedule" class="close-btn">×</button>
-  <div class="eyebrow">РАБОЧИЕ ДНИ</div><h2 id="scheduleDoctorModalTitle">Рабочее расписание</h2>
-  <div id="scheduleDays" class="schedule-days"></div>
-  <div class="modal-actions"><button id="cancelSchedule" class="secondary-btn">Отмена</button><button id="saveSchedule" class="primary-btn">Сохранить расписание</button></div>
- </div>
-</div>
-<script src="schedule-admin.js" defer></script>
-</body></html>
+    <div id="scheduleModal" class="modal hidden">
+      <div class="modal-window schedule-window">
+        <button id="closeSchedule" class="close-btn">×</button>
+        <div class="eyebrow">РАБОЧИЕ ДНИ</div>
+        <h2 id="scheduleDoctorModalTitle">Рабочее расписание</h2>
+        <div id="scheduleDays" class="schedule-days"></div>
+        <div class="modal-actions">
+          <button id="cancelSchedule" class="secondary-btn">Отмена</button
+          ><button id="saveSchedule" class="primary-btn">
+            Сохранить расписание
+          </button>
+        </div>
+      </div>
+    </div>
+    <script src="schedule-admin.js" defer></script>
+  </body>
+</html>

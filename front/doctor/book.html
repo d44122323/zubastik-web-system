@@ -1,36 +1,76 @@
 <!doctype html>
 <html lang="ru">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Записать пациента | ЗУ-БАСТИК</title>
-<link rel="stylesheet" href="/doctor/book.css">
-    <link rel="stylesheet" href="../ui-polish.css">
-</head>
-<body>
-<div class="app">
-<header><div><div class="eyebrow">ЗУ-БАСТИК</div><h1>Записать пациента</h1></div><div class="user"><span id="doctorName">...</span><button id="logout">Выйти</button></div></header>
-<div class="layout">
-<aside>
-<a href="/doctor/dashboard.html">Главная</a><a href="/doctor/appointments.html">Мои записи</a>
-<a href="/doctor/requests.html">Мои заявки</a>
-<a href="/doctor/patients.html">Мои пациенты</a>
-<a class="active" href="/doctor/book.html">+ Записать пациента</a>
-</aside>
-<main>
-<section class="panel">
-<h2>Новая запись</h2>
-<p class="hint">Выберите пациента из своих пациентов. Новая запись будет сразу подтверждена.</p>
-<form id="form">
-<label>Пациент<select id="patient" required><option value="">Загрузка...</option></select></label>
-<div class="service-picker"><label>Услуги</label><div id="serviceOptions" class="service-options"><div class="hint">Загрузка услуг...</div></div><div class="service-total">Стоимость: <strong id="serviceTotal">0 ₽</strong></div></div>
-<div class="row"><label>Дата<input id="date" type="date" required></label><label>Время<select id="time" required disabled><option value="">Сначала выберите дату</option></select></label></div>
-<label>Комментарий<textarea id="comment" rows="4" placeholder="Комментарий к записи"></textarea></label>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Записать пациента | ЗУ-БАСТИК</title>
+    <link rel="stylesheet" href="/doctor/book.css" />
+    <link rel="stylesheet" href="../ui-polish.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header>
+        <div>
+          <div class="eyebrow">ЗУ-БАСТИК</div>
+          <h1>Записать пациента</h1>
+        </div>
+        <div class="user">
+          <span id="doctorName">...</span><button id="logout">Выйти</button>
+        </div>
+      </header>
+      <div class="layout">
+        <aside>
+          <a href="/doctor/dashboard.html">Главная</a
+          ><a href="/doctor/appointments.html">Мои записи</a>
+          <a href="/doctor/requests.html">Мои заявки</a>
+          <a href="/doctor/patients.html">Мои пациенты</a>
+          <a class="active" href="/doctor/book.html">+ Записать пациента</a>
+        </aside>
+        <main>
+          <section class="panel">
+            <h2>Новая запись</h2>
+            <p class="hint">
+              Выберите пациента из своих пациентов. Новая запись будет сразу
+              подтверждена.
+            </p>
+            <form id="form">
+              <label
+                >Пациент<select id="patient" required>
+                  <option value="">Загрузка...</option>
+                </select></label
+              >
+              <div class="service-picker">
+                <label>Услуги</label>
+                <div id="serviceOptions" class="service-options">
+                  <div class="hint">Загрузка услуг...</div>
+                </div>
+                <div class="service-total">
+                  Стоимость: <strong id="serviceTotal">0 ₽</strong>
+                </div>
+              </div>
+              <div class="row">
+                <label>Дата<input id="date" type="date" required /></label
+                ><label
+                  >Время<select id="time" required disabled>
+                    <option value="">Сначала выберите дату</option>
+                  </select></label
+                >
+              </div>
+              <label
+                >Комментарий<textarea
+                  id="comment"
+                  rows="4"
+                  placeholder="Комментарий к записи"
+                ></textarea>
+              </label>
 
-<div id="error" class="error hidden"></div>
-<button class="primary" type="submit">Создать запись</button>
-</form>
-</section>
-</main></div></div>
-<script src="/doctor/book.js"></script>
-</body></html>
+              <div id="error" class="error hidden"></div>
+              <button class="primary" type="submit">Создать запись</button>
+            </form>
+          </section>
+        </main>
+      </div>
+    </div>
+    <script src="/doctor/book.js"></script>
+  </body>
+</html>

@@ -1,81 +1,305 @@
-/* Final UI polish: visual consistency, focus states, responsive spacing. */
-:root{
-  --ui-cyan:#00d1ff;
-  --ui-blue:#2c6adf;
-  --ui-text:#111827;
-  --ui-muted:#6b7280;
-  --ui-border:#e5e7eb;
-  --ui-surface:#fff;
-  --ui-bg:#f8fafc;
-  --ui-radius:16px;
-  --ui-shadow:0 8px 28px rgba(20,40,60,.06);
+:root {
+  --ui-cyan: #00d1ff;
+  --ui-blue: #2c6adf;
+  --ui-text: #111827;
+  --ui-muted: #6b7280;
+  --ui-border: #e5e7eb;
+  --ui-surface: #fff;
+  --ui-bg: #f8fafc;
+  --ui-radius: 16px;
+  --ui-shadow: 0 8px 28px rgba(20, 40, 60, 0.06);
 }
-html{scroll-behavior:smooth}
-body{min-height:100vh;-webkit-font-smoothing:antialiased}
-button,a,input,select,textarea{font:inherit}
-button,a{ -webkit-tap-highlight-color:transparent }
-a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid rgba(0,209,255,.28);outline-offset:2px}
-
-/* Public site */
-.header,.nav-menu,.btn-record,.btn-hero,.doctor-btn,.doctor-actions,.specialist-card,.service-card,.price-card{transition:all .2s ease}
-.nav-menu a{position:relative}
-.nav-menu a::after{content:"";position:absolute;left:0;right:0;bottom:-7px;height:2px;background:var(--ui-cyan);transform:scaleX(0);transform-origin:center;transition:transform .2s ease}
-.nav-menu a:hover::after,.nav-menu a.active::after{transform:scaleX(1)}
-.btn-record,.btn-hero{box-shadow:0 7px 18px rgba(0,180,230,.16)}
-.btn-record:hover,.btn-hero:hover{box-shadow:0 10px 24px rgba(44,106,223,.18)}
-
-/* Admin pages: same navigation language everywhere */
-.admin-page,.requests-page,.analytics-page{max-width:1400px}
-.navigation a{position:relative;padding-bottom:8px!important}
-.navigation a::after{content:"";position:absolute;left:0;right:0;bottom:1px;height:2px;background:var(--ui-cyan);transform:scaleX(0);transform-origin:center;transition:transform .18s ease}
-.navigation a:hover::after,.navigation a.active::after{transform:scaleX(1)}
-.navigation a:hover,.navigation a.active{color:#00a8cf!important}
-.primary-btn,.primary,.round-btn,.secondary-btn,.danger-btn,.activate-btn,.save-btn,.action-btn,.modal-actions button{transition:transform .16s ease,box-shadow .16s ease,background .16s ease,opacity .16s ease}
-.primary-btn:hover,.primary:hover,.save-btn:hover,.action-btn:hover{transform:translateY(-1px);box-shadow:0 7px 18px rgba(0,180,230,.14)}
-.secondary-btn:hover,.round-btn:hover{transform:translateY(-1px)}
-.danger-btn:hover,.danger:hover{transform:translateY(-1px)}
-input,select,textarea{transition:border-color .15s ease,box-shadow .15s ease}
-input:focus,select:focus,textarea:focus{border-color:#9ddff0!important;box-shadow:0 0 0 3px rgba(0,209,255,.10)}
-
-/* Patient cabinet */
-.account-top{position:sticky;top:0;z-index:50;backdrop-filter:saturate(150%) blur(8px)}
-.account-user button,.side,.primary,.secondary,.danger{transition:all .18s ease}
-.account-user button:hover,.secondary:hover{background:#e8faff;transform:translateY(-1px)}
-.side{position:relative}
-.side.active{font-weight:600}
-.card,.panel,.appointment,.record,.document,.payment,.notification{box-shadow:var(--ui-shadow);border:1px solid rgba(229,231,235,.7)}
-.card:hover,.appointment:hover,.document:hover,.payment:hover,.notification:hover{transform:translateY(-1px);box-shadow:0 11px 32px rgba(20,40,60,.08)}
-.modal-card{box-shadow:0 24px 70px rgba(0,0,0,.20)}
-
-/* Doctor cabinet */
-.doctor-user button,.sidebar a{transition:all .18s ease}
-.doctor-user button:hover{border-color:#9ddff0;background:#f3fcff;transform:translateY(-1px)}
-.sidebar a:hover{background:#f4fbff;color:#087e9a}
-.hero,.doctor-page .card,.doctor-page .panel{box-shadow:var(--ui-shadow)}
-
-/* Tables and dense admin content */
-.table-wrap{border-radius:14px}
-.table-header,.request-row,.appointment-row{transition:background .15s ease}
-.request-row:hover{background:#fafcff}
-
-/* Modals/drawers: keep controls readable and buttons separated */
-.modal-actions,.drawer-actions,.actions{flex-wrap:wrap}
-.modal-actions button,.drawer-actions button,.actions button{min-height:42px;display:inline-flex;align-items:center;justify-content:center}
-
-@media(max-width:900px){
-  .navigation{justify-content:flex-start!important}
-  .admin-page,.requests-page,.analytics-page{width:calc(100% - 28px);padding-left:0;padding-right:0}
-  .account-top{height:auto;min-height:74px;gap:12px}
-  .account-user{gap:10px}
+html {
+  scroll-behavior: smooth;
 }
-@media(max-width:600px){
-  .navigation{gap:14px!important}
-  .navigation a{font-size:16px!important}
-  .account-top{padding:12px 16px!important}
-  .account-user span{max-width:150px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-  .modal{padding:12px!important}
-  .modal-card,.modal-window{border-radius:16px!important;padding:20px!important}
-  .modal-actions,.actions{display:grid!important;grid-template-columns:1fr;gap:9px!important}
-  .modal-actions button,.actions button{width:100%}
+body {
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
 }
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+button,
+a,
+input,
+select,
+textarea {
+  font: inherit;
+}
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid rgba(0, 209, 255, 0.28);
+  outline-offset: 2px;
+}
+
+.header,
+.nav-menu,
+.btn-record,
+.btn-hero,
+.doctor-btn,
+.doctor-actions,
+.specialist-card,
+.service-card,
+.price-card {
+  transition: all 0.2s ease;
+}
+.nav-menu a {
+  position: relative;
+}
+.nav-menu a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -7px;
+  height: 2px;
+  background: var(--ui-cyan);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.2s ease;
+}
+.nav-menu a:hover::after,
+.nav-menu a.active::after {
+  transform: scaleX(1);
+}
+.btn-record,
+.btn-hero {
+  box-shadow: 0 7px 18px rgba(0, 180, 230, 0.16);
+}
+.btn-record:hover,
+.btn-hero:hover {
+  box-shadow: 0 10px 24px rgba(44, 106, 223, 0.18);
+}
+
+.admin-page,
+.requests-page,
+.analytics-page {
+  max-width: 1400px;
+}
+.navigation a {
+  position: relative;
+  padding-bottom: 8px !important;
+}
+.navigation a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 1px;
+  height: 2px;
+  background: var(--ui-cyan);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.18s ease;
+}
+.navigation a:hover::after,
+.navigation a.active::after {
+  transform: scaleX(1);
+}
+.navigation a:hover,
+.navigation a.active {
+  color: #00a8cf !important;
+}
+.primary-btn,
+.primary,
+.round-btn,
+.secondary-btn,
+.danger-btn,
+.activate-btn,
+.save-btn,
+.action-btn,
+.modal-actions button {
+  transition:
+    transform 0.16s ease,
+    box-shadow 0.16s ease,
+    background 0.16s ease,
+    opacity 0.16s ease;
+}
+.primary-btn:hover,
+.primary:hover,
+.save-btn:hover,
+.action-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 7px 18px rgba(0, 180, 230, 0.14);
+}
+.secondary-btn:hover,
+.round-btn:hover {
+  transform: translateY(-1px);
+}
+.danger-btn:hover,
+.danger:hover {
+  transform: translateY(-1px);
+}
+input,
+select,
+textarea {
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #9ddff0 !important;
+  box-shadow: 0 0 0 3px rgba(0, 209, 255, 0.1);
+}
+
+.account-top {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: saturate(150%) blur(8px);
+}
+.account-user button,
+.side,
+.primary,
+.secondary,
+.danger {
+  transition: all 0.18s ease;
+}
+.account-user button:hover,
+.secondary:hover {
+  background: #e8faff;
+  transform: translateY(-1px);
+}
+.side {
+  position: relative;
+}
+.side.active {
+  font-weight: 600;
+}
+.card,
+.panel,
+.appointment,
+.record,
+.document,
+.payment,
+.notification {
+  box-shadow: var(--ui-shadow);
+  border: 1px solid rgba(229, 231, 235, 0.7);
+}
+.card:hover,
+.appointment:hover,
+.document:hover,
+.payment:hover,
+.notification:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 11px 32px rgba(20, 40, 60, 0.08);
+}
+.modal-card {
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.2);
+}
+
+.doctor-user button,
+.sidebar a {
+  transition: all 0.18s ease;
+}
+.doctor-user button:hover {
+  border-color: #9ddff0;
+  background: #f3fcff;
+  transform: translateY(-1px);
+}
+.sidebar a:hover {
+  background: #f4fbff;
+  color: #087e9a;
+}
+.hero,
+.doctor-page .card,
+.doctor-page .panel {
+  box-shadow: var(--ui-shadow);
+}
+
+.table-wrap {
+  border-radius: 14px;
+}
+.table-header,
+.request-row,
+.appointment-row {
+  transition: background 0.15s ease;
+}
+.request-row:hover {
+  background: #fafcff;
+}
+
+.modal-actions,
+.drawer-actions,
+.actions {
+  flex-wrap: wrap;
+}
+.modal-actions button,
+.drawer-actions button,
+.actions button {
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 900px) {
+  .navigation {
+    justify-content: flex-start !important;
+  }
+  .admin-page,
+  .requests-page,
+  .analytics-page {
+    width: calc(100% - 28px);
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .account-top {
+    height: auto;
+    min-height: 74px;
+    gap: 12px;
+  }
+  .account-user {
+    gap: 10px;
+  }
+}
+@media (max-width: 600px) {
+  .navigation {
+    gap: 14px !important;
+  }
+  .navigation a {
+    font-size: 16px !important;
+  }
+  .account-top {
+    padding: 12px 16px !important;
+  }
+  .account-user span {
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .modal {
+    padding: 12px !important;
+  }
+  .modal-card,
+  .modal-window {
+    border-radius: 16px !important;
+    padding: 20px !important;
+  }
+  .modal-actions,
+  .actions {
+    display: grid !important;
+    grid-template-columns: 1fr;
+    gap: 9px !important;
+  }
+  .modal-actions button,
+  .actions button {
+    width: 100%;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}

@@ -1,500 +1,673 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Clinic</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="ui-polish.css">
-</head>
-<body>
-<header class="header">
-    <a href="index.html" class="site-logo-link"><img src="img/logo.png" class="logo" alt="logo"></a>
-        <nav class="nav-menu">
-            <a href="index.html">Главная</a>
-            <a href="services.html">Услуги</a>
-            <a href="doctors.html">Специалисты</a>
-            <a href="index.html#contacts">Контакты</a>
-            <a href="prices.html" class="active">Цены</a>
-        </nav>
-    <button class="account-menu-btn" id="accountMenuBtn" type="button">Личный кабинет</button><button class="btn-burger" id="btnBurger" type="button" aria-label="Меню">☰</button><button class="btn-record" id="btn-record">Записаться</button>
-</header>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="ui-polish.css" />
+  </head>
+  <body>
+    <header class="header">
+      <a href="index.html" class="site-logo-link"
+        ><img src="img/logo.png" class="logo" alt="logo"
+      /></a>
+      <nav class="nav-menu">
+        <a href="index.html">Главная</a>
+        <a href="services.html">Услуги</a>
+        <a href="doctors.html">Специалисты</a>
+        <a href="index.html#contacts">Контакты</a>
+        <a href="prices.html" class="active">Цены</a>
+      </nav>
+      <button class="account-menu-btn" id="accountMenuBtn" type="button">
+        Личный кабинет</button
+      ><button
+        class="btn-burger"
+        id="btnBurger"
+        type="button"
+        aria-label="Меню"
+      >
+        ☰</button
+      ><button class="btn-record" id="btn-record">Записаться</button>
+    </header>
     <section class="hero-block" id="hero">
-        <div class="hero-content">
-            <h1>Ваша улыбка — в надёжных руках</h1>
-            <p class="hero-text">
-                <span class="text-primary">Современная и дружелюбная</span> стоматология.
-                <span class="text-secondary">Без боли, без стресса</span>, с заботой о каждом пациенте.
-            </p>
-            <button class="btn-hero">Записаться</button>
-        </div>
-        <img src="img/AVV.png" class="hero-img" alt="AVV">
+      <div class="hero-content">
+        <h1>Ваша улыбка — в надёжных руках</h1>
+        <p class="hero-text">
+          <span class="text-primary">Современная и дружелюбная</span>
+          стоматология.
+          <span class="text-secondary">Без боли, без стресса</span>, с заботой о
+          каждом пациенте.
+        </p>
+        <button class="btn-hero">Записаться</button>
+      </div>
+      <img src="img/AVV.png" class="hero-img" alt="AVV" />
     </section>
     <section class="services-title" id="services">
-        <h2>Основные услуги</h2>
+      <h2>Основные услуги</h2>
     </section>
     <section class="services-blocks">
-        <div class="service-card card1">
-            <img src="img/a1.png" class="service-img" alt="Лечение кариеса">
-            <h3>Лечение кариеса</h3>
-            <p>Быстрое и безболезненное лечение с современными материалами.</p>
-            <button class="btn-service">Подробнее</button>
-        </div>
-        <div class="service-card card2">
-            <img src="img/a2.png" class="service-img" alt="Профессиональная чистка">
-            <h3>Профессиональная чистка</h3>
-            <p>Удаление налёта и камня, бережная полировка.</p>
-            <button class="btn-service">Подробнее</button>
-        </div>
-        <div class="service-card card3">
-            <img src="img/a3.png" class="service-img" alt="Имплантация">
-            <h3>Имплантация</h3>
-            <p>Надёжные импланты с пожизненной гарантией производителя.</p>
-            <button class="btn-service">Подробнее</button>
-        </div>
+      <div class="service-card card1">
+        <img src="img/a1.png" class="service-img" alt="Лечение кариеса" />
+        <h3>Лечение кариеса</h3>
+        <p>Быстрое и безболезненное лечение с современными материалами.</p>
+        <button class="btn-service">Подробнее</button>
+      </div>
+      <div class="service-card card2">
+        <img
+          src="img/a2.png"
+          class="service-img"
+          alt="Профессиональная чистка"
+        />
+        <h3>Профессиональная чистка</h3>
+        <p>Удаление налёта и камня, бережная полировка.</p>
+        <button class="btn-service">Подробнее</button>
+      </div>
+      <div class="service-card card3">
+        <img src="img/a3.png" class="service-img" alt="Имплантация" />
+        <h3>Имплантация</h3>
+        <p>Надёжные импланты с пожизненной гарантией производителя.</p>
+        <button class="btn-service">Подробнее</button>
+      </div>
     </section>
-    <div class="specialists-title"  id="specialists">
-        <h2>Наши специалисты</h2>
+    <div class="specialists-title" id="specialists">
+      <h2>Наши специалисты</h2>
     </div>
     <div class="specialists-carousel" id="homepage-specialists-carousel">
-        <button class="specialists-arrow specialists-arrow-prev" type="button" aria-label="Предыдущие специалисты">‹</button>
-        <section class="specialists-blocks" id="homepage-specialists">
-            <p class="specialists-loading">Загрузка специалистов...</p>
-        </section>
-        <button class="specialists-arrow specialists-arrow-next" type="button" aria-label="Следующие специалисты">›</button>
+      <button
+        class="specialists-arrow specialists-arrow-prev"
+        type="button"
+        aria-label="Предыдущие специалисты"
+      >
+        ‹
+      </button>
+      <section class="specialists-blocks" id="homepage-specialists">
+        <p class="specialists-loading">Загрузка специалистов...</p>
+      </section>
+      <button
+        class="specialists-arrow specialists-arrow-next"
+        type="button"
+        aria-label="Следующие специалисты"
+      >
+        ›
+      </button>
     </div>
-<section class="calculator-preview">
-    <h2>Предварительный расчет стоимости</h2>
-    <p>
+    <section class="calculator-preview">
+      <h2>Предварительный расчет стоимости</h2>
+      <p>
         Ответьте на несколько вопросов.
-        <br><br>
+        <br /><br />
         Расчет является ориентировочным.
-    </p>
-    <div class="calculator-bottom-preview">
+      </p>
+      <div class="calculator-bottom-preview">
         <button class="btn-start-calc" id="openCalculator">
-            Начать расчёт
+          Начать расчёт
         </button>
-        <img src="img/moneta.png" alt="Монета">
-    </div>
-</section>
-<div class="contacts-wrapper">
-    <div class="contact-block" id="contacts">
+        <img src="img/moneta.png" alt="Монета" />
+      </div>
+    </section>
+    <div class="contacts-wrapper">
+      <div class="contact-block" id="contacts">
         <div class="contact-left">
-            <h2 class="contact-title">
-                <span class="black-text">Свяжитесь с нами</span><br>
-                <span class="blue-text">удобным для вас способом</span>
-            </h2>
-            <form action="/submit" method="POST">
-                <input type="hidden" name="doctor_id" value="">
-                <input type="hidden" name="appointment_date" value="">
-                <input type="hidden" name="appointment_time" value="">
-                <input type="text"
-                       class="contact-input"
-                       name="name"
-                       placeholder="Ваше имя"
-                       required>
-                <input type="text"
-                       class="contact-input"
-                       name="phone"
-                       placeholder="+7 (000) 000-00-00"
-                       required>
-                <input type="text"
-                       class="contact-input"
-                       name="comment"
-                       placeholder="Комментарий для специалистов">
-                <button class="btn-contact-send" type="submit">
-                    Отправить
-                </button>
-            </form>
+          <h2 class="contact-title">
+            <span class="black-text">Свяжитесь с нами</span><br />
+            <span class="blue-text">удобным для вас способом</span>
+          </h2>
+          <form action="/submit" method="POST">
+            <input type="hidden" name="doctor_id" value="" />
+            <input type="hidden" name="appointment_date" value="" />
+            <input type="hidden" name="appointment_time" value="" />
+            <input
+              type="text"
+              class="contact-input"
+              name="name"
+              placeholder="Ваше имя"
+              required
+            />
+            <input
+              type="text"
+              class="contact-input"
+              name="phone"
+              placeholder="+7 (000) 000-00-00"
+              required
+            />
+            <input
+              type="text"
+              class="contact-input"
+              name="comment"
+              placeholder="Комментарий для специалистов"
+            />
+            <button class="btn-contact-send" type="submit">Отправить</button>
+          </form>
         </div>
         <div class="contact-right">
-            <div class="contact-phone">
-                <p>Позвоните нам</p>
-                <span>+7 (245) 214-09-11</span>
-            </div>
-            <div class="contact-icons">
-                <a href="https://max.com/72452140911">
-                    <img src="img/max.png" alt="">
-                </a>
-                <a href="https://t.me/clinicchat">
-                    <img src="img/tg.png" alt="">
-                </a>
-                <a href="https://vb.me/72452140911">
-                    <img src="img/vib.png" alt="">
-                </a>
-                <a href="https://wa.me/72452140911">
-                    <img src="img/wt.png" alt="">
-                </a>
-            </div>
+          <div class="contact-phone">
+            <p>Позвоните нам</p>
+            <span>+7 (245) 214-09-11</span>
+          </div>
+          <div class="contact-icons">
+            <a href="https://max.com/72452140911">
+              <img src="img/max.png" alt="" />
+            </a>
+            <a href="https://t.me/clinicchat">
+              <img src="img/tg.png" alt="" />
+            </a>
+            <a href="https://vb.me/72452140911">
+              <img src="img/vib.png" alt="" />
+            </a>
+            <a href="https://wa.me/72452140911">
+              <img src="img/wt.png" alt="" />
+            </a>
+          </div>
         </div>
-    </div>
-<div class="chat-block">
-    <h3 class="chat-title">
-        Задайте вопрос<br>
-        стоматологу-ИИ
-    </h3>
-    <p class="chat-subtitle">
-        <span class="black-text">
-            Он подскажет
-        </span>
-        <span class="blue-text">
-            по симптомам, услугам, стоимости
-        </span>
-    </p>
-    <div class="ai-answer" id="aiAnswer">
-    </div>
-    <div class="chat-input">
-        <input 
-        id="aiInput"
-        type="text"
-        placeholder="Напиши мне">
-        <button id="aiSend">
-            ➤
-        </button>
-    </div>
-</div>
-</div>
-<div class="footer-block">
-    <div class="footer-logo-text">
-        <a href="index.html" class="site-logo-link footer-logo-link"><img src="img/logo2.png" alt="logo" class="footer-logo"></a>
-        <p class="footer-text">
-            Современная клиника с онлайн-записью,<br>
-            удобным интерфейсом и заботой о пациентах.
+      </div>
+      <div class="chat-block">
+        <h3 class="chat-title">
+          Задайте вопрос<br />
+          стоматологу-ИИ
+        </h3>
+        <p class="chat-subtitle">
+          <span class="black-text"> Он подскажет </span>
+          <span class="blue-text"> по симптомам, услугам, стоимости </span>
         </p>
+        <div class="ai-answer" id="aiAnswer"></div>
+        <div class="chat-input">
+          <input id="aiInput" type="text" placeholder="Напиши мне" />
+          <button id="aiSend">➤</button>
+        </div>
+      </div>
     </div>
-    <div class="footer-contacts">
+    <div class="footer-block">
+      <div class="footer-logo-text">
+        <a href="index.html" class="site-logo-link footer-logo-link"
+          ><img src="img/logo2.png" alt="logo" class="footer-logo"
+        /></a>
+        <p class="footer-text">
+          Современная клиника с онлайн-записью,<br />
+          удобным интерфейсом и заботой о пациентах.
+        </p>
+      </div>
+      <div class="footer-contacts">
         <h3 class="footer-contacts-title">Контакты</h3>
         <p class="footer-contacts-info">
-            +7 (245) 214-09-11<br>
-            info@clinic.ru<br>
-            г. Москва, ул. Здоровья, 10
+          +7 (245) 214-09-11<br />
+          info@clinic.ru<br />
+          г. Москва, ул. Здоровья, 10
         </p>
         <div class="footer-contact-icons">
-            <a href="https://wa.me/72452140911" target="_blank"><img src="img/max.png" alt="WhatsApp"></a>
-            <a href="https://vb.me/72452140911" target="_blank"><img src="img/tg.png" alt="Viber"></a>
-            <a href="https://max.com/72452140911" target="_blank"><img src="img/vib.png" alt="Maxim"></a>
-            <a href="https://t.me/clinicchat" target="_blank"><img src="img/wt.png" alt="Telegram"></a>
+          <a href="https://wa.me/72452140911" target="_blank"
+            ><img src="img/max.png" alt="WhatsApp"
+          /></a>
+          <a href="https://vb.me/72452140911" target="_blank"
+            ><img src="img/tg.png" alt="Viber"
+          /></a>
+          <a href="https://max.com/72452140911" target="_blank"
+            ><img src="img/vib.png" alt="Maxim"
+          /></a>
+          <a href="https://t.me/clinicchat" target="_blank"
+            ><img src="img/wt.png" alt="Telegram"
+          /></a>
         </div>
-    </div>
-<div class="footer-online">
-    <h3 class="footer-online-title">Записаться онлайн</h3>
-    <form action="/submit" method="POST">
-        <input type="hidden" name="doctor_id" value="">
-        <input type="hidden" name="appointment_date" value="">
-        <input type="hidden" name="appointment_time" value="">
-        <input type="text" class="footer-input name" name="name" placeholder="Ваше имя" required>
-        <input type="text" class="footer-input phone" name="phone" placeholder="+7 (000) 000-00-00" required>
-        <input type="hidden" name="comment" value="без комментариев">
-        <button class="footer-btn" type="submit">Отправить</button>
-    </form>
-</div>
-</div>
-<div class="calculator-modal" id="calculatorModal">
-    <div class="calculator-window">
-        <button class="calculator-close" id="closeCalculator">
-            ✕
-        </button>
-        <div class="calculator-header">
-            <span class="step-text">
-                Шаг 1 из 5
-            </span>
-            <span class="steps-count">
-                5 шагов
-            </span>
-        </div>
-        <h2 class="calculator-title">
-            Что вас интересует?
-        </h2>
-        <div class="calculator-content">
-            <div class="step-one">
-                <div class="service-buttons">
-                    <button class="service-option">
-                        🦷 Консультация и диагностика
-                    </button>
-                    <button class="service-option">
-                        🪥 Профессиональная гигиена
-                    </button>
-                    <button class="service-option">
-                        🩹 Лечение зубов
-                    </button>
-                    <button class="service-option">
-                        🦴 Удаление зубов и хирургия
-                    </button>
-                    <button class="service-option">
-                        👑 Коронки и виниры
-                    </button>
-                    <button class="service-option">
-                        🔩 Имплантация
-                    </button>
-                </div>
-            </div>
-            <div class="step-two">
-                <div class="service-list">
-                </div>
-            </div>
-            <div class="step-three">
-                <div class="confirm-services">
-                </div>
-            </div>
-            <div class="step-four">
-                <div class="selected-services-block">
-                    <div class="selected-services-list">
-                    </div>
-                </div>
-                <h3 class="price-title">
-                    Расчёт стоимости
-                </h3>
-                <div class="price-header">
-                    <span>
-                        Услуга
-                    </span>
-                    <span>
-                        Цена
-                    </span>
-                </div>
-                <div class="price-rows">
-                </div>
-                <div class="total-block">
-                    <h3 class="total-title">
-                        Итого
-                    </h3>
-                    <div class="total-price">
-                        ≈ 0 ₽
-                    </div>
-                </div>
-                <div class="price-info">
-                    <p>
-                        Предварительная стоимость указана для ознакомления.
-                    </p>
-                    <p>
-                        После осмотра врач определит точный план лечения и итоговую стоимость.
-                    </p>
-                </div>
-            </div>
-        </div>
-<div class="step-five">
-    <h2 class="record-title">
-        Записаться на консультацию
-    </h2>
-<form
-    action="/submit"
-    method="POST"
-    class="record-form"
->
-    <input type="hidden" name="doctor_id" value="">
-    <input type="hidden" name="appointment_date" value="">
-    <input type="hidden" name="appointment_time" value="">
-    <input
-        type="text"
-        class="record-input"
-        name="name"
-        placeholder="Ваше имя"
-        required
-    >
-    <input
-        type="text"
-        class="record-input"
-        name="phone"
-        placeholder="+7 (000) 000-00-00"
-        required
-    >
-    <textarea
-        class="record-input"
-        name="comment"
-        placeholder="Комментарий (необязательно)"
-    ></textarea>
-    <input
-        type="hidden"
-        name="services"
-        id="calculatorServices"
-    >
-    <input
-        type="hidden"
-        name="price"
-        id="calculatorPrice"
-    >
-    <input
-        type="hidden"
-        name="source"
-        value="calculator"
-    >
-    <button
-        class="record-btn"
-        type="submit"
-    >
-        Отправить
-    </button>
-</form>
-</div>
-        <div class="calculator-divider"></div>
-<div class="calculator-bottom">
-    <button class="btn-back-step">
-        Назад
-    </button>
-    <button class="btn-next-step">
-        Дальше
-    </button>
-    <button class="calculate-button">
-        Рассчитать стоимость
-    </button>
-    <button class="btn-edit">
-        Изменить параметры
-    </button>
-    <button class="btn-record-consultation">
-        Записаться на консультацию
-    </button>
-</div>
-    </div>
-</div>
-<script src="doctors.js" defer></script>
-<script src="app.js" defer></script>
-
-<div class="account-auth-modal" id="accountAuthModal">
-  <div class="account-auth-window">
-    <button class="account-auth-close" id="accountAuthClose" type="button" aria-label="Закрыть">×</button>
-    <img src="img/logwhite.png" class="account-auth-logo" alt="Логотип">
-    <h2>Вход в систему</h2>
-
-    <div class="account-role-tabs" role="tablist" aria-label="Выбор роли">
-      <button type="button" class="active" data-role="patient">Пациент</button>
-      <button type="button" data-role="doctor">Врач</button>
-      <button type="button" data-role="admin">Администратор</button>
-    </div>
-
-    <section class="account-role-panel active" data-role-panel="patient">
-      <div class="account-auth-tabs">
-        <button type="button" class="active" data-auth-tab="login">Войти</button>
-        <button type="button" data-auth-tab="register">Регистрация</button>
       </div>
-      <form id="homeLoginForm" class="home-auth-form">
-        <input id="homeLogin" placeholder="Телефон или email" autocomplete="username" required>
-        <input id="homePassword" type="password" placeholder="Пароль" autocomplete="current-password" required>
-        <button type="submit">Войти</button>
-      </form>
-      <form id="homeRegisterForm" class="home-auth-form hidden">
-        <input id="homeRegName" placeholder="ФИО" autocomplete="name" required>
-        <input id="homeRegPhone" placeholder="+7 (000) 000-00-00" autocomplete="tel" required>
-        <input id="homeRegEmail" type="email" placeholder="Email" autocomplete="email">
-        <input id="homeRegBirth" type="date">
-        <input id="homeRegPassword" type="password" placeholder="Пароль (минимум 6 символов)" autocomplete="new-password" required>
-        <label class="privacy-consent">
-          <input id="homePrivacyConsent" type="checkbox" required>
-          <span>Я согласен на обработку персональных данных и принимаю <a href="/politika/" target="_blank" rel="noopener noreferrer">Политику конфиденциальности</a>.</span>
-        </label>
-        <button type="submit">Создать аккаунт</button>
-      </form>
-    </section>
+      <div class="footer-online">
+        <h3 class="footer-online-title">Записаться онлайн</h3>
+        <form action="/submit" method="POST">
+          <input type="hidden" name="doctor_id" value="" />
+          <input type="hidden" name="appointment_date" value="" />
+          <input type="hidden" name="appointment_time" value="" />
+          <input
+            type="text"
+            class="footer-input name"
+            name="name"
+            placeholder="Ваше имя"
+            required
+          />
+          <input
+            type="text"
+            class="footer-input phone"
+            name="phone"
+            placeholder="+7 (000) 000-00-00"
+            required
+          />
+          <input type="hidden" name="comment" value="без комментариев" />
+          <button class="footer-btn" type="submit">Отправить</button>
+        </form>
+      </div>
+    </div>
+    <div class="calculator-modal" id="calculatorModal">
+      <div class="calculator-window">
+        <button class="calculator-close" id="closeCalculator">✕</button>
+        <div class="calculator-header">
+          <span class="step-text"> Шаг 1 из 5 </span>
+          <span class="steps-count"> 5 шагов </span>
+        </div>
+        <h2 class="calculator-title">Что вас интересует?</h2>
+        <div class="calculator-content">
+          <div class="step-one">
+            <div class="service-buttons">
+              <button class="service-option">
+                🦷 Консультация и диагностика
+              </button>
+              <button class="service-option">
+                🪥 Профессиональная гигиена
+              </button>
+              <button class="service-option">🩹 Лечение зубов</button>
+              <button class="service-option">
+                🦴 Удаление зубов и хирургия
+              </button>
+              <button class="service-option">👑 Коронки и виниры</button>
+              <button class="service-option">🔩 Имплантация</button>
+            </div>
+          </div>
+          <div class="step-two">
+            <div class="service-list"></div>
+          </div>
+          <div class="step-three">
+            <div class="confirm-services"></div>
+          </div>
+          <div class="step-four">
+            <div class="selected-services-block">
+              <div class="selected-services-list"></div>
+            </div>
+            <h3 class="price-title">Расчёт стоимости</h3>
+            <div class="price-header">
+              <span> Услуга </span>
+              <span> Цена </span>
+            </div>
+            <div class="price-rows"></div>
+            <div class="total-block">
+              <h3 class="total-title">Итого</h3>
+              <div class="total-price">≈ 0 ₽</div>
+            </div>
+            <div class="price-info">
+              <p>Предварительная стоимость указана для ознакомления.</p>
+              <p>
+                После осмотра врач определит точный план лечения и итоговую
+                стоимость.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="step-five">
+          <h2 class="record-title">Записаться на консультацию</h2>
+          <form action="/submit" method="POST" class="record-form">
+            <input type="hidden" name="doctor_id" value="" />
+            <input type="hidden" name="appointment_date" value="" />
+            <input type="hidden" name="appointment_time" value="" />
+            <input
+              type="text"
+              class="record-input"
+              name="name"
+              placeholder="Ваше имя"
+              required
+            />
+            <input
+              type="text"
+              class="record-input"
+              name="phone"
+              placeholder="+7 (000) 000-00-00"
+              required
+            />
+            <textarea
+              class="record-input"
+              name="comment"
+              placeholder="Комментарий (необязательно)"
+            ></textarea>
+            <input type="hidden" name="services" id="calculatorServices" />
+            <input type="hidden" name="price" id="calculatorPrice" />
+            <input type="hidden" name="source" value="calculator" />
+            <button class="record-btn" type="submit">Отправить</button>
+          </form>
+        </div>
+        <div class="calculator-divider"></div>
+        <div class="calculator-bottom">
+          <button class="btn-back-step">Назад</button>
+          <button class="btn-next-step">Дальше</button>
+          <button class="calculate-button">Рассчитать стоимость</button>
+          <button class="btn-edit">Изменить параметры</button>
+          <button class="btn-record-consultation">
+            Записаться на консультацию
+          </button>
+        </div>
+      </div>
+    </div>
+    <script src="doctors.js" defer></script>
+    <script src="app.js" defer></script>
 
-    <section class="account-role-panel" data-role-panel="doctor">
-      <form id="homeDoctorLoginForm" class="home-auth-form">
-        <input id="homeDoctorLogin" placeholder="Логин врача" autocomplete="username" required>
-        <input id="homeDoctorPassword" type="password" placeholder="Пароль" autocomplete="current-password" required>
-        <button type="submit">Войти как врач</button>
-      </form>
-      </section>
+    <div class="account-auth-modal" id="accountAuthModal">
+      <div class="account-auth-window">
+        <button
+          class="account-auth-close"
+          id="accountAuthClose"
+          type="button"
+          aria-label="Закрыть"
+        >
+          ×
+        </button>
+        <img src="img/logwhite.png" class="account-auth-logo" alt="Логотип" />
+        <h2>Вход в систему</h2>
 
-    <section class="account-role-panel" data-role-panel="admin">
-      <form id="homeAdminLoginForm" class="home-auth-form">
-        <input id="homeAdminLogin" placeholder="Логин администратора" autocomplete="username" required>
-        <input id="homeAdminPassword" type="password" placeholder="Пароль" autocomplete="current-password" required>
-        <button type="submit">Войти как администратор</button>
-      </form>
-      </section>
+        <div class="account-role-tabs" role="tablist" aria-label="Выбор роли">
+          <button type="button" class="active" data-role="patient">
+            Пациент
+          </button>
+          <button type="button" data-role="doctor">Врач</button>
+          <button type="button" data-role="admin">Администратор</button>
+        </div>
 
-    <p id="homeAuthMsg" aria-live="polite"></p>
-  </div>
-</div>
+        <section class="account-role-panel active" data-role-panel="patient">
+          <div class="account-auth-tabs">
+            <button type="button" class="active" data-auth-tab="login">
+              Войти
+            </button>
+            <button type="button" data-auth-tab="register">Регистрация</button>
+          </div>
+          <form id="homeLoginForm" class="home-auth-form">
+            <input
+              id="homeLogin"
+              placeholder="Телефон или email"
+              autocomplete="username"
+              required
+            />
+            <input
+              id="homePassword"
+              type="password"
+              placeholder="Пароль"
+              autocomplete="current-password"
+              required
+            />
+            <button type="submit">Войти</button>
+          </form>
+          <form id="homeRegisterForm" class="home-auth-form hidden">
+            <input
+              id="homeRegName"
+              placeholder="ФИО"
+              autocomplete="name"
+              required
+            />
+            <input
+              id="homeRegPhone"
+              placeholder="+7 (000) 000-00-00"
+              autocomplete="tel"
+              required
+            />
+            <input
+              id="homeRegEmail"
+              type="email"
+              placeholder="Email"
+              autocomplete="email"
+            />
+            <input id="homeRegBirth" type="date" />
+            <input
+              id="homeRegPassword"
+              type="password"
+              placeholder="Пароль (минимум 6 символов)"
+              autocomplete="new-password"
+              required
+            />
+            <label class="privacy-consent">
+              <input id="homePrivacyConsent" type="checkbox" required />
+              <span
+                >Я согласен на обработку персональных данных и принимаю
+                <a href="/politika/" target="_blank" rel="noopener noreferrer"
+                  >Политику конфиденциальности</a
+                >.</span
+              >
+            </label>
+            <button type="submit">Создать аккаунт</button>
+          </form>
+        </section>
 
-<script>
-(()=>{
- const modal=document.getElementById("accountAuthModal");
- const open=document.getElementById("accountMenuBtn");
- const close=document.getElementById("accountAuthClose");
- const burger=document.getElementById("btnBurger");
- const header=document.querySelector(".header");
- const msg=document.getElementById("homeAuthMsg");
+        <section class="account-role-panel" data-role-panel="doctor">
+          <form id="homeDoctorLoginForm" class="home-auth-form">
+            <input
+              id="homeDoctorLogin"
+              placeholder="Логин врача"
+              autocomplete="username"
+              required
+            />
+            <input
+              id="homeDoctorPassword"
+              type="password"
+              placeholder="Пароль"
+              autocomplete="current-password"
+              required
+            />
+            <button type="submit">Войти как врач</button>
+          </form>
+        </section>
 
- const setMessage=(text,ok=false)=>{msg.textContent=text;msg.classList.toggle("success",ok)};
- const showModal=(role="patient")=>{
-   modal.classList.add("show");
-   document.querySelectorAll(".account-role-tabs button").forEach(x=>x.classList.toggle("active",x.dataset.role===role));
-   document.querySelectorAll(".account-role-panel").forEach(x=>x.classList.toggle("active",x.dataset.rolePanel===role));
-   setMessage("");
- };
- open?.addEventListener("click",()=>{
-   if(open.dataset.loggedIn==="true"){location.href="/account/";return;}
-   showModal("patient");
- });
- close?.addEventListener("click",()=>modal.classList.remove("show"));
- modal?.addEventListener("click",e=>{if(e.target===modal)modal.classList.remove("show")});
- burger?.addEventListener("click",()=>header.classList.toggle("menu-open"));
+        <section class="account-role-panel" data-role-panel="admin">
+          <form id="homeAdminLoginForm" class="home-auth-form">
+            <input
+              id="homeAdminLogin"
+              placeholder="Логин администратора"
+              autocomplete="username"
+              required
+            />
+            <input
+              id="homeAdminPassword"
+              type="password"
+              placeholder="Пароль"
+              autocomplete="current-password"
+              required
+            />
+            <button type="submit">Войти как администратор</button>
+          </form>
+        </section>
 
- document.querySelectorAll(".account-role-tabs button").forEach(t=>t.addEventListener("click",()=>showModal(t.dataset.role)));
- document.querySelectorAll(".account-auth-tabs button").forEach(t=>t.addEventListener("click",()=>{
-   document.querySelectorAll(".account-auth-tabs button").forEach(x=>x.classList.remove("active"));
-   t.classList.add("active");
-   const reg=t.dataset.authTab==="register";
-   document.getElementById("homeLoginForm").classList.toggle("hidden",reg);
-   document.getElementById("homeRegisterForm").classList.toggle("hidden",!reg);
-   setMessage("");
- }));
+        <p id="homeAuthMsg" aria-live="polite"></p>
+      </div>
+    </div>
 
- document.getElementById("homeLoginForm").addEventListener("submit",async e=>{
-   e.preventDefault();setMessage("");
-   try{
-     const r=await fetch("/patient/login",{method:"POST",headers:{"Content-Type":"application/json"},credentials:"include",body:JSON.stringify({login:document.getElementById("homeLogin").value,password:document.getElementById("homePassword").value})});
-     if(!r.ok){setMessage(await r.text());return;}
-     location.href="/account/";
-   }catch(err){setMessage("Не удалось выполнить вход");}
- });
- document.getElementById("homeRegisterForm").addEventListener("submit",async e=>{
-   e.preventDefault();setMessage("");
-   try{
-     if(!document.getElementById("homePrivacyConsent").checked){setMessage("Для регистрации необходимо согласиться на обработку персональных данных и с Политикой конфиденциальности.");return;}
-     const r=await fetch("/patient/register",{method:"POST",headers:{"Content-Type":"application/json"},credentials:"include",body:JSON.stringify({name:homeRegName.value,phone:homeRegPhone.value,email:homeRegEmail.value,birthDate:homeRegBirth.value,password:homeRegPassword.value,privacyConsent:true})});
-     if(!r.ok){setMessage(await r.text());return;}
-     location.href="/account/";
-   }catch(err){setMessage("Не удалось создать аккаунт");}
- });
- document.getElementById("homeDoctorLoginForm").addEventListener("submit",async e=>{
-   e.preventDefault();setMessage("");
-   try{
-     const r=await fetch("/doctor/login",{method:"POST",headers:{"Content-Type":"application/json"},credentials:"include",body:JSON.stringify({login:homeDoctorLogin.value,password:homeDoctorPassword.value})});
-     if(!r.ok){setMessage(await r.text());return;}
-     location.href="/doctor/dashboard.html";
-   }catch(err){setMessage("Не удалось выполнить вход");}
- });
- document.getElementById("homeAdminLoginForm").addEventListener("submit",async e=>{
-   e.preventDefault();setMessage("");
-   try{
-     const r=await fetch("/admin/login",{method:"POST",headers:{"Content-Type":"application/json"},credentials:"include",body:JSON.stringify({login:homeAdminLogin.value,password:homeAdminPassword.value})});
-     if(!r.ok){setMessage(await r.text());return;}
-     location.href="/dashboard.html";
-   }catch(err){setMessage("Не удалось выполнить вход");}
- });
+    <script>
+      (() => {
+        const modal = document.getElementById("accountAuthModal");
+        const open = document.getElementById("accountMenuBtn");
+        const close = document.getElementById("accountAuthClose");
+        const burger = document.getElementById("btnBurger");
+        const header = document.querySelector(".header");
+        const msg = document.getElementById("homeAuthMsg");
 
- // Сессия пациента сохраняется при переходе на главную страницу.
- // Если пациент уже вошёл, кнопка сразу ведёт в кабинет и не показывает форму повторно.
- fetch("/api/patient/me",{credentials:"include"}).then(r=>{
-   if(r.ok){open.textContent="Личный кабинет";open.dataset.loggedIn="true";}
- }).catch(()=>{});
+        const setMessage = (text, ok = false) => {
+          msg.textContent = text;
+          msg.classList.toggle("success", ok);
+        };
+        const showModal = (role = "patient") => {
+          modal.classList.add("show");
+          document
+            .querySelectorAll(".account-role-tabs button")
+            .forEach((x) =>
+              x.classList.toggle("active", x.dataset.role === role),
+            );
+          document
+            .querySelectorAll(".account-role-panel")
+            .forEach((x) =>
+              x.classList.toggle("active", x.dataset.rolePanel === role),
+            );
+          setMessage("");
+        };
+        open?.addEventListener("click", () => {
+          if (open.dataset.loggedIn === "true") {
+            location.href = "/account/";
+            return;
+          }
+          showModal("patient");
+        });
+        close?.addEventListener("click", () => modal.classList.remove("show"));
+        modal?.addEventListener("click", (e) => {
+          if (e.target === modal) modal.classList.remove("show");
+        });
+        burger?.addEventListener("click", () =>
+          header.classList.toggle("menu-open"),
+        );
 
- // Ссылка со страницы политики возвращает именно в эту форму на главной странице
- // и сразу открывает вкладку регистрации.
- const params=new URLSearchParams(location.search);
- const accountParam=params.get("account");
- if(accountParam==="patient" || accountParam==="doctor" || accountParam==="admin" || accountParam==="register"){
-   showModal(accountParam==="register" ? "patient" : accountParam);
-   if(accountParam==="register"){
-     document.querySelectorAll(".account-auth-tabs button").forEach(x=>x.classList.toggle("active",x.dataset.authTab==="register"));
-     document.getElementById("homeLoginForm").classList.add("hidden");
-     document.getElementById("homeRegisterForm").classList.remove("hidden");
-   }
- }
-})();
-</script>
-<script src="/patient-prefill.js"></script>
-<script src="/captcha.js"></script>
-</body>
+        document
+          .querySelectorAll(".account-role-tabs button")
+          .forEach((t) =>
+            t.addEventListener("click", () => showModal(t.dataset.role)),
+          );
+        document.querySelectorAll(".account-auth-tabs button").forEach((t) =>
+          t.addEventListener("click", () => {
+            document
+              .querySelectorAll(".account-auth-tabs button")
+              .forEach((x) => x.classList.remove("active"));
+            t.classList.add("active");
+            const reg = t.dataset.authTab === "register";
+            document
+              .getElementById("homeLoginForm")
+              .classList.toggle("hidden", reg);
+            document
+              .getElementById("homeRegisterForm")
+              .classList.toggle("hidden", !reg);
+            setMessage("");
+          }),
+        );
+
+        document
+          .getElementById("homeLoginForm")
+          .addEventListener("submit", async (e) => {
+            e.preventDefault();
+            setMessage("");
+            try {
+              const r = await fetch("/patient/login", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                credentials: "include",
+                body: JSON.stringify({
+                  login: document.getElementById("homeLogin").value,
+                  password: document.getElementById("homePassword").value,
+                }),
+              });
+              if (!r.ok) {
+                setMessage(await r.text());
+                return;
+              }
+              location.href = "/account/";
+            } catch (err) {
+              setMessage("Не удалось выполнить вход");
+            }
+          });
+        document
+          .getElementById("homeRegisterForm")
+          .addEventListener("submit", async (e) => {
+            e.preventDefault();
+            setMessage("");
+            try {
+              if (!document.getElementById("homePrivacyConsent").checked) {
+                setMessage(
+                  "Для регистрации необходимо согласиться на обработку персональных данных и с Политикой конфиденциальности.",
+                );
+                return;
+              }
+              const r = await fetch("/patient/register", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                credentials: "include",
+                body: JSON.stringify({
+                  name: homeRegName.value,
+                  phone: homeRegPhone.value,
+                  email: homeRegEmail.value,
+                  birthDate: homeRegBirth.value,
+                  password: homeRegPassword.value,
+                  privacyConsent: true,
+                }),
+              });
+              if (!r.ok) {
+                setMessage(await r.text());
+                return;
+              }
+              location.href = "/account/";
+            } catch (err) {
+              setMessage("Не удалось создать аккаунт");
+            }
+          });
+        document
+          .getElementById("homeDoctorLoginForm")
+          .addEventListener("submit", async (e) => {
+            e.preventDefault();
+            setMessage("");
+            try {
+              const r = await fetch("/doctor/login", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                credentials: "include",
+                body: JSON.stringify({
+                  login: homeDoctorLogin.value,
+                  password: homeDoctorPassword.value,
+                }),
+              });
+              if (!r.ok) {
+                setMessage(await r.text());
+                return;
+              }
+              location.href = "/doctor/dashboard.html";
+            } catch (err) {
+              setMessage("Не удалось выполнить вход");
+            }
+          });
+        document
+          .getElementById("homeAdminLoginForm")
+          .addEventListener("submit", async (e) => {
+            e.preventDefault();
+            setMessage("");
+            try {
+              const r = await fetch("/admin/login", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                credentials: "include",
+                body: JSON.stringify({
+                  login: homeAdminLogin.value,
+                  password: homeAdminPassword.value,
+                }),
+              });
+              if (!r.ok) {
+                setMessage(await r.text());
+                return;
+              }
+              location.href = "/dashboard.html";
+            } catch (err) {
+              setMessage("Не удалось выполнить вход");
+            }
+          });
+
+        fetch("/api/patient/me", { credentials: "include" })
+          .then((r) => {
+            if (r.ok) {
+              open.textContent = "Личный кабинет";
+              open.dataset.loggedIn = "true";
+            }
+          })
+          .catch(() => {});
+
+        const params = new URLSearchParams(location.search);
+        const accountParam = params.get("account");
+        if (
+          accountParam === "patient" ||
+          accountParam === "doctor" ||
+          accountParam === "admin" ||
+          accountParam === "register"
+        ) {
+          showModal(accountParam === "register" ? "patient" : accountParam);
+          if (accountParam === "register") {
+            document
+              .querySelectorAll(".account-auth-tabs button")
+              .forEach((x) =>
+                x.classList.toggle("active", x.dataset.authTab === "register"),
+              );
+            document.getElementById("homeLoginForm").classList.add("hidden");
+            document
+              .getElementById("homeRegisterForm")
+              .classList.remove("hidden");
+          }
+        }
+      })();
+    </script>
+    <script src="/patient-prefill.js"></script>
+    <script src="/captcha.js"></script>
+  </body>
 </html>

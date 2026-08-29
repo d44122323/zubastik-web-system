@@ -1,60 +1,60 @@
 <!doctype html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Кабинет врача | ЗУ-БАСТИК</title>
-    <link rel="stylesheet" href="/doctor/dashboard.css">
-    <link rel="stylesheet" href="../ui-polish.css">
-</head>
-<body>
-<div class="app">
-    <header class="topbar">
+    <link rel="stylesheet" href="/doctor/dashboard.css" />
+    <link rel="stylesheet" href="../ui-polish.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="topbar">
         <div>
-            <p class="eyebrow">ЗУ-БАСТИК</p>
-            <h1>Кабинет врача</h1>
+          <p class="eyebrow">ЗУ-БАСТИК</p>
+          <h1>Кабинет врача</h1>
         </div>
         <div class="doctor-user">
-            <span id="doctorName">Загрузка...</span>
-            <button id="logout">Выйти</button>
+          <span id="doctorName">Загрузка...</span>
+          <button id="logout">Выйти</button>
         </div>
-    </header>
+      </header>
 
-    <div class="layout">
+      <div class="layout">
         <aside class="sidebar">
-            <a class="active" href="/doctor/dashboard.html">Главная</a>
-            <a href="/doctor/appointments.html">Мои записи</a>
-            <a href="/doctor/patients.html">Пациенты</a>
-            <a href="/doctor/book.html">+ Записать пациента</a>
-            <a href="/doctor/requests.html">Заявки</a>
-            <a href="/doctor/questions.html">Вопросы пациентов</a>
-            <a href="/doctor/schedule.html">Расписание</a>
+          <a class="active" href="/doctor/dashboard.html">Главная</a>
+          <a href="/doctor/appointments.html">Мои записи</a>
+          <a href="/doctor/patients.html">Пациенты</a>
+          <a href="/doctor/book.html">+ Записать пациента</a>
+          <a href="/doctor/requests.html">Заявки</a>
+          <a href="/doctor/questions.html">Вопросы пациентов</a>
+          <a href="/doctor/schedule.html">Расписание</a>
         </aside>
 
         <main class="content">
-            <section class="hero">
-                <p class="eyebrow">Авторизация выполнена</p>
-                <h2 id="welcome">Добро пожаловать</h2>
-                <p>Здесь собраны ваши заявки и пациенты.</p>
-            </section>
+          <section class="hero">
+            <p class="eyebrow">Авторизация выполнена</p>
+            <h2 id="welcome">Добро пожаловать</h2>
+            <p>Здесь собраны ваши заявки и пациенты.</p>
+          </section>
 
-            <section class="cards">
-                <article class="card">
-                    <span>Роль</span>
-                    <strong>DOCTOR</strong>
-                </article>
-                <article class="card">
-                    <span>Врач</span>
-                    <strong id="doctorId">—</strong>
-                </article>
-                <article class="card">
-                    <span>Статус</span>
-                    <strong>Активен</strong>
-                </article>
-            </section>
+          <section class="cards">
+            <article class="card">
+              <span>Роль</span>
+              <strong>DOCTOR</strong>
+            </article>
+            <article class="card">
+              <span>Врач</span>
+              <strong id="doctorId">—</strong>
+            </article>
+            <article class="card">
+              <span>Статус</span>
+              <strong>Активен</strong>
+            </article>
+          </section>
         </main>
+      </div>
     </div>
-</div>
-<script src="/doctor/dashboard.js"></script>
-</body>
+    <script src="/doctor/dashboard.js"></script>
+  </body>
 </html>

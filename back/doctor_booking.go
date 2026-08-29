@@ -31,8 +31,6 @@ func CreateDoctorAppointment(doctorID, patientID int, service, dateStr, timeStr,
 		return Request{}, err
 	}
 
-	// A doctor may create an appointment only for a patient already belonging
-	// to this doctor. This check is performed on the backend.
 	var exists bool
 	if err := DB.QueryRow(`
         SELECT EXISTS(
@@ -111,9 +109,6 @@ func GetDoctorPatientForBooking(doctorID, patientID int) (Patient, error) {
 	return p, err
 }
 
-// GetDoctorAppointments returns the current doctor's working appointments.
-// Unlike the public/admin requests endpoint, doctorID is always supplied by
-// the authenticated doctor session at the handler level.
 func GetDoctorAppointments(doctorID int, period, status, date, search string) ([]Request, error) {
 	query := `
 SELECT r.id, r.patient_id, p.name, p.phone, p.comment, r.services, r.price, r.source,
