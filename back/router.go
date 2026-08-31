@@ -102,6 +102,7 @@ func SetupRouter(cfg Config) http.Handler {
 		http.ServeFile(w, r, "../front/politika.html")
 	})
 	mux.Handle("/patient-prefill.js", frontFS)
+	mux.Handle("/services.js", frontFS)
 	mux.Handle("/account/", PatientAuthMiddleware(http.StripPrefix("/account/", http.FileServer(http.Dir("../front/account")))))
 	mux.Handle(
 		"/img/",

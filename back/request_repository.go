@@ -93,6 +93,14 @@ WHERE r.id = $1
 	return request, err
 }
 func SaveRequest(patientID int, data FormData) error {
+	if len(data.ServiceIDs) > 0 {
+		services, price, err := ResolveServices(data.ServiceIDs)
+		if err != nil {
+			return err
+		}
+		data.Services = services
+		data.Price = price
+	}
 
 	var doctorID any
 	if data.DoctorID > 0 {

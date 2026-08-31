@@ -19,10 +19,11 @@ type Service struct {
 }
 
 type ServicePayload struct {
-	Category string `json:"category"`
-	Name     string `json:"name"`
-	Price    int    `json:"price"`
-	IsActive bool   `json:"isActive"`
+	Category  string `json:"category"`
+	Name      string `json:"name"`
+	Price     int    `json:"price"`
+	IsActive  bool   `json:"isActive"`
+	SortOrder int    `json:"sortOrder"`
 }
 
 func InitServicesTable() error {
@@ -175,16 +176,42 @@ func ResolveServices(ids []int) (string, int, error) {
 	return strings.Join(names, ", "), total, nil
 }
 
-func UpdateService(id int, p ServicePayload) (Service, error) {
-	if strings.TrimSpace(p.Name) == "" || p.Price < 0 {
-		return Service{}, &serviceError{"Некорректная услуга или цена"}
+func CreateService(p ServicePayload) (Service, error) {
+	p.Category = strings.TrimSpace(p.Category)
+	p.Name = strings.TrimSpace(p.Name)
+	if p.Category == "" || p.Name == "" || p.Price < 0 || p.SortOrder < 0 {
+		return Service{}, &serviceError{"Заполните раздел и название, цена и порядок не могут быть отрицательными"}
 	}
-	_, err := DB.Exec(`UPDATE services SET category=$1,name=$2,price=$3,is_active=$4,updated_at=NOW() WHERE id=$5`, strings.TrimSpace(p.Category), strings.TrimSpace(p.Name), p.Price, p.IsActive, id)
+	var id int
+	err := DB.QueryRow(`
+		INSERT INTO services(category,name,price,is_active,sort_order,updated_at)
+		VALUES($1,$2,$3,$4,$5,NOW()) RETURNING id
+	`, p.Category, p.Name, p.Price, p.IsActive, p.SortOrder).Scan(&id)
+	if err != nil {
+		if strings.Contains(strings.ToLower(err.Error()), "duplicate") || strings.Contains(strings.ToLower(err.Error()), "unique") {
+			return Service{}, &serviceError{"Услуга с таким названием уже существует"}
+		}
+		return Service{}, err
+	}
+	return getServiceByID(id)
+}
+
+func UpdateService(id int, p ServicePayload) (Service, error) {
+	p.Category = strings.TrimSpace(p.Category)
+	p.Name = strings.TrimSpace(p.Name)
+	if p.Category == "" || p.Name == "" || p.Price < 0 || p.SortOrder < 0 {
+		return Service{}, &serviceError{"Заполните раздел и название, цена и порядок не могут быть отрицательными"}
+	}
+	_, err := DB.Exec(`UPDATE services SET category=$1,name=$2,price=$3,is_active=$4,sort_order=$5,updated_at=NOW() WHERE id=$6`, p.Category, p.Name, p.Price, p.IsActive, p.SortOrder, id)
 	if err != nil {
 		return Service{}, err
 	}
+	return getServiceByID(id)
+}
+
+func getServiceByID(id int) (Service, error) {
 	var s Service
-	err = DB.QueryRow(`SELECT id,category,name,price,is_active,sort_order FROM services WHERE id=$1`, id).Scan(&s.ID, &s.Category, &s.Name, &s.Price, &s.IsActive, &s.SortOrder)
+	err := DB.QueryRow(`SELECT id,category,name,price,is_active,sort_order FROM services WHERE id=$1`, id).Scan(&s.ID, &s.Category, &s.Name, &s.Price, &s.IsActive, &s.SortOrder)
 	return s, err
 }
 
@@ -220,6 +247,20 @@ func ServicesAdminHandler(w http.ResponseWriter, r *http.Request) {
 		}
 		w.Header().Set("Content-Type", "application/json")
 		json.NewEncoder(w).Encode(list)
+	case http.MethodPost:
+		var p ServicePayload
+		if err := json.NewDecoder(r.Body).Decode(&p); err != nil {
+			http.Error(w, "bad request", 400)
+			return
+		}
+		s, err := CreateService(p)
+		if err != nil {
+			http.Error(w, err.Error(), 400)
+			return
+		}
+		w.Header().Set("Content-Type", "application/json")
+		w.WriteHeader(http.StatusCreated)
+		json.NewEncoder(w).Encode(s)
 	case http.MethodPut:
 		id, err := strconv.Atoi(strings.TrimPrefix(r.URL.Path, "/api/admin/services/"))
 		if err != nil {

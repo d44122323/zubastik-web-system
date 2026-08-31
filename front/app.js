@@ -99,7 +99,7 @@ const nextBtn = document.querySelector(".btn-next-step");
 const calculateBtn = document.querySelector(".calculate-button");
 const editBtn = document.querySelector(".btn-edit");
 const consultationBtn = document.querySelector(".btn-record-consultation");
-const categoryButtons = document.querySelectorAll(".service-option");
+let categoryButtons = document.querySelectorAll(".service-option");
 const serviceList = document.querySelector(".service-list");
 const selectedServicesList = document.querySelector(".selected-services-list");
 const priceRows = document.querySelector(".price-rows");
@@ -108,6 +108,7 @@ const divider = document.querySelector(".calculator-divider");
 let currentStep = 1;
 let selectedCategory = "";
 let selectedServices = [];
+let selectedServiceIds = [];
 let totalCost = 0;
 function sendCalculatorEvent(event) {
   console.log("sendCalculatorEvent:", event);
@@ -129,6 +130,7 @@ function resetCalculator() {
   currentStep = 1;
   selectedCategory = "";
   selectedServices = [];
+  selectedServiceIds = [];
   totalCost = 0;
   categoryButtons.forEach((button) => {
     button.classList.remove("active");
@@ -174,180 +176,63 @@ categoryButtons.forEach((button) => {
     selectedCategory = button.innerText.trim();
   });
 });
-const services = {
-  "🦷 Консультация и диагностика": ["Первичный осмотр и консультация"],
-  "🪥 Профессиональная гигиена": [
-    "Ультразвуковая чистка",
-    "Air Flow",
-    "Фторирование",
-  ],
-  "🩹 Лечение зубов": [
-    "Лечение кариеса под протезирование",
-    "Лечение кариеса",
-    "Лечение пульпита",
-    "Лечение периодонтита",
-    "Реставрация зуба",
-  ],
-  "🦴 Удаление зубов и хирургия": [
-    {
-      title: "Удаление зубов",
-      items: [
-        "Удаление зуба под протезирование",
-        "Удаление временного (молочного) зуба",
-        "Удаление постоянного зуба (простое)",
-        "Удаление постоянного зуба (сложное)",
-        "Удаление зуба мудрости (3 моляр)",
-      ],
-    },
-    {
-      title: "Ретинированные и дистопированные зубы",
-      items: [
-        "Удаление ретинированного / дистопированного зуба - I степень сложности",
-        "Удаление ретинированного / дистопированного зуба - II степень сложности",
-        "Удаление ретинированного / дистопированного зуба - III степень сложности",
-      ],
-    },
-    {
-      title: "Дополнительные хирургические процедуры",
-      items: [
-        "Удаление отломка коронковой части зуба",
-        "Вскрытие поднадкостничного абсцесса",
-        "Пластика уздечки верхней или нижней губы",
-        "Рассечение капюшона при перикоронарите",
-        "Кюретаж лунки ранее удалённого зуба",
-        "Наложение шва",
-      ],
-    },
-  ],
-  "👑 Коронки и виниры": [
-    {
-      title: "Коронки",
-      items: [
-        "Коронка (титановый сплав + керамика NORITAKE, Япония)",
-        "Коронка (титановый сплав + керамика VITA VM, Германия)",
-        "Коронка (чистый титан + керамика NORITAKE, Япония)",
-        "Коронка из диоксида циркония (Китай)",
-        "Коронка из диоксида циркония (Япония)",
-        "Коронка из диоксида циркония (Германия)",
-      ],
-    },
-    {
-      title: "Виниры",
-      items: [
-        "Винир из диоксида циркония (Китай)",
-        "Винир из диоксида циркония (Япония)",
-        "Винир из диоксида циркония (Германия)",
-      ],
-    },
-  ],
-  "🔩 Имплантация": [
-    {
-      title: "Импланты",
-      items: [
-        "Имплант (Корея)",
-        "Имплант (Япония)",
-        "Имплант (Германия)",
-        "Имплант (Швейцария)",
-      ],
-    },
-    {
-      title: "Дополнительные процедуры",
-      items: [
-        "Формирователь десны",
-        "Абатмент",
-        "Синус-лифтинг (без учёта расходных материалов)",
-        "Забор костного трансплантата",
-      ],
-    },
-  ],
-};
-let prices = {
-  "Первичный осмотр и консультация": 0,
-  "Ультразвуковая чистка": 500,
-  "Air Flow": 500,
-  Фторирование: 500,
-  "Лечение кариеса под протезирование": 0,
-  "Лечение кариеса": 600,
-  "Лечение пульпита": 600,
-  "Лечение периодонтита": 750,
-  "Реставрация зуба": 950,
-  "Удаление зуба под протезирование": 0,
-  "Удаление временного (молочного) зуба": 0,
-  "Удаление постоянного зуба (простое)": 200,
-  "Удаление постоянного зуба (сложное)": 450,
-  "Удаление зуба мудрости (3 моляр)": 1200,
-  "Удаление ретинированного / дистопированного зуба - I степень сложности": 900,
-  "Удаление ретинированного / дистопированного зуба - II степень сложности": 200,
-  "Удаление ретинированного / дистопированного зуба - III степень сложности": 400,
-  "Удаление отломка коронковой части зуба": 600,
-  "Вскрытие поднадкостничного абсцесса": 200,
-  "Пластика уздечки верхней или нижней губы": 1500,
-  "Рассечение капюшона при перикоронарите": 300,
-  "Кюретаж лунки ранее удалённого зуба": 250,
-  "Наложение шва": 200,
-  "Коронка (титановый сплав + керамика NORITAKE, Япония)": 2700,
-  "Коронка (титановый сплав + керамика VITA VM, Германия)": 2900,
-  "Коронка (чистый титан + керамика NORITAKE, Япония)": 3100,
-  "Коронка из диоксида циркония (Китай)": 6250,
-  "Коронка из диоксида циркония (Япония)": 9500,
-  "Коронка из диоксида циркония (Германия)": 11000,
-  "Винир из диоксида циркония (Китай)": 6000,
-  "Винир из диоксида циркония (Япония)": 6500,
-  "Винир из диоксида циркония (Германия)": 7400,
-  "Имплант (Корея)": 25000,
-  "Имплант (Япония)": 25000,
-  "Имплант (Германия)": 25000,
-  "Имплант (Швейцария)": 25000,
-  "Формирователь десны": 2000,
-  Абатмент: 4000,
-  "Синус-лифтинг (без учёта расходных материалов)": 5000,
-  "Забор костного трансплантата": 20000,
-};
-async function loadServicePrices() {
+let services = {};
+let serviceRecords = [];
+async function loadServicesFromServer() {
   try {
     const response = await fetch("/api/services");
-    if (!response.ok) return;
+    if (!response.ok) throw new Error("services");
     const data = await response.json();
-    const remotePrices = {};
-    data.forEach((service) => {
-      remotePrices[service.name] = Number(service.price) || 0;
+    serviceRecords = data.filter((x) => x.isActive !== false);
+    services = {};
+    serviceRecords.forEach((service) => {
+      if (!services[service.category]) services[service.category] = [];
+      services[service.category].push(service);
     });
-    prices = { ...prices, ...remotePrices };
+    prices = {};
+    serviceRecords.forEach((service) => { prices[service.name] = Number(service.price) || 0; });
+    renderCalculatorCategories();
+    if (selectedCategory && services[selectedCategory]) createServices(selectedCategory);
   } catch (error) {
-    console.warn("Не удалось загрузить актуальные цены", error);
+    console.warn("Не удалось загрузить услуги", error);
   }
 }
-loadServicePrices();
+function renderCalculatorCategories() {
+  if (!categoryButtons?.length) return;
+  const container = categoryButtons[0].parentElement;
+  container.innerHTML = "";
+  Object.keys(services).forEach((category) => {
+    const button = document.createElement("button");
+    button.className = "service-option";
+    button.type = "button";
+    button.innerText = category;
+    button.addEventListener("click", () => {
+      categoryButtons.forEach((x) => x.classList.remove("active"));
+      button.classList.add("active");
+      selectedCategory = category;
+    });
+    container.appendChild(button);
+  });
+  categoryButtons = container.querySelectorAll(".service-option");
+}
+loadServicesFromServer();
 function createServices(category) {
   serviceList.innerHTML = "";
-  services[category].forEach((service) => {
-    if (typeof service === "string") {
-      addServiceButton(service);
-    } else {
-      const title = document.createElement("div");
-      title.className = "service-category-title";
-      title.innerText = service.title;
-      serviceList.appendChild(title);
-      service.items.forEach((item) => {
-        addServiceButton(item);
-      });
-    }
-  });
+  (services[category] || []).forEach((service) => addServiceButton(service));
 }
-function addServiceButton(serviceName) {
+function addServiceButton(service) {
   const button = document.createElement("button");
   button.className = "service-list-button";
-  button.innerText = serviceName;
+  button.type = "button";
+  button.innerText = service.name;
   button.addEventListener("click", () => {
     button.classList.toggle("active");
     if (button.classList.contains("active")) {
-      if (!selectedServices.includes(serviceName)) {
-        selectedServices.push(serviceName);
-      }
+      if (!selectedServices.includes(service.name)) selectedServices.push(service.name);
+      if (!selectedServiceIds.includes(service.id)) selectedServiceIds.push(service.id);
     } else {
-      selectedServices = selectedServices.filter(
-        (item) => item !== serviceName,
-      );
+      selectedServices = selectedServices.filter((item) => item !== service.name);
+      selectedServiceIds = selectedServiceIds.filter((id) => id !== service.id);
     }
   });
   serviceList.appendChild(button);
@@ -513,8 +398,8 @@ editBtn.addEventListener("click", () => {
 });
 consultationBtn.addEventListener("click", () => {
   sendCalculatorEvent("request");
-  document.getElementById("calculatorServices").value =
-    selectedServices.join(" • ");
+  document.getElementById("calculatorServices").value = selectedServices.join(" • ");
+  document.getElementById("calculatorServiceIds").value = selectedServiceIds.join(",");
   document.getElementById("calculatorPrice").value = totalCost;
   currentStep = 5;
   stepFour.style.display = "none";

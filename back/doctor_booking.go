@@ -70,16 +70,26 @@ func DoctorCreateAppointmentHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	var body struct {
-		PatientID int    `json:"patient_id"`
-		Service   string `json:"service"`
-		Date      string `json:"date"`
-		Time      string `json:"time"`
-		Comment   string `json:"comment"`
-		Price     int    `json:"price"`
+		PatientID  int    `json:"patient_id"`
+		Service    string `json:"service"`
+		ServiceIDs []int  `json:"service_ids"`
+		Date       string `json:"date"`
+		Time       string `json:"time"`
+		Comment    string `json:"comment"`
+		Price      int    `json:"price"`
 	}
 	if err := json.NewDecoder(r.Body).Decode(&body); err != nil {
 		http.Error(w, "invalid json", http.StatusBadRequest)
 		return
+	}
+	if body.ServiceIDs != nil {
+		services, price, resolveErr := ResolveServices(body.ServiceIDs)
+		if resolveErr != nil {
+			http.Error(w, resolveErr.Error(), http.StatusBadRequest)
+			return
+		}
+		body.Service = services
+		body.Price = price
 	}
 	result, err := CreateDoctorAppointment(u.DoctorID, body.PatientID, body.Service, body.Date, body.Time, body.Comment, body.Price)
 	if err != nil {

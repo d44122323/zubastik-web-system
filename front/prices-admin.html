@@ -18,7 +18,7 @@
         <a href="dashboard.html" class="admin-logo-link"
           ><img src="img/logo.png" class="logo" alt="logo"
         /></a>
-        <h1>Управление ценами</h1>
+        <h1>Управление услугами</h1>
       </header>
       <nav class="navigation">
         <a href="dashboard.html" class="">Dashboard</a>
@@ -30,17 +30,19 @@
       </nav>
       <div class="divider"></div>
       <section class="page-title">
-        <h2>Услуги и цены</h2>
-        <p>
-          Изменения отсюда используются публичным прайс-листом и калькулятором.
-        </p>
+        <h2>Услуги, разделы и цены</h2>
+        <p>Здесь можно добавлять услуги, менять название, раздел, цену, порядок отображения и активность. Изменения сразу используются на сайте, в калькуляторе, заявках и записи врача.</p>
       </section>
+      <div class="create-service">
+        <input id="newCategory" placeholder="Новый или существующий раздел" />
+        <input id="newName" placeholder="Название услуги" />
+        <input id="newPrice" type="number" min="0" placeholder="Цена, ₽" value="0" />
+        <input id="newOrder" type="number" min="0" placeholder="Порядок" value="0" />
+        <label><input id="newActive" type="checkbox" checked /> Активна</label>
+        <button id="addServiceBtn" class="save-btn" type="button">Добавить услугу</button>
+      </div>
       <div class="toolbar">
-        <input id="search" placeholder="🔍 Поиск услуги" /><select
-          id="category"
-        >
-          <option value="">Все категории</option>
-        </select>
+        <input id="search" placeholder="🔍 Поиск услуги или раздела" /><select id="category"><option value="">Все разделы</option></select>
       </div>
       <section id="services" class="services"></section>
     </div>

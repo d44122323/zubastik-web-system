@@ -114,6 +114,7 @@ document.getElementById("form").addEventListener("submit", async (e) => {
   const body = {
     patient_id: Number(patientEl.value),
     service: selected.map((x) => x.dataset.name).join(", "),
+    service_ids: selected.map((x) => Number(x.value)),
     date: dateEl.value,
     time: timeEl.value,
     comment: document.getElementById("comment").value.trim(),

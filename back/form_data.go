@@ -5,6 +5,7 @@ type FormData struct {
 	Phone           string
 	Comment         string
 	Services        string
+	ServiceIDs      []int
 	Price           int
 	Source          string
 	DoctorID        int

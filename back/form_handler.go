@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"net/http"
 	"strconv"
+	"strings"
 	"time"
 )
 
@@ -47,11 +48,27 @@ func FormHandler(cfg Config) http.HandlerFunc {
 				return
 			}
 		}
+		if rawIDs := r.FormValue("service_ids"); rawIDs != "" {
+			for _, raw := range strings.Split(rawIDs, ",") {
+				if id, err := strconv.Atoi(strings.TrimSpace(raw)); err == nil && id > 0 {
+					data.ServiceIDs = append(data.ServiceIDs, id)
+				}
+			}
+		}
+		if len(data.ServiceIDs) > 0 {
+			services, price, err := ResolveServices(data.ServiceIDs)
+			if err != nil {
+				http.Error(w, err.Error(), http.StatusBadRequest)
+				return
+			}
+			data.Services = services
+			data.Price = price
+		}
 		if data.Source == "" {
 			data.Source = "Главная"
 		}
 		price := r.FormValue("price")
-		if price != "" {
+		if price != "" && len(data.ServiceIDs) == 0 {
 			fmt.Sscanf(price, "%d", &data.Price)
 		}
 		if err := ValidateForm(data); err != nil {
