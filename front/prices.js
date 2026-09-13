@@ -1,5 +1,45 @@
 (() => {
- const sidebar=document.getElementById("priceSidebar"), list=document.getElementById("priceList");
- const esc=v=>String(v??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
- async function load(){try{const r=await fetch("/api/services");if(!r.ok)throw 0;const data=(await r.json()).filter(x=>x.isActive);const groups=[];data.forEach(x=>{let g=groups.find(v=>v.name===x.category);if(!g){g={name:x.category,items:[]};groups.push(g)}g.items.push(x)});sidebar.innerHTML=groups.map((g,i)=>`<a href="#price-${i}">${esc(g.name)}</a>`).join("");list.innerHTML=groups.map((g,i)=>`<section class="price-card" id="price-${i}"><h2 class="card-title">${esc(g.name)}</h2><div class="table-head"><span>Услуга</span><span>Стоимость</span></div>${g.items.map(x=>`<div class="table-row"><span>${esc(x.name)}</span><span class="price"><img alt="" src="img/moneyc.png" /> ${x.price===0?"Бесплатно":"от "+Number(x.price).toLocaleString("ru-RU")+" ₽"}</span></div>`).join("")}</section>`).join("")||'<div class="message">Активных услуг пока нет.</div>';}catch(e){list.innerHTML='<div class="message">Не удалось загрузить прайс.</div>';}} load();
+  const sidebar = document.getElementById("priceSidebar"),
+    list = document.getElementById("priceList");
+  const esc = (v) =>
+    String(v ?? "").replace(
+      /[&<>"']/g,
+      (m) =>
+        ({
+          "&": "&amp;",
+          "<": "&lt;",
+          ">": "&gt;",
+          '"': "&quot;",
+          "'": "&#039;",
+        })[m],
+    );
+  async function load() {
+    try {
+      const r = await fetch("/api/services");
+      if (!r.ok) throw 0;
+      const data = (await r.json()).filter((x) => x.isActive);
+      const groups = [];
+      data.forEach((x) => {
+        let g = groups.find((v) => v.name === x.category);
+        if (!g) {
+          g = { name: x.category, items: [] };
+          groups.push(g);
+        }
+        g.items.push(x);
+      });
+      sidebar.innerHTML = groups
+        .map((g, i) => `<a href="#price-${i}">${esc(g.name)}</a>`)
+        .join("");
+      list.innerHTML =
+        groups
+          .map(
+            (g, i) =>
+              `<section class="price-card" id="price-${i}"><h2 class="card-title">${esc(g.name)}</h2><div class="table-head"><span>Услуга</span><span>Стоимость</span></div>${g.items.map((x) => `<div class="table-row"><span>${esc(x.name)}</span><span class="price"><img alt="" src="img/moneyc.png" /> ${x.price === 0 ? "Бесплатно" : "от " + Number(x.price).toLocaleString("ru-RU") + " ₽"}</span></div>`).join("")}</section>`,
+          )
+          .join("") || '<div class="message">Активных услуг пока нет.</div>';
+    } catch (e) {
+      list.innerHTML = '<div class="message">Не удалось загрузить прайс.</div>';
+    }
+  }
+  load();
 })();

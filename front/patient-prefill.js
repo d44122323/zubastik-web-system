@@ -21,7 +21,6 @@
       if (email && patient.email) email.value = patient.email;
     });
   } catch (error) {
-
     console.debug("Patient prefill skipped:", error);
   }
 })();

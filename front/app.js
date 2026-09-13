@@ -190,9 +190,12 @@ async function loadServicesFromServer() {
       services[service.category].push(service);
     });
     prices = {};
-    serviceRecords.forEach((service) => { prices[service.name] = Number(service.price) || 0; });
+    serviceRecords.forEach((service) => {
+      prices[service.name] = Number(service.price) || 0;
+    });
     renderCalculatorCategories();
-    if (selectedCategory && services[selectedCategory]) createServices(selectedCategory);
+    if (selectedCategory && services[selectedCategory])
+      createServices(selectedCategory);
   } catch (error) {
     console.warn("Не удалось загрузить услуги", error);
   }
@@ -228,10 +231,14 @@ function addServiceButton(service) {
   button.addEventListener("click", () => {
     button.classList.toggle("active");
     if (button.classList.contains("active")) {
-      if (!selectedServices.includes(service.name)) selectedServices.push(service.name);
-      if (!selectedServiceIds.includes(service.id)) selectedServiceIds.push(service.id);
+      if (!selectedServices.includes(service.name))
+        selectedServices.push(service.name);
+      if (!selectedServiceIds.includes(service.id))
+        selectedServiceIds.push(service.id);
     } else {
-      selectedServices = selectedServices.filter((item) => item !== service.name);
+      selectedServices = selectedServices.filter(
+        (item) => item !== service.name,
+      );
       selectedServiceIds = selectedServiceIds.filter((id) => id !== service.id);
     }
   });
@@ -398,8 +405,10 @@ editBtn.addEventListener("click", () => {
 });
 consultationBtn.addEventListener("click", () => {
   sendCalculatorEvent("request");
-  document.getElementById("calculatorServices").value = selectedServices.join(" • ");
-  document.getElementById("calculatorServiceIds").value = selectedServiceIds.join(",");
+  document.getElementById("calculatorServices").value =
+    selectedServices.join(" • ");
+  document.getElementById("calculatorServiceIds").value =
+    selectedServiceIds.join(",");
   document.getElementById("calculatorPrice").value = totalCost;
   currentStep = 5;
   stepFour.style.display = "none";
